@@ -15,15 +15,39 @@ mkdocs serve        # 打开 http://127.0.0.1:8000
 mkdocs build --strict
 ```
 
+## 每周入库（每周一发布后运行一次）
+
+每期简报经 Rey 周日核验、周一发布后，用一键助手把通过的 `.md` 入库：
+
+```bash
+python scripts/ingest_briefing.py <通过的稿件.md> --date YYYY-MM-DD
+```
+
+- `--date` 缺省时会从文件名或稿件标题自动推断，一般可省略。
+- 助手会自动：`git pull` → 复制到 `docs/briefings/<年>/<日期>.md` → 更新首页
+  "最新一期" 与索引 → `commit "briefing: <日期>"` → `push` 到 `main`。
+- **幂等**：索引由 `docs/briefings/` 内容重新生成，重复运行同一日期不会重复；无变更时跳过提交。
+- 仓库保持**私有**、不改动 `ENABLE_PAGES`（只入库，不触发 Pages）。
+
+先验证不推送：
+
+```bash
+python scripts/ingest_briefing.py <稿件.md> --dry-run   # 只预览，不写文件
+python scripts/ingest_briefing.py <稿件.md> --no-push   # 本地提交但不推送
+```
+
+> 前置：运行的机器需已 `git clone` 本仓库，且具备 owner（liyf1640）推送权限。
+
 ## 目录结构
 
 ```
 docs/
-  index.md                     首页（最新一期 + 索引）
+  index.md                     首页（最新一期 + 索引，AUTO 区块由脚本生成）
   briefings/2026/2026-08-01.md 周报第 1 期
   notes/                       主题笔记（预留）
   decisions/                   决策记录（预留）
   glossary.md                  术语表
+scripts/ingest_briefing.py     每周入库助手
 .github/workflows/deploy.yml   构建 + Pages 部署（可一键切换）
 mkdocs.yml                     站点配置
 ```
