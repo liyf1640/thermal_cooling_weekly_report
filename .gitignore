@@ -1,0 +1,8 @@
+# MkDocs 构建输出
+site/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/

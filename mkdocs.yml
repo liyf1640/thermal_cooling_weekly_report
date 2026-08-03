@@ -1,0 +1,59 @@
+site_name: 散热方案周报 · Web 知识库
+site_description: 数据中心 / 电子散热 — 每周简报知识库
+site_author: Thermal Cooling Weekly
+# Phase-1（私有）阶段留空即可；转公开并启用 Pages 时取消下一行注释：
+# site_url: https://liyf1640.github.io/thermal_cooling_weekly_report/
+
+theme:
+  name: material
+  language: zh
+  palette:
+    # 亮色模式
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/weather-sunny
+        name: 切换到暗色模式
+    # 暗色模式
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/weather-night
+        name: 切换到亮色模式
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - navigation.top
+    - navigation.sections
+    - navigation.indexes
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+    - toc.follow
+
+plugins:
+  - search:
+      # CJK 友好分词：按空白/零宽空格/常见中文标点切分
+      separator: '[\s​\-，。！？；：、（）《》【】]+'
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - tables
+  - toc:
+      permalink: true
+  - pymdownx.highlight
+  - pymdownx.superfences
+
+nav:
+  - 首页: index.md
+  - 周报:
+      - 2026:
+          - 第 1 期 · 2026-08-01: briefings/2026/2026-08-01.md
+  - 笔记: notes/index.md
+  - 决策记录: decisions/index.md
+  - 术语表: glossary.md

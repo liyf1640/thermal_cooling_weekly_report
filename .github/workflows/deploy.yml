@@ -1,0 +1,53 @@
+name: Deploy MkDocs site
+
+# 一键切换发布：
+#   Phase-1（私有）阶段 build 会正常运行以验证站点可构建；deploy 被跳过，无副作用。
+#   Phase-2 需要发布时（yangfan 决策）：
+#     1) 仓库 Settings → Pages → Source 选 "GitHub Actions"
+#     2) 新增仓库变量 Settings → Variables → Actions → ENABLE_PAGES = true
+#   之后 deploy 自动生效，无需改动本文件。
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+      - name: Install dependencies
+        run: pip install mkdocs-material
+      - name: Build site
+        run: mkdocs build --strict
+      - name: Upload Pages artifact
+        if: vars.ENABLE_PAGES == 'true'
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+
+  deploy:
+    # 一键开关：仓库变量 ENABLE_PAGES=true 时才发布（配合启用 Pages）。
+    if: vars.ENABLE_PAGES == 'true'
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
