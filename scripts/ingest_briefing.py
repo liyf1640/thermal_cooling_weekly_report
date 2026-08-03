@@ -202,8 +202,8 @@ def main():
     # 3) 重新生成首页索引
     INDEX.write_text(build_index(collect_briefings()), encoding="utf-8")
 
-    # 4) 提交
-    git("add", "-A")
+    # 4) 提交（只暂存本次已知的两个路径，避免把工作区游离文件裹入 briefing 提交）
+    git("add", "--", str(dest.relative_to(REPO)), str(INDEX.relative_to(REPO)))
     staged = git("diff", "--cached", "--name-only", capture=True)
     if not staged:
         print("无变更（该期内容与仓库一致），跳过提交。")
