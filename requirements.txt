@@ -1,1 +1,2 @@
 mkdocs-material>=9.5
+jieba>=0.42   # 中文分词：Material 检测到后自动对 CJK 内容分词，提升搜索质量
