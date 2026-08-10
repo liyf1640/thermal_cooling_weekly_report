@@ -25,9 +25,9 @@ python scripts/ingest_briefing.py <通过的稿件.md> --date YYYY-MM-DD
 
 - `--date` 缺省时会从文件名或稿件标题自动推断，一般可省略。
 - 助手会自动：`git pull` → 复制到 `docs/briefings/<年>/<日期>.md` → 更新首页
-  "最新一期" 与索引 → `commit "briefing: <日期>"` → `push` 到 `main`。
-- **幂等**：索引由 `docs/briefings/` 内容重新生成，重复运行同一日期不会重复；无变更时跳过提交。
-- 仓库保持**私有**、不改动 `ENABLE_PAGES`（只入库，不触发 Pages）。
+  "最新一期"/索引 + `mkdocs.yml` 侧栏 nav 的"周报"子树 → `commit "briefing: <日期>"` → `push` 到 `main`。
+- **幂等**：索引与 nav 均由 `docs/briefings/` 内容重新生成（`AUTO` 标记区块），重复运行同一日期不会重复；无变更时跳过提交。
+- 仓库已公开，`push` 到 `main` 会触发 Actions 自动构建并部署 Pages。
 
 先验证不推送：
 

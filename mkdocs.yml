@@ -52,8 +52,11 @@ markdown_extensions:
 nav:
   - 首页: index.md
   - 周报:
+      # 下列"周报"子树由 scripts/ingest_briefing.py 自动生成，请勿手改
+      # AUTO:NAV:START
       - 2026:
           - 第 1 期 · 2026-08-01: briefings/2026/2026-08-01.md
+      # AUTO:NAV:END
   - 笔记: notes/index.md
   - 决策记录: decisions/index.md
   - 术语表: glossary.md

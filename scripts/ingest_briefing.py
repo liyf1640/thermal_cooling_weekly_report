@@ -14,11 +14,12 @@
     --no-push           完成放置/索引/提交，但不 push（本地验证用）
 
 动作顺序：git pull --ff-only → 复制到 docs/briefings/<YEAR>/<DATE>.md →
-重新生成 docs/index.md 的"最新一期"与"全部周报"区块 → git add -A →
-git commit -m "briefing: <DATE>" → git push origin main。
+重新生成 docs/index.md 的"最新一期"/"全部周报"区块 + mkdocs.yml 侧栏 nav 的
+"周报"子树 → 仅暂存这三个已知路径 → git commit -m "briefing: <DATE>" →
+git push origin main（仓库已公开，push 会触发 Actions 自动部署 Pages）。
 
-幂等：索引由 briefings 目录内容重新生成，重复运行同一日期不会产生重复行；
-若无实际变更则跳过提交，不会空提交。
+幂等：索引与 nav 均由 briefings 目录内容重新生成（AUTO 标记区块），重复运行
+同一日期不会产生重复条目；若无实际变更则跳过提交，不会空提交。
 """
 import argparse
 import re
@@ -31,11 +32,15 @@ REPO = Path(__file__).resolve().parent.parent
 DOCS = REPO / "docs"
 BRIEFINGS = DOCS / "briefings"
 INDEX = DOCS / "index.md"
+MKDOCS = REPO / "mkdocs.yml"
 
 LATEST_START = "<!-- AUTO:LATEST:START -->"
 LATEST_END = "<!-- AUTO:LATEST:END -->"
 INDEX_START = "<!-- AUTO:INDEX:START -->"
 INDEX_END = "<!-- AUTO:INDEX:END -->"
+# mkdocs.yml nav 中"周报"子树的自动区块（YAML 注释作标记）
+NAV_START = "# AUTO:NAV:START"
+NAV_END = "# AUTO:NAV:END"
 
 DATE_RE = re.compile(r"(\d{4})-(\d{2})-(\d{2})")
 ISSUE_RE = re.compile(r"第\s*(\d+)\s*期")
@@ -137,11 +142,26 @@ def render_index(items):
     return "\n\n".join(blocks)
 
 
-def replace_region(text, start, end, body):
+def render_nav(items):
+    """生成 mkdocs.yml nav 中"周报"子树的 YAML（按年分组，缩进对齐既有格式）。"""
+    by_year = {}
+    for it in items:
+        by_year.setdefault(it["date"][:4], []).append(it)
+    lines = []
+    for year in sorted(by_year, reverse=True):
+        lines.append(f"      - {year}:")
+        for it in by_year[year]:
+            link = f"briefings/{year}/{it['date']}.md"
+            lines.append(f"          - {label(it['issue'], it['date'])}: {link}")
+    return "\n".join(lines)
+
+
+def replace_region(text, start, end, body, indent=""):
+    """替换 start/end 标记之间的内容；标记本身保留，indent 为结束标记的缩进。"""
     pattern = re.compile(re.escape(start) + r".*?" + re.escape(end), re.S)
     if not pattern.search(text):
-        die(f"index.md 缺少标记 {start} ... {end}，无法更新")
-    return pattern.sub(lambda _: f"{start}\n{body}\n{end}", text, count=1)
+        die(f"缺少标记 {start} ... {end}，无法更新")
+    return pattern.sub(lambda _: f"{start}\n{body}\n{indent}{end}", text, count=1)
 
 
 def build_index(items):
@@ -149,6 +169,13 @@ def build_index(items):
     text = replace_region(text, LATEST_START, LATEST_END, render_latest(items))
     text = replace_region(text, INDEX_START, INDEX_END, render_index(items))
     return text
+
+
+def build_nav(items):
+    """重建 mkdocs.yml nav 的"周报"子树；标记为 YAML 注释，缩进 6 空格。"""
+    text = MKDOCS.read_text(encoding="utf-8")
+    body = render_nav(items)
+    return replace_region(text, NAV_START, NAV_END, body, indent="      ")
 
 
 def main():
@@ -186,6 +213,8 @@ def main():
         print("\n--- [dry-run] 首页索引预览 ---")
         print("最新一期：", render_latest(preview))
         print(render_index(preview))
+        print("\n--- [dry-run] 侧栏 nav「周报」子树预览 ---")
+        print(render_nav(preview))
         print("\n[dry-run] 未写入任何文件，未做 git 操作。")
         return
 
@@ -199,11 +228,14 @@ def main():
     if dest.resolve() != source:
         shutil.copyfile(source, dest)
 
-    # 3) 重新生成首页索引
-    INDEX.write_text(build_index(collect_briefings()), encoding="utf-8")
+    # 3) 重新生成首页索引 + 侧栏 nav
+    items = collect_briefings()
+    INDEX.write_text(build_index(items), encoding="utf-8")
+    MKDOCS.write_text(build_nav(items), encoding="utf-8")
 
-    # 4) 提交（只暂存本次已知的两个路径，避免把工作区游离文件裹入 briefing 提交）
-    git("add", "--", str(dest.relative_to(REPO)), str(INDEX.relative_to(REPO)))
+    # 4) 提交（只暂存本次已知的三个路径，避免把工作区游离文件裹入 briefing 提交）
+    git("add", "--", str(dest.relative_to(REPO)),
+        str(INDEX.relative_to(REPO)), str(MKDOCS.relative_to(REPO)))
     staged = git("diff", "--cached", "--name-only", capture=True)
     if not staged:
         print("无变更（该期内容与仓库一致），跳过提交。")
@@ -216,7 +248,7 @@ def main():
         print("已提交（--no-push，未推送）。确认无误后运行： git push origin main")
         return
     git("push", "origin", "main")
-    print(f"完成：{label(issue, date)} 已入库并推送到 main。仓库保持私有，未触发 Pages。")
+    print(f"完成：{label(issue, date)} 已入库并推送到 main（将触发 Actions 自动部署 Pages）。")
 
 
 if __name__ == "__main__":
