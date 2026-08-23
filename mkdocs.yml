@@ -60,6 +60,10 @@ nav:
           - 第 2 期 · 2026-08-10: briefings/2026/2026-08-10.md
           - 第 1 期 · 2026-08-01: briefings/2026/2026-08-01.md
       # AUTO:NAV:END
-  - 笔记: notes/index.md
+  - 笔记:
+      - 总览: notes/index.md
+      - 学者名单: notes/sg-scholars.md
+      - 公司 / 企业清单: notes/companies.md
+      - 制造工艺清单: notes/manufacturing-methods.md
   - 决策记录: decisions/index.md
   - 术语表: glossary.md
