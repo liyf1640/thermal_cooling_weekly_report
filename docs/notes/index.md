@@ -1,7 +1,6 @@
 # 笔记 · 跨期专题清单
 
-跨期沉淀的纵向追踪清单，随周报持续更新：
+跨期沉淀的纵向追踪清单（**仅散热 / 冷板相关**），随周报持续更新：
 
-- **[学者名单](sg-scholars.md)** — 新加坡本地及相关学者（散热/玻璃/自愈三线），含单位·研究方向·已收录论文。
-- **[公司 / 企业清单](companies.md)** — 各公司特长工艺·技术（Fabric8Labs/CoolIT/Vertiv/ACT/NVIDIA 等）+ 并购动态。
-- **[制造工艺清单](manufacturing-methods.md)** — 冷板制造工艺覆盖情况 + 缺口跟踪（钎焊/skived/FSW）。
+- **[学者名单](sg-scholars.md)** — 散热/冷板仿真相关学者，含单位·研究方向·已收录论文。
+- **[公司 / 企业清单](companies.md)** — 各公司特长工艺·技术（Fabric8Labs/CoolIT/Vertiv/ACT/NVIDIA 等）+ 并购动态；含**制造工艺覆盖 / 缺口**（钎焊/skived/FSW 待找到擅长企业）。
