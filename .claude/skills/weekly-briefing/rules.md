@@ -5,8 +5,9 @@
 ## 一、来源与核验
 
 1. **不信检索索引**。Google/Bing/arXiv 检索页的摘要、作者、单位一律不作数。每条进正文的论文必须
-   `curl` 原文核：arXiv → `https://arxiv.org/abs/<id>`；期刊 → Crossref `https://api.crossref.org/works/<doi>`；
-   必要时读 PDF 致谢/脚注确认机构。
+   取原文核：`python scripts/fetch_source.py <arXiv id | DOI | URL>`（arXiv Atom API / Crossref /
+   页面转纯文本）；必要时读 PDF 致谢/脚注确认机构。**不要直接 curl arXiv abs 整页**——
+   43k 字符 vs 2k，纯烧 token。
 2. **作者与单位逐位核**。核不到单位写「待确认」。**绝不以人名、口音、合作网络猜单位或国别。**
 3. **每个数字必须能追到一个 URL**。追不到的数字不写。
 4. **一手优先**。论文 > 官方新闻稿 > 行业媒体转载。营销落地页、专利、供应商目录**不作为论文来源**。

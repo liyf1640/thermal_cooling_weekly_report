@@ -17,9 +17,18 @@ model: sonnet
    例：`liquid cold plate topology optimization 2026`、`manifold microchannel heat sink experimental`、
    `brazed cold plate fin bonding peer-reviewed`、`neural operator conjugate heat transfer surrogate`、
    `data center liquid cooling CDU launch September 2026`。
-2. **再 curl 原文核**：对每条有希望的命中，`curl -sL` 取 arXiv abs 页 / Crossref
-   `https://api.crossref.org/works/<doi>` / 新闻原文，**从原文**读出标题、作者、单位、日期、关键数字。
+2. **再取原文核**：对每条有希望的命中，用 `python scripts/fetch_source.py <arXiv id | DOI | URL>`
+   取紧凑元数据（标题/作者/单位/日期/摘要），**从原文**读出关键数字。
    **检索结果页的摘要一律不作数。**
+
+   ```bash
+   python scripts/fetch_source.py 2608.22787                    # arXiv
+   python scripts/fetch_source.py 10.1016/j.ijheatmasstransfer.2026.127890   # DOI
+   python scripts/fetch_source.py https://example.com/press-release          # 新闻，正文转纯文本
+   ```
+
+   **不要直接 `curl` arXiv abs 页**——整页 HTML 约 43k 字符、是本脚本输出的 21 倍，
+   会把上下文（和成本）撑爆。只有本脚本取不到你要的字段时，才退回 curl 单页。
 3. **对去重清单查重**：命中已报标题 / arXiv id / DOI / URL 的直接丢弃，除非有**实质进展**
    （同行评审接收、硬件实测、规格揭晓），那就标 `PROGRESS` 并注明原报期数。
 4. **判相关性**：必须与**冷板 / 电子散热 / 数据中心液冷**沾边，或对其建模有直接方法学价值。

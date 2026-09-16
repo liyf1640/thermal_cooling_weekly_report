@@ -52,7 +52,9 @@ python scripts/reported_index.py          # 生成 drafts/reported-index.md
 ## 第 2 步 · 逐位核验
 
 把 scout 回传的候选（去掉命中 reported-index 的）交给 `thermal-verifier` 子代理核。
-**不信检索索引摘要**：一律 `curl` arXiv abs 页 / Crossref API / 新闻原文逐位核作者、单位、数字、日期。
+**不信检索索引摘要**：一律用 `python scripts/fetch_source.py <arXiv id | DOI | URL>`
+取原文紧凑元数据，逐位核作者、单位、数字、日期。该脚本把 arXiv abs 页从 ~43k 字符压到 ~2k，
+是本流程最大的省 token 杠杆——**不要直接 curl 整页**。
 
 - 核得实：进正文
 - 核不到单位/职称：写「待确认」，**不臆测、不以人名猜单位**

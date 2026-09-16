@@ -23,12 +23,16 @@ tools: WebFetch, Bash, Read, Grep
 ## 怎么核
 
 ```bash
-curl -sL "https://arxiv.org/abs/<id>"
-curl -sL "https://api.crossref.org/works/<doi>"
-curl -sL "<新闻原文 URL>"
+python scripts/fetch_source.py <arXiv id>     # 标题/作者/单位/日期/DOI/journal-ref/摘要
+python scripts/fetch_source.py <DOI>          # Crossref，含 affiliation（若期刊提供）
+python scripts/fetch_source.py <新闻 URL>      # 正文转纯文本（--limit 调长度）
 ```
 
-**一律以 curl 到的原文为准**，不接受检索页摘要、二手转载、AI 摘要作为证据。
+**不要直接 `curl` arXiv abs 页**——整页 HTML 是本脚本输出的 ~21 倍。
+只在两种情况下退回 `curl -sL`：脚本取不到你要的字段，或需要读 PDF 核机构
+（`curl -sL https://arxiv.org/pdf/<id> -o /tmp/p.pdf` 后再抽文本）。
+
+**一律以取到的原文为准**，不接受检索页摘要、二手转载、AI 摘要作为证据。
 新闻类要追到**一手源**（公司新闻稿 / 官方页），媒体转载只能作为补充。
 
 ## 判定
