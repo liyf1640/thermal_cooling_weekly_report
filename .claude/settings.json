@@ -1,0 +1,22 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(curl -sL:*)",
+      "Bash(git status:*)",
+      "Bash(git diff:*)",
+      "Bash(git log:*)",
+      "Bash(git pull --ff-only origin main)",
+      "Bash(git checkout -b briefing/*)",
+      "Bash(git add:*)",
+      "Bash(python scripts/reported_index.py:*)",
+      "Bash(python scripts/ingest_briefing.py:* --no-push)",
+      "Bash(mkdocs build --strict)",
+      "WebSearch",
+      "WebFetch"
+    ],
+    "deny": [
+      "Bash(git push origin main:*)",
+      "Bash(git push --force:*)"
+    ]
+  }
+}

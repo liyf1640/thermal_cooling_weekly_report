@@ -38,6 +38,40 @@ python scripts/ingest_briefing.py <稿件.md> --no-push   # 本地提交但不�
 
 > 前置：运行的机器需已 `git clone` 本仓库，且具备 owner（liyf1640）推送权限。
 
+## 每周自动出稿（Agent）
+
+每期周报由 `.claude/` 下的 agent 自动产出草稿并开 PR，人工核验后合并发布。
+
+手动触发（在本仓库根目录）：
+
+```bash
+claude            # 进入会话后
+/weekly-briefing  # 出下一期草稿并开 PR
+```
+
+云端每周定时由 Claude Code scheduled routine 触发同一技能，无需本机开机。
+
+流程：
+
+1. `scripts/reported_index.py` 生成 `drafts/reported-index.md` 跨期去重索引（已报标题 / arXiv id / DOI / URL / 公司 / 学者）
+2. 并发 5 个 `thermal-scout` 子代理检索：冷板仿真与设计 · 制造工艺 · 仿真方法 · 中文学术 · 产业动态
+3. `thermal-verifier` 子代理逐条 `curl` 原文核作者 / 单位 / 数字 / 日期，判「通过 / 待确认 / 否决」
+4. 按 `TEMPLATE.md` 成稿到 `drafts/<日期>.md`，同步更新 `notes/companies.md`、`notes/sg-scholars.md`、`glossary.md`
+5. `ingest_briefing.py --no-push` 入库 → `mkdocs build --strict` 验证 → 推 `briefing/<日期>` 分支 → `gh pr create`
+
+相关文件：
+
+```
+.claude/skills/weekly-briefing/SKILL.md      每周出稿运行手册（6 步）
+.claude/skills/weekly-briefing/rules.md      核验与写作铁律（23 条，每次必读）
+.claude/skills/weekly-briefing/TEMPLATE.md   成稿骨架 + 自检清单
+.claude/agents/thermal-scout.md              单角度检索侦察兵（并发 5 个）
+.claude/agents/thermal-verifier.md           对抗式核验员（curl 原文逐位核）
+scripts/reported_index.py                    跨期去重索引生成器
+```
+
+> agent **绝不直接推 `main`**：一律走 `briefing/<日期>` 分支 + PR，合并后 Actions 自动部署 Pages。
+
 ## 目录结构
 
 ```
