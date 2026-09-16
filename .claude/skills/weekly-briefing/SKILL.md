@@ -18,6 +18,49 @@ description: 出「散热方案周报」下一期——五路定向检索 → �
 
 ---
 
+## 开工第一件事 · 断点续跑检查
+
+云端会话可能**中途撞用量上限被掐断**，新会话不会继承上下文。所以每一步完成后都把产出存档到
+远端 `wip/briefing-<日期>` 分支，开工时先查有没有要续的。
+
+```bash
+git fetch origin --prune
+python scripts/reported_index.py --stdout | head -5      # 上期日期 LAST
+git ls-remote --heads origin 'wip/briefing-*'             # 在途存档
+gh pr list --state all --search "head:briefing/" --json headRefName,url,state
+```
+
+按顺序判断，**命中即停止往下判断**：
+
+1. **期号日期已由调用方指定**（prompt 里写明日期）→ 用它作 `<DATE>`；否则若存在日期晚于 LAST 的
+   `wip/briefing-<D>` 分支 → `<DATE>=<D>`（续跑）；否则 `<DATE>` = 今天。
+2. **`briefing/<DATE>` 的 PR 已存在**（任何状态）→ 本期已交付。输出该 PR 链接，**立即结束，不做任何事**。
+3. **`wip/briefing-<DATE>` 最近一次提交距今 < 45 分钟** → 另一会话大概率还在跑。输出说明，**立即结束**。
+4. **`wip/briefing-<DATE>` 存在** → 续跑：
+   ```bash
+   git checkout -B wip/briefing-<DATE> origin/wip/briefing-<DATE>
+   cat checkpoint/<DATE>/STATE.md
+   ```
+   读 `STATE.md` 的 `completed` 列表，**跳过已完成的步骤**，把已有存档（`scout-*.md` / `verified.md` /
+   `draft.md`）读回来当作那些步骤的产出，从第一个未完成步骤接着做。
+5. 以上都不是 → 全新开跑：`git checkout -B wip/briefing-<DATE> origin/main`，建 `checkpoint/<DATE>/`。
+
+### 存档规矩（每步末尾必做）
+
+```bash
+# 更新 checkpoint/<DATE>/STATE.md：
+#   date: <DATE>
+#   issue: <N>
+#   window: <上期日期次日> ~ <DATE>
+#   completed: [0, 1, 2]        # 追加刚完成的步骤号
+#   updated: <date -u +%FT%TZ>
+git add -f checkpoint/<DATE> docs/notes docs/glossary.md
+git commit -m "wip(<DATE>): step <k> done"
+git push -u origin wip/briefing-<DATE>
+```
+
+**存档推送失败要重试，不要跳过**——没推上去等于没存。
+
 ## 第 0 步 · 定位与定期号
 
 ```bash
@@ -30,9 +73,11 @@ python scripts/reported_index.py          # 生成 drafts/reported-index.md
 
 - **本期期号** = 上期 + 1
 - **时间窗** = 上期日期之后至今天（若距上期超过 2 周，时间窗照实写覆盖区间，不假装是一周）
-- **期号日期** = 今天（`date +%F`）；用户显式指定日期时以用户为准
+- **期号日期** = 上面断点检查确定的 `<DATE>`（续跑时沿用存档里的日期，**不要改成今天**）
 
 把 reported-index 的「已报论文卡 / arXiv id / DOI / URL / 公司 / 学者」整份读进来——**后面每一条候选都要对它查重**。
+
+**存档**：写 `STATE.md`（completed: [0]），推 wip 分支。
 
 ## 第 1 步 · 五路并行检索
 
@@ -49,6 +94,9 @@ python scripts/reported_index.py          # 生成 drafts/reported-index.md
 
 每个 scout 回传**候选清单**，不回传成稿；每条候选必须带原始 URL。
 
+**存档**：5 份回传原样写入 `checkpoint/<DATE>/scout-A.md` … `scout-E.md`，STATE 加 1，推 wip 分支。
+这一步最贵，存档后被掐断也不用重搜。
+
 ## 第 2 步 · 逐位核验
 
 把 scout 回传的候选（去掉命中 reported-index 的）交给 `thermal-verifier` 子代理核。
@@ -61,6 +109,8 @@ python scripts/reported_index.py          # 生成 drafts/reported-index.md
 - 核不实：丢弃；若此前期次报过错，在「方法与局限」里更正
 - 厂商/分析师口径：标注来源口径，且**只能进第五节「前瞻 / 分析师数字」**
 
+**存档**：verifier 回传原样写入 `checkpoint/<DATE>/verified.md`，STATE 加 2，推 wip 分支。
+
 ## 第 3 步 · 成稿
 
 照 `TEMPLATE.md` 填 `drafts/<YYYY-MM-DD>.md`。要点：
@@ -71,27 +121,42 @@ python scripts/reported_index.py          # 生成 drafts/reported-index.md
 - 正文中文，专业术语保留英文原文 + 中文
 - 末尾署名：`*—— Sage · 散热方案周报第 N 期（待核验稿）*`
 
+**存档**：成稿同时写入 `checkpoint/<DATE>/draft.md`，STATE 加 3，推 wip 分支。
+
 ## 第 4 步 · 更新跨期清单
 
 本期出现的新公司 / 并购 / 产品 → `docs/notes/companies.md`（含「制造工艺覆盖 / 缺口」表）；
 新学者 → `docs/notes/sg-scholars.md`；新缩写 → `docs/glossary.md`。
 每行都要标「已覆盖期 + 出处」。缺口三项（钎焊 / skived / FSW）一旦检出擅长企业或新文，填进「擅长企业」列。
 
+**存档**：清单改动随 wip 分支提交，STATE 加 4，推 wip 分支。
+
 ## 第 5 步 · 入库并开 PR
 
+PR 分支**从干净的 `main` 起**，只从 wip 分支摘取正式文件——`checkpoint/` 存档不进 PR：
+
 ```bash
-git checkout -b briefing/<YYYY-MM-DD>
-python scripts/ingest_briefing.py drafts/<YYYY-MM-DD>.md --no-push
-git add docs/notes docs/glossary.md          # 清单改动（若有）
-git commit -m "notes: 第 N 期跨期清单更新" --allow-empty-message || true
-git push -u origin briefing/<YYYY-MM-DD>
-gh pr create --base main --title "briefing: 第 N 期 · <YYYY-MM-DD>" --body-file <PR 正文>
+git checkout -B briefing/<DATE> origin/main
+git checkout wip/briefing-<DATE> -- docs/notes docs/glossary.md     # 清单改动
+mkdir -p drafts && git show wip/briefing-<DATE>:checkpoint/<DATE>/draft.md > drafts/<DATE>.md
+python scripts/ingest_briefing.py drafts/<DATE>.md --no-push       # 提交 briefing: <DATE>
+git add docs/notes docs/glossary.md
+git diff --cached --quiet || git commit -m "notes: 第 N 期跨期清单更新"
+mkdocs build --strict
+git push -u origin briefing/<DATE>
+gh pr create --base main --title "briefing: 第 N 期 · <DATE>" --body-file <PR 正文>
+```
+
+PR 开成功后清理存档分支（PR 已是新的交付物，续跑检查第 2 条会据此停止）：
+
+```bash
+git push origin --delete wip/briefing-<DATE>
 ```
 
 `ingest_briefing.py --no-push` 会复制稿件到 `docs/briefings/<年>/<日期>.md`、重建首页 AUTO 索引与
 `mkdocs.yml` 侧栏 nav，并本地提交 `briefing: <日期>`。**务必带 `--no-push`**——不带会直接推 `main`。
 
-推分支前本地验一次构建：`mkdocs build --strict`（失败就修到过）。
+`mkdocs build --strict` 失败就修到过再推。
 
 PR 正文写：本期期号/日期、TL;DR、**经核条目数与逐条来源**、**本期缺口与未核项**、需要人工重点复核的地方。
 

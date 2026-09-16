@@ -12,7 +12,17 @@
       "Bash(python scripts/ingest_briefing.py:* --no-push)",
       "Bash(mkdocs build --strict)",
       "WebSearch",
-      "WebFetch"
+      "WebFetch",
+      "Bash(git fetch origin --prune)",
+      "Bash(git ls-remote:*)",
+      "Bash(git checkout -B wip/briefing-*)",
+      "Bash(git checkout -B briefing/*)",
+      "Bash(git commit -m wip*)",
+      "Bash(git push -u origin wip/briefing-*)",
+      "Bash(git push -u origin briefing/*)",
+      "Bash(git push origin --delete wip/briefing-*)",
+      "Bash(gh pr list:*)",
+      "Bash(gh pr create:*)"
     ],
     "deny": [
       "Bash(git push origin main:*)",

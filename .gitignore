@@ -9,3 +9,6 @@ venv/
 
 # 周报草稿工作区（由 agent 生成，入库后以 docs/briefings/ 为准）
 drafts/
+
+# 断点续跑存档只活在 wip/briefing-* 分支上（git add -f），不进 main
+checkpoint/
