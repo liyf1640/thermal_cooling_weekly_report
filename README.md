@@ -71,6 +71,8 @@ scripts/reported_index.py                    跨期去重索引生成器
 scripts/fetch_source.py                      紧凑取源（arXiv/Crossref/URL），核验省 token 用
 ```
 
+> **跳期**：定时跑时若上期 PR 仍未合并，或距上期不足 5 天（例如补发期之后紧跟的那次定时），agent 直接结束不出稿。
+>
 > agent **绝不直接推 `main`**：一律走 `briefing/<日期>` 分支 + PR，合并后 Actions 自动部署 Pages。
 
 ## 目录结构
