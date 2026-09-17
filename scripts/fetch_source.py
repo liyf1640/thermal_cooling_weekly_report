@@ -17,6 +17,7 @@ import html
 import json
 import re
 import sys
+import time
 import urllib.error
 import urllib.request
 
@@ -29,10 +30,22 @@ ARXIV_RE = re.compile(r"^(?:arxiv:)?(\d{4}\.\d{4,5})(v\d+)?$", re.I)
 DOI_RE = re.compile(r"^(?:doi:|https?://(?:dx\.)?doi\.org/)?(10\.\d{4,9}/\S+)$", re.I)
 
 
-def get(url, timeout=30):
-    req = urllib.request.Request(url, headers=UA)
-    with urllib.request.urlopen(req, timeout=timeout) as r:
-        return r.read().decode(r.headers.get_content_charset() or "utf-8", "replace")
+RETRY_CODES = {406, 429, 500, 502, 503, 504}  # arXiv answers 406/503 when rate-limited
+
+
+def get(url, timeout=30, attempts=4):
+    """GET with backoff; arXiv asks for >=3 s between API calls."""
+    for i in range(attempts):
+        req = urllib.request.Request(url, headers=UA)
+        try:
+            with urllib.request.urlopen(req, timeout=timeout) as r:
+                return r.read().decode(r.headers.get_content_charset() or "utf-8", "replace")
+        except urllib.error.HTTPError as e:
+            if e.code not in RETRY_CODES or i == attempts - 1:
+                raise
+            wait = 3 * 2 ** i
+            print(f"(HTTP {e.code}, retrying in {wait}s)", file=sys.stderr)
+            time.sleep(wait)
 
 
 def show(label, value):
@@ -42,7 +55,7 @@ def show(label, value):
 
 def from_arxiv(arxiv_id):
     """arXiv Atom API -- compact XML, includes per-author affiliation when set."""
-    body = get(f"http://export.arxiv.org/api/query?id_list={arxiv_id}&max_results=1")
+    body = get(f"https://export.arxiv.org/api/query?id_list={arxiv_id}")
     entry = re.search(r"<entry>(.*?)</entry>", body, re.S)
     if not entry:
         sys.exit(f"arXiv: no entry for {arxiv_id}")
