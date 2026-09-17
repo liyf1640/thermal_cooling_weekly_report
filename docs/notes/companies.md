@@ -9,14 +9,16 @@
 | **Fabric8Labs** | **ECAM 电化学增材制造**（室温、微细纯铜冷板；体素 33⅓μm） | 第3期 | ITherm 冷板赛指定打印方；**被 TDK 收购**（至多 4 亿美元，第3期）；×Wiwynn 开发下一代 ECAM 冷板 |
 | **TDK** | 收购 Fabric8Labs 进入 ECAM 冷板 | 第3期 | Fabric8Labs 成其全资子公司 |
 | **Wiwynn** | 数据中心服务器/散热系统集成 | 第3期 | ×Fabric8Labs ECAM 合作 |
-| **CoolIT Systems** | 单相直触冷板（DLC，Split-Flow 微通道），15kW；新一代 CDU | 第2/5期 | **被 Ecolab 收购**（~$4.75B，第1期）；新一代 **1MW+ AI 机架 CDU** 预告（2026-08-19，完整揭晓 9-28，⚠️规格未证实） |
+| **CoolIT Systems** | 单相直触冷板（DLC，Split-Flow 微通道），15kW；新一代 CDU；外设全热捕获冷板回路 | 第2/5/6期 | **被 Ecolab 收购**（~$4.75B，第1期）；新一代 **1MW+ AI 机架 CDU** 预告（2026-08-19，完整揭晓 9-28，⚠️规格未证实）；「The Future is Fanless」主张 >250kW 机柜近 100% 液冷热捕获、称已历六代无风扇设计（2026-09-14 博客，厂商口径，第6期） |
 | **Ecolab** | 收购 CoolIT 进入液冷 | 第1期 | — |
-| **Vertiv** | 直触液冷 / 冷板 | 第2期 | 收购 Strategic Thermal Labs 补强 |
+| **Vertiv** | 直触液冷 / 冷板 | 第2/6期 | 收购 Strategic Thermal Labs 补强；约 $1.45B（+至多 $1.15B 对价）收购电力侧 UtilityInnovation Group（2026-09-02，待交割，第6期，与冷却相关性弱） |
 | **Strategic Thermal Labs** | 直触液冷 / 冷板 | 第2期 | 被 Vertiv 收购（2026-04） |
 | **ACT（Advanced Cooling Technologies）** | 单相 + 两相冷板量产 | 第2期 | 宾州 Lancaster 扩产（~50万片/年）；企业新闻稿口径 |
-| **NVIDIA** | AI 芯片（GB200/Rubin）驱动冷板需求；MLCP 路线 | 第2/3/4期 | Simon See 参与 NeuralFVM（第4期）；MLCP 预计 2027 量产（⚠️前瞻/未证实） |
+| **NVIDIA** | AI 芯片（GB200/Rubin）驱动冷板需求；MLCP 路线 | 第2/3/4/6期 | Simon See 参与 NeuralFVM（第4期）；MLCP 预计 2027 量产（⚠️前瞻/未证实）；联合澳洲 8 家伙伴至 2027 年至多 2GW DSX AI 工厂，CDC/AirTrunk/NEXTDC 原文提 D2C 液冷（2026-09-09，⚠️目标容量，第6期） |
 | **Trinovium（Trinity Biotech 子公司）** | direct-to-chip **冷却液/流体化学**（超高纯水基+缓蚀）+ 流体健康监测平台 | 第5期 | ×Echelon Data Centres 合作开发 AI 液冷（2026-08-17）；诊断公司跨界，冷却液作为独立竞争层 |
 | **Refroid Technologies（印度）** | 液冷 D2C / 浸没 / CDU / 混合负载 | 第5期 | ×Unisys 全球现场服务合作（2026-08-20，Unisys 提供部署/调试/验证/生命周期） |
+| **LITEON（光宝科技，2301.TW）** | 电源/电子制造，股权切入液冷 | 第6期 | 约 US$176M 战略投资 DCX、交割后持股约 25%（2026-09-03，待交割） |
+| **DCX Liquid Cooling Systems（DCX POLSKA，波兰华沙）** | D2C + 浸没液冷；企业级 CDU 600kW–2.6MW、facility CDU 至 16MW；冷板、机柜 manifold、模块化数据中心 | 第6期 | LITEON 入股约 25%（2026-09-03） |
 | **nVent** | 数据中心液冷制造（产能扩张） | 第5期 | Blaine, MN 新增 16 万 ft²、三年内第三次扩产、累计 >40 万 ft²，投产预计 2027 H1（2026-07-31） |
 
 ## 制造工艺覆盖 / 缺口（工艺 → 企业）
@@ -27,9 +29,9 @@
 | **ECAM 电化学增材制造** | Fabric8Labs（→TDK） | 第1期（TO+ECAM 纯铜冷板 Bazmi/King/Miljkovic）；第3期（Fabric8Labs×Wiwynn；TDK 收购） | 室温电化学逐层沉积纯铜微细特征，无熔化热应力；体素 33⅓μm |
 | **金属增材 LPBF / SLM / DMLS** | 待找到擅长企业（现多为学术组：Miljkovic 等） | 第1期（CNC vs LPBF 对照）；第2期（波纹翅片 AlSi10Mg；RSER AM 微通道综述） | 粉末床激光选区熔化成型复杂翅片/流道；AlSi10Mg 常用（导热低于铜），纯铜需绿光/高功率激光 |
 | **CNC 机加工（常规基线）** | 通用（成熟供应链） | 第1期（CNC vs LPBF 对照） | 减材、成熟、成本/性能对照基线 |
-| **钎焊 Brazing** | **待找到擅长企业** | **缺**（第2期供应链侧提及、非同行评审） | 炉内钎焊接合翅片/盖板/歧管——同行评审新论文一直未检出，每期专项检索项 |
-| **Skived 翅片** | **待找到擅长企业** | **缺**（第4期 DIOJIC 以 skived-fin 为对照基准，无 skived 制造本身新文） | 铣削一体成型高密度薄翅片——有性能对照、缺工艺本身新论文 |
-| **搅拌摩擦焊 FSW** | **待找到擅长企业** | **缺**（多期未检出） | 固相焊接冷板/盖板，热变形小——同行评审新论文一直未检出，每期专项检索项 |
+| **钎焊 Brazing** | **待找到擅长企业** | **缺**（第2期供应链侧提及、非同行评审；至第6期连续 6 期未检出同行评审新文） | 炉内钎焊接合翅片/盖板/歧管——同行评审新论文一直未检出，每期专项检索项 |
+| **Skived 翅片** | **待找到擅长企业** | **缺**（第4期 DIOJIC 以 skived-fin 为对照基准，无 skived 制造本身新文；第6期仍缺） | 铣削一体成型高密度薄翅片——有性能对照、缺工艺本身新论文 |
+| **搅拌摩擦焊 FSW** | **待找到擅长企业** | **缺**（至第6期连续未检出） | 固相焊接冷板/盖板，热变形小——同行评审新论文一直未检出，每期专项检索项 |
 
 ---
 维护规则：
