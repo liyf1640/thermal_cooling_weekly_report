@@ -63,7 +63,7 @@ claude            # 进入会话后
 
 ```
 .claude/skills/weekly-briefing/SKILL.md      每周出稿运行手册（6 步）
-.claude/skills/weekly-briefing/rules.md      核验与写作铁律（23 条，每次必读）
+.claude/skills/weekly-briefing/rules.md      核验与写作铁律（24 条，每次必读）
 .claude/skills/weekly-briefing/TEMPLATE.md   成稿骨架 + 自检清单
 .claude/agents/thermal-scout.md              单角度检索侦察兵（并发 5 个）
 .claude/agents/thermal-verifier.md           对抗式核验员（curl 原文逐位核）
