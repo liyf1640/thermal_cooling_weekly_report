@@ -21,3 +21,9 @@
 | FSW | Friction Stir Welding | 搅拌摩擦焊，固相焊接冷板/盖板，热变形小 |
 | CHT | Conjugate Heat Transfer | 共轭传热：固体导热与流体对流耦合求解 |
 | PINN | Physics-Informed Neural Network | 物理信息神经网络，将控制方程残差并入损失函数 |
+| BTMS | Battery Thermal Management System | 电池热管理系统；其液冷板热源为面状电芯，与芯片冷板工况不同（第 7 期） |
+| Fc | Field Synergy Number | 场协同数：以速度场与温度场夹角刻画对流换热的协同程度（第 6/7 期） |
+| M-FFF | Metal Fused Filament Fabrication | 金属熔融沉积成形：金属丝材挤出成形后脱脂烧结，可成形铜冷板（第 7 期） |
+| BESS | Battery Energy Storage System | 电池储能系统；NVIDIA DSX Ready 首批两品类之一（另一为 CDU，第 7 期） |
+| RDHx | Rear Door Heat Exchanger | 后门换热器，机柜门内置液-气换热盘管（第 7 期） |
+| D2S | Direct-to-Silicon (liquid cooling) | 直触硅液冷：冷却液直接接触芯片背面微结构，跳过 TIM 与盖板（第 7 期） |
