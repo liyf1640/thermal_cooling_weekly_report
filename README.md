@@ -1,5 +1,8 @@
 # 散热方案周报 · Web 知识库
 
+📖 **在线阅读：<https://liyf1640.github.io/thermal_cooling_weekly_report/>**
+（`main` 合并后由 GitHub Actions 自动构建部署）
+
 数据中心 / 电子散热方向每周简报的 Web 知识库，基于 [MkDocs Material](https://squidfunk.github.io/mkdocs-material/) 构建。
 
 ## 本地预览
