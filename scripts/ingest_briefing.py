@@ -28,6 +28,10 @@ import subprocess
 import sys
 from pathlib import Path
 
+# Console on Windows may be cp1252; this script prints Chinese progress lines.
+if hasattr(sys.stdout, "reconfigure"):
+    sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+
 REPO = Path(__file__).resolve().parent.parent
 DOCS = REPO / "docs"
 BRIEFINGS = DOCS / "briefings"
