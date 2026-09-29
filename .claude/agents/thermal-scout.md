@@ -1,6 +1,6 @@
 ---
 name: thermal-scout
-description: 散热/冷板周报的单角度检索侦察兵。给定一个检索角度 + 时间窗 + 已报去重清单，回传**候选清单**（不成稿）。由 weekly-briefing 技能一次并发 5 个调用，覆盖「冷板仿真与设计 / 制造工艺 / 仿真方法 / 中文学术 / 产业动态」。
+description: 散热/冷板周报的单角度检索侦察兵。给定一个检索角度 + 时间窗 + 已报去重清单，回传**候选清单**（不成稿）。由 weekly-briefing 技能一次并发 5 个调用，覆盖「冷板仿真与设计 / 制造工艺 / 仿真方法 / 英文期刊 in-press / 产业动态」。**只检英文文献，中文期刊不在覆盖面内。**
 tools: WebSearch, WebFetch, Bash, Read, Grep, Glob
 model: sonnet
 ---
@@ -13,7 +13,7 @@ model: sonnet
 
 ## 怎么做
 
-1. **先 WebSearch 拉面**：围绕角度要点组 6–10 条英文 query（中文角度用中文 query），覆盖同义表述。
+1. **先 WebSearch 拉面**：围绕角度要点组 6–10 条**英文** query，覆盖同义表述。**不组中文 query、不收中文期刊条目。**
    例：`liquid cold plate topology optimization 2026`、`manifold microchannel heat sink experimental`、
    `brazed cold plate fin bonding peer-reviewed`、`neural operator conjugate heat transfer surrogate`、
    `data center liquid cooling CDU launch September 2026`。

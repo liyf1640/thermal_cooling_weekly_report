@@ -54,7 +54,8 @@ claude            # 进入会话后
 流程：
 
 1. `scripts/reported_index.py` 生成 `drafts/reported-index.md` 跨期去重索引（已报标题 / arXiv id / DOI / URL / 公司 / 学者）
-2. 并发 5 个 `thermal-scout` 子代理检索：冷板仿真与设计 · 制造工艺 · 仿真方法 · 中文学术 · 产业动态
+2. 并发 5 个 `thermal-scout` 子代理检索：冷板仿真与设计 · 制造工艺 · 仿真方法 · 英文期刊 in-press · 产业动态
+   （**只收英文文献**；正文用中文写作，两者不同）
 3. `thermal-verifier` 子代理逐条用 `fetch_source.py` 取原文核作者 / 单位 / 数字 / 日期，判「通过 / 待确认 / 否决」
 4. 按 `TEMPLATE.md` 成稿到 `drafts/<日期>.md`，同步更新 `notes/companies.md`、`notes/sg-scholars.md`、`glossary.md`
 5. `ingest_briefing.py --no-push` 入库 → `mkdocs build --strict` 验证 → 推 `briefing/<日期>` 分支 → `gh pr create`
