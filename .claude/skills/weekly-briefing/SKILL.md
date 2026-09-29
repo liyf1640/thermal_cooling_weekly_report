@@ -98,7 +98,7 @@ python scripts/reported_index.py          # 生成 drafts/reported-index.md
 | # | 角度 | 检索要点 |
 |---|---|---|
 | A | **冷板仿真与设计** | 拓扑优化 / 生成式设计（扩散、GAN、VAE）/ 歧管微通道 MMC / 射流冲击 / 两相沸腾冷板 / ROM 代理模型 / 共轭传热 CFD。arXiv `physics.flu-dyn`、`cs.CE`、Crossref、IJHMT / ATE / ICHMT / Energy Conversion & Management |
-| B | **冷板制造工艺** | **钎焊 brazing / skived 翅片 / 搅拌摩擦焊 FSW —— 长期缺口，每期专项硬检索**；外加 ECAM / LPBF / 扩散焊 / 微铣削。会议集 **ITherm / ECTC / SEMI-THERM / InterPACK** 也要扫 |
+| B | **冷板制造工艺** | 钎焊 brazing / skived 翅片 / 搅拌摩擦焊 FSW / ECAM / LPBF / 扩散焊 / 微铣削。会议集 **ITherm / ECTC / SEMI-THERM / InterPACK** 也要扫。**检不到就如实回「本期未检出」——不必凑，成稿时该角度直接不出现**（rules 第 12 条） |
 | C | **仿真方法** | ML-for-CFD、神经算子（FNO/DeepONet）、可微分求解器、湍流闭合学习、PINN、降阶模型。判据：对冷板内对流换热高保真快速建模**有方法学价值** |
 | D | **英文期刊 in-press / online-first 专项** | 扫**窗口内新上线但尚无印本刊期**的冷板/热管理文章：IJHMT、Applied Thermal Engineering、Energy Conversion & Management、Int. J. Thermal Sciences、ASME JEP / J. Heat Transfer、IEEE TCPMT 的 articles-in-press 与 online-first 列表。**判窗一律用 Crossref `created` / `published-online`，`published-print` 不作依据**——这一栏专门防的就是「印本刊期名义日期把新文挡在窗外、或把旧文冒充新文」。检不到就如实写「本期未检出」 |
 | E | **产业动态** | 近 2 周英文一手新闻：并购 / 新品 / 产能扩张 / 合作 / 部署。NVIDIA、CoolIT-Ecolab、Vertiv、nVent、Fabric8Labs-TDK、Boyd、ACT、LiquidStack、JetCool、Accelsius、Chilldyne 等。分析师/市场数字**单独收集**，不混入事实条 |
@@ -117,7 +117,7 @@ python scripts/reported_index.py          # 生成 drafts/reported-index.md
 
 - 核得实：进正文
 - 核不到单位/职称：写「待确认」，**不臆测、不以人名猜单位**
-- 核不实：丢弃；若此前期次报过错，在「方法与局限」里更正
+- 核不实：丢弃；若此前期次报过错，在末尾「更正」节里更正（该节只在确有更正时才出现）
 - 厂商/分析师口径：标注来源口径，且**只能进第五节「前瞻 / 分析师数字」**
 
 **存档**：verifier 回传原样写入 `checkpoint/<DATE>/verified.md`，STATE 加 2，推 wip 分支。
@@ -129,7 +129,7 @@ python scripts/reported_index.py          # 生成 drafts/reported-index.md
 - 论文卡**五段式**：研究团队 / 技术介绍（含性能数字）/ 技术优势（先进性）/ 技术局限 / 来源
 - 抬头**只留「主题」「时间窗」两行**——不写「方法」行、不写「说明」行
 - 「**一句话总览**」一段话串起本期全部实质新增，带 ①②③ 序号（**标题不用 TL;DR 这类英文缩写**）
-- **缺口照实写缺**（例如制造工艺连续第 N 期未检出同行评审新文），**绝不凑数**
+- **某角度没新东西就整节不写**——不写「连续第 N 期仍缺」、不解释为什么空（rules 第 12 条），**更不凑数**
 - 正文中文，专业术语保留英文原文 + 中文；**但文献来源只收英文，中文期刊不在覆盖面内**
 - 末尾署名：`*—— Sage · 散热方案周报第 N 期（待核验稿）*`
 
@@ -201,5 +201,9 @@ PR 正文写：本期期号/日期、一句话总览、**经核条目数与逐�
 
 ## 空窗周怎么办
 
-某角度检不出东西是**正常且可接受**的结果。照实写「本期未检出窗口内新文」，在「开放问题 / 下期」里挂账，
-下期继续专项。**宁可薄一期，也不拿旧文、营销稿、专利、分析师预测凑数**——这是本刊的立身之本。
+某角度检不出东西是**正常且可接受**的结果——**那一节就不写**，不要写「本期未检出」再解释一段，
+也不要挂进「开放问题 / 下期」等下期再数一遍（rules 第 12 条）。整期都薄就出薄的一期。
+**宁可薄一期，也不拿旧文、营销稿、专利、分析师预测凑数**——这是本刊的立身之本。
+
+「开放问题 / 下期」只收**有具体标的的悬而未决项**：待交割的交易、待揭晓的产品与规格、
+某篇已定位但拿不到数字的论文。**不收「某方向仍无进展」这类没有标的的条目。**
