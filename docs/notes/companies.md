@@ -9,9 +9,9 @@
 | **Fabric8Labs** | **ECAM 电化学增材制造**（室温、微细纯铜冷板；体素 33⅓μm） | 第3期 | ITherm 冷板赛指定打印方；**被 TDK 收购**（至多 4 亿美元，第3期）；×Wiwynn 开发下一代 ECAM 冷板 |
 | **TDK** | 收购 Fabric8Labs 进入 ECAM 冷板 | 第3期 | Fabric8Labs 成其全资子公司 |
 | **Wiwynn** | 数据中心服务器/散热系统集成 | 第3期 | ×Fabric8Labs ECAM 合作 |
-| **CoolIT Systems** | 单相直触冷板（DLC，Split-Flow 微通道），15kW；新一代 CDU；外设全热捕获冷板回路 | 第2/5/6/7期 | **被 Ecolab 收购**（~$4.75B，第1期）；新一代 **1MW+ AI 机架 CDU** 预告（**2026-08-17**，⚠️规格未公开，**揭晓日期未由 CoolIT 公布**——第5/6期所记「9-28 揭晓」追不到一手出处，第7期已撤回）；「The Future is Fanless」主张 >250kW 机柜近 100% 液冷热捕获、称已历六代无风扇设计（2026-09-14 博客，厂商口径，第6期）；**不在 NVIDIA DSX Ready 首批 CDU 名单内**（第7期） |
+| **CoolIT Systems** | 单相直触冷板（DLC，Split-Flow 微通道），15kW；新一代 CDU；外设全热捕获冷板回路 | 第2/5/6/7/8期 | **被 Ecolab 收购**（~$4.75B，第1期）；新一代 CDU 预告（**2026-08-17**，⚠️规格未公开，**揭晓日期未由 CoolIT 公布**——第5/6期所记「9-28 揭晓」追不到一手出处，第7期已撤回）；⚠️**第8期复核：该预告页全文逐字核过，无任何「1MW」字样、无任何数字容量表述**，仅定性 "More cooling capacity" + "high-density AI infrastructure"，并写明将在 **OCP Global Summit（Booth E19）**首次展示——**第5/7期所记「面向 1MW+ 超密 AI 机架」暂未能追到出处，待维护者裁定是否撤回，第8期未自行改动**；第8期窗口内官网 Press Releases 类目零条（9-28 唯一条目为 Data Center Frontier 探访报道转载）；「The Future is Fanless」主张 >250kW 机柜近 100% 液冷热捕获、称已历六代无风扇设计（2026-09-14 博客，厂商口径，第6期）；**不在 NVIDIA DSX Ready 首批 CDU 名单内**（第7期） |
 | **Ecolab** | 收购 CoolIT 进入液冷 | 第1期 | — |
-| **Vertiv** | 直触液冷 / 冷板；液-液 CDU（CoolChip，2.3MW 档，支持 D2C 与 RDHx）；液冷流体管理服务 | 第2/6/7期 | 收购 Strategic Thermal Labs 补强；约 $1.45B（+至多 $1.15B 对价）收购电力侧 UtilityInnovation Group（2026-09-02，待交割，第6期，与冷却相关性弱）；**2.3MW CoolChip CDU 获 NVIDIA DSX Ready 资质**（2026-09-21，容量为厂商标称、未披露工况；厂商另宣称「首个」，NVIDIA 侧无对应说法，第7期）；**协议收购 King Environmental Services**（2026-09-24，未交割，第7期） |
+| **Vertiv** | 直触液冷 / 冷板；液-液 CDU（CoolChip，2.3MW 档，支持 D2C 与 RDHx）；液冷流体管理服务；EMEA 电源+热管理制造产能 | 第2/6/7/8期 | 收购 Strategic Thermal Labs 补强；约 $1.45B（+至多 $1.15B 对价）收购电力侧 UtilityInnovation Group（2026-09-02，待交割，第6期，与冷却相关性弱）；**2.3MW CoolChip CDU 获 NVIDIA DSX Ready 资质**（2026-09-21，容量为厂商标称、未披露工况；厂商另宣称「首个」，NVIDIA 侧无对应说法，第7期）；**协议收购 King Environmental Services**（2026-09-24，未交割，第7期） |
 | **Strategic Thermal Labs** | 直触液冷 / 冷板 | 第2期 | 被 Vertiv 收购（2026-04） |
 | **ACT（Advanced Cooling Technologies）** | 单相 + 两相冷板量产 | 第2期 | 宾州 Lancaster 扩产（~50万片/年）；企业新闻稿口径 |
 | **NVIDIA** | AI 芯片（GB200/Rubin）驱动冷板需求；MLCP 路线；DSX Ready 资质计划（CDU / BESS） | 第2/3/4/6/7期 | Simon See 参与 NeuralFVM（第4期）；MLCP 预计 2027 量产（⚠️前瞻/未证实）；联合澳洲 8 家伙伴至 2027 年至多 2GW DSX AI 工厂，CDC/AirTrunk/NEXTDC 原文提 D2C 液冷（2026-09-09，⚠️目标容量，第6期）；**发布 DSX Ready 资质计划**（2026-09-21，首批品类 CDU + BESS；**CDU 走厂商自证套件、BESS 走 NVIDIA 审核批准**，两条路径不同；官方原文未给任何 CDU 容量数字，第7期） |
@@ -20,11 +20,15 @@
 | **LITEON（光宝科技，2301.TW）** | 电源/电子制造，股权切入液冷 | 第6期 | 约 US$176M 战略投资 DCX、交割后持股约 25%（2026-09-03，待交割） |
 | **DCX Liquid Cooling Systems（DCX POLSKA，波兰华沙）** | D2C + 浸没液冷；企业级 CDU 600kW–2.6MW、facility CDU 至 16MW；冷板、机柜 manifold、模块化数据中心 | 第6期 | LITEON 入股约 25%（2026-09-03） |
 | **nVent** | 数据中心液冷制造（产能扩张） | 第5期 | Blaine, MN 新增 16 万 ft²、三年内第三次扩产、累计 >40 万 ft²，投产预计 2027 H1（2026-07-31） |
-| **LiquidStack** | CDU；两相/浸没液冷 | 第7期 | 2026-03 被 Trane 完成收购（旧闻）；**列入 NVIDIA DSX Ready 首批 CDU 名单**（2026-09-21，三家并列之一）；官网未就此发稿、未主张「首个」 |
-| **LG Electronics** | CDU | 第7期 | **列入 NVIDIA DSX Ready 首批 CDU 名单**（2026-09-21，三家并列之一）；韩媒称其获资质机型为 **2.5MW CDU**——⚠️**LG 第一方稿未核到，容量待确认**；同批 LG Energy Solution 获 BESS 资质 |
+| **LiquidStack**（Trane Technologies 旗下） | CDU（CDU 2.X 平台、GigaModular）；两相/浸没液冷 | 第7/8期 | 2026-03 被 Trane 完成收购（旧闻）；**列入 NVIDIA DSX Ready 首批 CDU 名单**（2026-09-21，三家并列之一）；官网未就此发稿、未主张「首个」；**发布 CDU 2.X「架构无关」CDU 平台**（通稿 2026-09-29 / DCD 报道 09-30，第8期）——标称 **2.5 MW @ 4 °C ATD**、**3,750 lpm @ 3.5 bar** 可用扬程、超低谐波 VFD、双路 A/B + ATS 为**选项**，**已开放预购、出货自 2027 Q2 起（未发货）**；⚠️**一手稿本刊未取得（GlobeNewswire/liquidstack.com/Trane 页均不可达），全部数字为厂商标称经 DCD 二手转述，双重降级**；⚠️**无证据表明 DSX Ready 资质覆盖 CDU 2.X，不得混写**；另有 **GigaModular 10MW 级**模块化 CDU（2025-06-03，与 CDU 2.X 非同一产品） |
+| **LG Electronics** | CDU（600kW / 1MW / 2.6MW / 计划 4.0MW）；风冷冷水机组；「chip-to-chiller」一揽子 | 第7/8期 | **列入 NVIDIA DSX Ready 首批 CDU 名单**（2026-09-21，三家并列之一）；同批 LG Energy Solution 获 BESS 资质；**成为 NVIDIA NPN「电源与散热」优选合作伙伴**（2026-09-29 LG 自家稿，第8期）——LG 自述 **AI 基础设施资质覆盖 600kW/1MW/2.6MW 三档、DSX Ready 仅 2.6MW 一档**，并称 2.6MW 为 DSX Ready 方案中制冷量最大（厂商标称，**原稿自带脚注「基于查询时 NVIDIA marketplace 显示的信息」，引用不得去掉脚注**），年内计划送 **4.0MW** 过资质；⚠️**容量口径未定**：第7期据韩媒二手记 **2.5MW** 并标待确认，第8期取到 LG 自家两篇稿共四处均写 **2.6MW**，但 lg.com 英文全球原稿不可达、该页标题与 URL 字段本身亦有 2.5/2.6 不一致迹象——**第8期未自行更正，待维护者裁定**；**在弗吉尼亚 Isle of Wight County 建美国首座数据中心冷水机组工厂**（2026-10-01 一手稿，第8期）——43 英亩、350,000 ft²、产**风冷冷水机组**、**2027 H1 投产（未投产）**、计划总投资 **1,500 亿韩元**（含韩国 Pyeongtaek/Changwon 扩线）；「新增 150+ 岗位」为**弗吉尼亚州州长口径**，非 LG 自述 |
 | **King Environmental Services（KES，爱尔兰都柏林附近）** | 液冷数据中心**流体管理**：流体系统预处理、冲洗、过滤、水处理、调试与性能验证；热负载测试 + 电负载测试 | 第7期 | Vertiv 于 2026-09-24 宣布**达成收购协议**（未交割，预计 2026 Q4）；金额未披露且 Vertiv 明示预期对财务不重大；服务覆盖 EMEA |
 | **PurgeRite** | 液冷流体管理服务（北美） | 第7期 | Vertiv 于 **2025-12** 收购；Vertiv 在 KES 收购稿中将二者相提并论——流体管理服务的北美 + EMEA 两块拼图 |
 | **TSMC** | 芯片背面**微柱直触硅（direct-to-silicon）液冷**制程；CoWoS-R 平台 | 第7期 | ECTC 2026 论文（窗口外补记，DOI 10.1109/ectc51846.2026.00092，14 位作者全 TSMC）；工艺要点=微柱须在 CoW 之后成形且不损伤 CoWoS-R、须开发新密封材料对抗翘曲与热膨胀失配；性能数字均为**分析师通讯转述**，本刊未读到论文正文 |
+
+| **Trane Technologies** | 经 LiquidStack 持有 CDU / 两相液冷业务 | 第8期 | 2026-03 完成收购 LiquidStack；CDU 2.X 发布稿以 Trane Technologies 名义分发（2026-09-29），引语人 Scott Smith 职务为 general manager of LiquidStack, Trane Technologies |
+| **Midea Building Technologies** | 工业级 CDU、磁悬浮 CDU、风冷磁悬浮离心机（「电冷超融合」架构） | 第8期 | 于 Data Centre World Asia 2026 发布（稿 dateline 新加坡 2026-10-02，一手）；**工业级 CDU 标称 2.6 MW @ 3 K 温差**；磁悬浮 CDU 称占地最多 −70%、适宜工况 PUE<1.2；风冷磁悬浮离心机称 COP 最高 5.4；贵安美的云数据中心（× Keppel）称年自然冷却至多 7,654 h。**全部厂商标称、无第三方实测**。注：此 2.6MW 与 LG 的 2.6MW 是不同厂商不同产品 |
+| **Castrol** | 数据中心冷却液 + 热管理整合服务（Castrol CORE：设计/部署/启动/运维） | 第8期 | 2026-09-29 发布（一手，dateline 新加坡）；由产品型转服务整合型；稿称冷却技术「已与包括 **NVIDIA、Intel** 在内的芯片与硬件厂商测试验证」——**厂商标称且稿中未给任何验证数据**；实验室在英/美/德/中，服务网络称 150+ 国家，中国完成一个 PoC。引语人 Peter Huang（数据中心与热管理全球总裁）。**信号**：与 Vertiv 两次收购流体服务商同向，冷却液/流体服务上移为独立方案层 |
 
 ## 制造工艺归档（工艺 → 企业）
 > 由原制造工艺清单并入。**这是档案，不是每期待办**：有擅长企业的映射到公司；暂无对应企业的标"待找到擅长企业"。
