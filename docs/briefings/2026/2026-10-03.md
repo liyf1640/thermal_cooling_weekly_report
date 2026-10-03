@@ -88,9 +88,10 @@
 ## 四、开放问题 / 下期
 
 **第 7 期挂账回应**：
-1. **CoolIT 新一代 CDU** → **仍未揭晓**，规格与日期均未公布（见上节）。**下期具体动作**：**OCP Global Summit 2026** 是 CoolIT 自己指明的首次展示场合，据两家参展商（SUNON、Vertiv）各自公开信息互相吻合，会期为 **2026-10-12 至 10-15、San Jose McEnery Convention Center**；**该日期未能核到主办方一手出处（opencompute.org 本期不可达），故标「待确认」**——鉴于本刊曾因二手日期出错而撤回过一次，下期以 CoolIT 或 OCP 自己公布的信息为准。
-2. **LITEON × DCX 交割** → **仍未交割**，原稿未给预计交割时点（见上节）。**下期具体动作**：优先尝试台湾证交所 MOPS 重大讯息与 LITEON 投资者关系页，以补足本期未能穷尽的渠道。
-3. **MoE-PINN 微通道实时场重建的性能数字（DOI 10.1016/j.engappai.2026.115892）** → **结清：确认无法取得。** 已走完三条路——Crossref 列表路由（含 `select=abstract`，HTTP 200 且命中该条）返回的记录中**根本不存在 abstract 字段**，即出版商从未向 Crossref 交存该文摘要；OpenAlex 已收录但摘要索引为空；ScienceDirect 页面受出口限制不可达。**本刊不再追该篇的性能数字。** 本次另核到该文作者单位，可补足第 7 期未列的部分：**Xingpu Feng（第一）、Yiming Liang、Min Chen —— 西交利物浦大学 School of Advanced Technology（苏州）**；**Sanli Liu —— 西交利物浦大学兼中国科学院沈阳自动化研究所**；**Yuqi Liu —— 中科院沈阳自动化研究所**；**Simon Maher —— 英国利物浦大学电气工程与电子系**。
+1. **中文学术角度移出覆盖面、检索位改为英文期刊 in-press / online-first 专项（第 7 期定「下期起生效」）** → **已生效，且本期产出最大。**该角度以 Crossref `created` / `published-online` 字段按日期区间直扫 IJHMT、Applied Thermal Engineering、Energy Conversion & Management、Int. J. Thermal Sciences、ASME JEP、IEEE TCPMT 等目标刊，**本期四条论文卡中有三条出自该角度**（嵌入式歧管微针肋、场协同+㶲耗散+熵产微通道拓扑优化、仿鲨鱼皮翅片微通道热沉），另贡献「其他（设计/仿真）」全部四条线索。覆盖结论：IJHMT、ATE、IJTS、TCPMT 有收获；Energy Conversion & Management 窗口内无冷板/电子冷却相关条目；**ASME JEP 与 ASME J. Heat and Mass Transfer 窗口内 Crossref 返回 0 条**（不排除 ISSN 有误，下期换号复查）。
+2. **CoolIT 新一代 CDU** → **仍未揭晓**，规格与日期均未公布（见上节）。**下期具体动作**：**OCP Global Summit 2026** 是 CoolIT 自己指明的首次展示场合，据两家参展商（SUNON、Vertiv）各自公开信息互相吻合，会期为 **2026-10-12 至 10-15、San Jose McEnery Convention Center**；**该日期未能核到主办方一手出处（opencompute.org 本期不可达），故标「待确认」**——鉴于本刊曾因二手日期出错而撤回过一次，下期以 CoolIT 或 OCP 自己公布的信息为准。
+3. **LITEON × DCX 交割** → **仍未交割**，原稿未给预计交割时点（见上节）。**下期具体动作**：优先尝试台湾证交所 MOPS 重大讯息与 LITEON 投资者关系页，以补足本期未能穷尽的渠道。
+4. **MoE-PINN 微通道实时场重建的性能数字（DOI 10.1016/j.engappai.2026.115892）** → **结清：确认无法取得。** 已走完三条路——Crossref 列表路由（含 `select=abstract`，HTTP 200 且命中该条）返回的记录中**根本不存在 abstract 字段**，即出版商从未向 Crossref 交存该文摘要；OpenAlex 已收录但摘要索引为空；ScienceDirect 页面受出口限制不可达。**本刊不再追该篇的性能数字。** 本次另核到该文作者单位，可补足第 7 期未列的部分：**Xingpu Feng（第一）、Yiming Liang、Min Chen —— 西交利物浦大学 School of Advanced Technology（苏州）**；**Sanli Liu —— 西交利物浦大学兼中国科学院沈阳自动化研究所**；**Yuqi Liu —— 中科院沈阳自动化研究所**；**Simon Maher —— 英国利物浦大学电气工程与电子系**。
 
 **本期新挂账**：
 1. **CoolIT 预告页「1MW+ 超密 AI 机架」这一容量表述的出处**：本期对 CoolIT 该预告页（2026-08-17）作了全文逐字复核，**该页没有任何「1MW」字样、没有任何数字容量表述**，与容量相关的措辞只有定性的 "More cooling capacity"。而「1MW+」此前已作为厂商口径写入本刊第 5 期与第 7 期正文。**本期不自行改动或撤回该数字**——须先确认该页是否曾于 8 月载有此表述、抑或当时所据为另一页面，再决定处置。**下期具体动作**：核实 8 月版本页面的存档或 CoolIT 其它一手出处；若确认无出处，则按撤回已发布数字处理。
