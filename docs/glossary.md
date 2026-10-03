@@ -27,3 +27,9 @@
 | BESS | Battery Energy Storage System | 电池储能系统；NVIDIA DSX Ready 首批两品类之一（另一为 CDU，第 7 期） |
 | RDHx | Rear Door Heat Exchanger | 后门换热器，机柜门内置液-气换热盘管（第 7 期） |
 | D2S | Direct-to-Silicon (liquid cooling) | 直触硅液冷：冷却液直接接触芯片背面微结构，跳过 TIM 与盖板（第 7 期） |
+| MPF | Micro-Pin-Fin | 微针肋：冷板/热沉内的微尺度柱状扰流结构，截面可为圆形、菱形等（第 8 期） |
+| ATD | Approach Temperature Difference | 趋近温差：CDU 一二次侧的进出口温差指标，CDU 制冷量必须连同 ATD 工况一起引用才有意义（第 8 期） |
+| GWP | Global Warming Potential | 全球变暖潜能值；低 GWP 制冷剂如 R1233zd(E)、R1234ze(E)、R1234yf（第 8 期） |
+| NPN | NVIDIA Partner Network | NVIDIA 合作伙伴网络；「电源与散热解决方案」为其品类之一（第 8 期） |
+| 㶲耗散 | Entransy Dissipation | 传热能力耗散，用于刻画换热过程不可逆性的判据，常与场协同、熵产并用（第 8 期） |
+| minichannel | Minichannel | 小通道：水力直径量级大于微通道（microchannel），二者非同义，不可混用（第 8 期） |
