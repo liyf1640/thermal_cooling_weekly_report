@@ -55,6 +55,7 @@ nav:
       # 下列"周报"子树由 scripts/ingest_briefing.py 自动生成，请勿手改
       # AUTO:NAV:START
       - 2026:
+          - 第 9 期 · 2026-10-10: briefings/2026/2026-10-10.md
           - 第 8 期 · 2026-10-03: briefings/2026/2026-10-03.md
           - 第 7 期 · 2026-09-26: briefings/2026/2026-09-26.md
           - 第 6 期 · 2026-09-16: briefings/2026/2026-09-16.md

@@ -33,3 +33,16 @@
 | NPN | NVIDIA Partner Network | NVIDIA 合作伙伴网络；「电源与散热解决方案」为其品类之一（第 8 期） |
 | 㶲耗散 | Entransy Dissipation | 传热能力耗散，用于刻画换热过程不可逆性的判据，常与场协同、熵产并用（第 8 期） |
 | minichannel | Minichannel | 小通道：水力直径量级大于微通道（microchannel），二者非同义，不可混用（第 8 期） |
+| HTMMC | Hierarchical-Tapered Manifold Microchannel (cold plate) | 分级渐缩歧管微通道冷板：歧管分级 + 流道渐缩的组合构型（第 9 期） |
+| TMC | Traditional/straight MicroChannel | 常规直微通道，作为冷板构型寻优的对照基准（第 9 期） |
+| HBM | High Bandwidth Memory | 高带宽存储；与逻辑芯片并置于 2.5D 封装内，形成非均匀热源（第 9 期） |
+| CHF | Critical Heat Flux | 临界热流密度：两相冷却器失效前可承受的最大热流（第 9 期） |
+| ONB | Onset of Nucleate Boiling | 核态沸腾起始：两相冷板裕量取法的关键位置量（第 9 期） |
+| CIO | Copper Inverse Opal | 铜反蛋白石：多孔铜吸液芯结构，用于毛细驱动两相冷却（第 9 期） |
+| CWM | Copper Wire Mesh | 铜丝网：充当三维歧管，把供液与排汽解耦（第 9 期） |
+| POD | Proper Orthogonal Decomposition | 本征正交分解：把温度场压缩为少数模态，供代理模型快速重构（第 9 期） |
+| MTL-ANN | Multi-Task Learning Artificial Neural Network | 多任务学习人工神经网络：一网同时输出多个目标与场量（第 9 期） |
+| TPMS | Triply Periodic Minimal Surface | 三周期极小曲面：换热器常用的周期性曲面结构（第 9 期） |
+| FVM | Finite Volume Method | 有限体积法：CFD 常用离散方法，常作代理模型误差的真值基准（第 9 期） |
+| GP | Gaussian Process | 高斯过程：代理建模与寻优常用的概率回归方法（第 9 期） |
+| AOP | Advance Online Publication | 在线先行发表：已接收上线但尚无卷期（第 9 期） |
