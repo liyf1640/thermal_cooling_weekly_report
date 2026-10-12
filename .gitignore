@@ -8,7 +8,9 @@ __pycache__/
 venv/
 
 # 周报草稿工作区（由 agent 生成，入库后以 docs/briefings/ 为准）
-drafts/
+# 例外：挂账跟踪随仓库入库（不在 docs/ 下，不上站）
+drafts/*
+!drafts/open-items.md
 
 # 断点续跑存档只活在 wip/briefing-* 分支上（git add -f），不进 main
 checkpoint/
