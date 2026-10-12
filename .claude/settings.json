@@ -22,10 +22,10 @@
       "Bash(git push -u origin briefing/*)",
       "Bash(git push origin --delete wip/briefing-*)",
       "Bash(gh pr list:*)",
-      "Bash(gh pr create:*)"
+      "Bash(gh pr create:*)",
+      "Bash(gh pr merge:*)"
     ],
     "deny": [
-      "Bash(git push origin main:*)",
       "Bash(git push --force:*)"
     ]
   }
