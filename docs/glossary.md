@@ -46,3 +46,17 @@
 | FVM | Finite Volume Method | 有限体积法：CFD 常用离散方法，常作代理模型误差的真值基准（第 9 期） |
 | GP | Gaussian Process | 高斯过程：代理建模与寻优常用的概率回归方法（第 9 期） |
 | AOP | Advance Online Publication | 在线先行发表：已接收上线但尚无卷期（第 9 期） |
+| ORv3 | Open Rack v3 | OCP 的第三代开放机架规范；机架内 CDU 与电源架按该规范给容量档（第 10 期） |
+| OSFP | Octal Small Form-factor Pluggable | 八通道可插拔光模块封装；其功耗已逼近风冷极限，成为冷板新的覆盖对象（第 10 期） |
+| QD | Quick Disconnect | 快接头：液冷回路的可插拔流体接口件，与冷板并列为接口层（第 10 期） |
+| L2L | Liquid-to-Liquid | 液-液型（CDU），一二次侧均为液体，区别于液-气型（第 10 期） |
+| UTVC | Ultrathin Vapor Chamber | 超薄均热板：厚度亚毫米级，内部吸液芯厚度受限（第 10 期） |
+| SOA | Safe Operating Area | 安全工作区：器件在给定温度限值下可用的功率-工况区域（第 10 期） |
+| cGAN | Conditional Generative Adversarial Network | 条件生成对抗网络：按工况条件直接生成拓扑与场的生成式模型（第 10 期） |
+| FiLM | Feature-wise Linear Modulation | 逐特征线性调制：把工况等条件注入网络中间层的条件化手段（第 10 期） |
+| IoU | Intersection over Union | 交并比：衡量生成拓扑与参考拓扑的几何重合度（第 10 期） |
+| SSIM | Structural Similarity Index Measure | 结构相似性指数：衡量生成温度场与参考场的结构一致度（第 10 期） |
+| AR | Aspect Ratio | 宽高比：微通道截面的宽与高之比，是降阶模型适用性的主要分界量（第 10 期） |
+| VTLM | Versatile Two-Layer Model | 两层降阶模型：把三维共轭传热降为两层耦合二维场，高度方向用封闭式补偿（第 10 期） |
+| AO-ABPF | Alternating-Orientation Arched-Bridge Pin-Fin | 交替取向拱桥形针肋：混合微通道热沉的针肋构型（第 10 期） |
+| ICs | Interconnectors | 互连通道：在相邻微通道之间开通的横向流道，使横流成为强化手段（第 10 期） |
