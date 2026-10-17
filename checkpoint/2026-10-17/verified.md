@@ -250,3 +250,185 @@
 7. **仿真被读成实测的风险**：arXiv 2610.16716、IJHFF 110749、ATE 133571 **全为纯数值、无任何实验**；ATE 133601 需把「机理结论（原位观测+建模+仿真组合）」与「整机实测」分开表述。ATE 133571 的 900 W/cm² 与金刚石针肋收益尤其容易被当成器件实测能力。
 8. **取证通道受限（基础设施层面，非核验疏漏）**：本会话仅 Crossref / OpenAlex / arXiv 可达；ScienceDirect、linkinghub、api.elsevier.com、IEEE Xplore、Semantic Scholar 均被出口代理 403 拒绝。**OpenAlex 免费日额度在核验中途耗尽**，故 133678、142688 两条的 404 无法再用标题检索复验。**建议下期开篇即重试 133678、142688、3742181 三条的单位与摘要**。
 9. **工具改进建议（流程，不进刊物）**：建议把「原始机构串 + 摘要倒排重建」能力并入 `scripts/fetch_source.py`——现版脚本遇 Elsevier 只会打印 "Crossref carries no affiliation"，是本期多条单位连续取不到的直接原因。
+
+---
+
+## 批次 3 · 产业侧
+
+**网络可达性（决定本批一半结论）**：出口代理**仅允许** `www.coolitsystems.com`、`www.prnewswire.com`。以下全部 **CONNECT 被网关 403 拒绝（policy denial）**，curl 与 WebFetch 均不通：`opencompute.org`、`investors.nvent.com`/`www.nvent.com`、`www.coolermaster.com`、`businesswire.com`、`www.storagenewsletter.com`、`datacentremagazine.com`、`mops.twse.com.tw`/`emops.twse.com.tw`/`www.twse.com.tw`、`www.liteon.com`、`uokik.gov.pl`、`web.archive.org`/`archive.org`、`r.jina.ai`、`www.prnasia.com`、`ocpglobalsummit.com`。**凡依赖上述域名的声明一律未直读原文，不做「已核」判定；存档镜像亦不可达。**
+
+### 1 · OCP Global Summit 2026 官方会期与场馆 —— **待确认（官方源未取到）**
+- opencompute.org **域名不可达**，官方页未取到，**无官方出处**。
+- **已证实（来自完整直读的参展商一手稿）**：会期 **October 12–15, 2026**，地点 San Jose, California。三份完整直读稿措辞一致：CoolIT（10-12）「OCP Global Summit 2026, **October 12–15 in San Jose, California**」；LITEON（10-14）「**from October 12 to 15**」并在稿末列「Date: October 12–15, 2026 / Venue: San Jose McEnery Convention Center, USA / Booth: C51, Hall 2」；UfiSpace（10-14）「**October 12–15, 2026, in San Jose, California**」。
+- 仅检索摘要：xFusion（10-14）「October 12–15 at the San Jose McEnery Convention Center (Booth A33)」；Supermicro（10-14）「October 12 to 15」。
+- **最接近官方的一手源**：OCP Foundation 自署名稿（10-13），dateline「SAN JOSE, Calif., Oct. 13, 2026」。**该稿正文未写会期也未写场馆**。另核 PR Newswire 上 OCP Foundation 全部 17 条署名稿，**无任何会期/场馆公告稿**。
+- **「San Jose McEnery Convention Center」判定**：**仍不可作为官方事实**（未从官方页核到）。但须更正认知：它**不只出现在营销落地页**——出现在完整直读的 **LITEON PR Newswire 一手稿正文**，另有 xFusion 稿佐证（不同展位号 A33 / C51，指向同一场馆）。
+- **成稿建议**：会期写 10-12~10-15 + 脚注「据多家参展商一手公告，官方页本期不可达」；场馆若写须标「据参展商公告」，不得写「官方场馆」。
+- **厂商口径冲突处置**：AcBel / Cooler Master 的 10-13~15 与 AEWIN 的 10-12~15 均未直读。现有可直读证据 **5 家全部指向 10-12~15** → 10-13~15 不采用。**CoolIT 活动页「October 12 - July 15, 2026」笔误未直读，不要在刊物里断言该笔误存在。**
+
+### 2 · CoolIT 新一代 AI CDU —— **通过（结论为「仍无规格」）**
+- **直读**（两页面 + 一次交叉检索）。该页**全文仅 811 字符**，无型号、无容量 kW、无 ATD 工况、无发货时点。可引原句：「The Wait is Almost Over.」「More cooling capacity to scale AI compute with speed, reliability, and global support is just around the corner.」「Get a first look at CoolIT's next-generation CDU for high-density AI infrastructure at OCP Global Summit (**Booth E19**).」余下为预约表单。
+- **交叉核验**：CoolIT 新闻列表页 10-12~10-17 **无任何新发布稿**（列表最新即 10-12 Stäubli 稿，其后为 10-07 本预告页）；PR Newswire 检索「CoolIT」36 条，**无 CoolIT 自署名的新一代 CDU 发布稿**。
+- ⚠️ 该页现挂日期为 **OCTOBER 7, 2026**（`PUBLISHED_META: 2026-10-07T08:00:20-06:00`），而第 8 期称「现有唯一条目是 2026-08-17 的预告页」；CoolIT 新闻列表当前**不存在** 8 月 17/19 日条目（列表为 10-12、10-07、09-28、09-24、09-21、09-14、09-02、08-31、07-28）。**倾向判断**：同一 slug 被改期/重发。**无法确证**（archive.org 不可达）。
+- 来源：https://www.coolitsystems.com/resources/news/the-next-gen-ai-cdu/ ；https://www.coolitsystems.com/resources/news/
+
+### 3 · CoolIT × Stäubli × Ciena：OSFP 光模块直触液冷 —— **通过**
+- **窗内**：是。dateline「CALGARY, Alberta and DUNCAN, S.C. – **October 12th, 2026**」，`PUBLISHED_META: 2026-10-12T06:00:41-06:00`。**直读全文**（7301 字符）。
+- **发布方署名**：**确认写作「CoolIT, An Ecolab Company」**（正文首句即此，另设 "About CoolIT, An Ecolab Company" 小节）。
+- **逐项核对（稿中原话）**：
+  - ✅「**CoolIT's CP-OSFP cold plate** is engineered to manage the high thermal density of advanced optical transceivers within extremely tight dimensional constraints.」
+  - ✅ Mini QD 共同开发两处：「Stäubli developed the Mini QD **in collaboration with Ciena** specifically for emerging liquid-cooled optical environments」；高管引语「**We co-developed the Mini QD with Ciena**」。全称 "Stäubli **Mini Quick Disconnects (Mini QD)**"。
+  - ✅「A typical **1RU system remains limited to approximately 32 OSFP ports**, while coherent pluggable power consumption is approaching the practical limits of traditional air cooling.」**注意基准**：这是对行业现状的约束描述，**不是** CoolIT 方案的规格。
+  - ✅「help the industry address the increasing thermal demands of **3.2 Tb/s and beyond** transceivers」——**归属须准确**：该句主语是 **Ciena**（"Through its collaboration with the Mini QD, Ciena is advancing…"），不是 CoolIT。
+  - ✅ **稿中无任何热阻/功率/流量性能数字**：全文唯一数字为 32（端口数）、1RU、3.2 Tb/s。无 W、无 °C、无 LPM/GPM、无热阻。
+- **属 scout 概括、非原话**：「direct-to-plug」稿中确有该词，但用于描述「the direct-to-plug liquid cooling architecture **demonstrated by Ciena at previous OCP events**」，即 Ciena 在**往届** OCP 的演示；本稿**未声称**该组合在 OCP 2026 现场有演示，只说参会者 "can learn more"。**不要写成本届现场演示。** 方案定性为 "a new approach"/"a practical path"/"a key building block"，**无产品化或可订货表述**。
+- 来源：https://www.coolitsystems.com/resources/news/coolit-and-staubli-advance-direct-to-plug-liquid-cooling-with-next-generation-optics/
+
+### 4 · LITEON 在 OCP 的热管理发布 —— **通过（含两处须更正）**
+**4a 主稿**
+- **窗内**：是，但**日期须更正**：dateline「SAN JOSE, Calif., **Oct. 14, 2026**」，PR Newswire 列表 Oct 14, 2026, 12:00 ET。**不是 scout 所记的 10-15。** **直读全文**（7324 字符）。
+- **🔑 120/220 kW 与 280 kW 的冲突 —— 判定：不冲突，三者并存，分属两个展示场景**：
+  - **280 kW**：面向 NVIDIA Vera Rubin NVL72。原话「For the **NVIDIA Vera Rubin NVL72** platform, LITEON is also showcasing an integrated infrastructure solution featuring a **95kW DC/DC Power Shelf** and a **280kW Liquid-to-Liquid (L2L) In-Rack CDU**. Designed based on NVIDIA MGX architecture…」
+  - **120 kW / 220 kW**：属 **ORv3** 段落。原话「LITEON shows key cooling modules including **120kW and 220kW In-Rack CDUs**, which can be integrated with advanced cooling technologies such as Direct-to-Chip architectures.」
+  - 两条检索摘要各自截取不同段落，**原稿两组数字同时存在**。
+- **厂商宣称（DCX 2.6 MW CDU）**：原话「LITEON debuts the **2.6MW** Enterprise Cooling Distribution Unit (CDU) from its **strategic investment partner, DCX Liquid Cooling Systems**. The solution delivers **up to 2.6MW** of heat transfer capacity, achieves an **approach temperature of 3°C**, and incorporates an **N+1 redundant pump** design…」
+  - 三项全部核到。**务必保留「up to」**。3 °C 趋近温差**无工况说明**（无供回水温度、无流量、无负载率），亦未说明系实测还是设计值。
+- **🔑「strategic investment partner」确认仍在使用**——item 9（交割未完成）的关键旁证，出自 10-14 窗内稿。
+- 其他可引（同为厂商口径）：ORv3 机架方案含 **180kW Power Shelf** + **108kW Capacitor Backup Unit (CBU)**；展位 **C51, Hall 2**。人物：John Chang, General Manager of LITEON Cloud Infrastructure Platform and Solution SBG。
+- **待确认**：2.6 MW / 3 °C 的测试工况与实测-仿真归属（稿中未给，**不可补写**）。
+
+**4b 第二稿（NVIDIA MGX 生态）**
+- **窗内**：是。dateline「SAN JOSE, Calif., **Oct. 15, 2026**」。**直读全文**（4227 字符）。
+- **330 / 880 kW / 1.2 MW 核到，但性质须写准**：原话「LITEON also featured an **interactive virtual rack experience** at its booth, illustrating **deployment scenarios at 330kW, 880kW, and 1.2MW power levels**」→ **展台互动/虚拟机架演示的「部署场景功率档位」，既非产品规格、亦非实机**，且为**电功率**、**不是制冷量**。严禁写成产品能力。
+- **本稿无任何热工数字**，通篇为 800 VDC 供电与 MGX Ecosystem Ceremony 出席。**建议仅作一句话背景或不收。**
+- 来源：https://www.prnewswire.com/news-releases/liteon-showcases-nvidia-800-vdc-architecture-and-thermal-management-portfolio-at-ocp-global-summit-2026-302908014.html ；https://www.prnewswire.com/news-releases/liteon-showcases-at-nvidia-mgx-ecosystem-at-ocp-highlighting-800-vdc-power-technologies-to-advance-next-generation-ai-infrastructure-302910804.html
+
+### 5 · Cooler Master 2,500 kW 液-液 in-row CDU —— **否决（不建议进刊物）**
+- **完全未直读**：`coolermaster.com`、`businesswire.com`、`storagenewsletter.com`、`datacentremagazine.com` **全部域名不可达**；archive.org 亦不可达。
+- **一手源检索**：PR Newswire 检索「Cooler Master」12 条，**无任何 Cooler Master 自署名 OCP 2026 发布稿**（命中全为 GIGABYTE COMPUTEX 稿把其列为机箱生态伙伴）。Cooler Master 应走 Business Wire，该域不可达。**一手稿未取到。**
+- **否决理由（任一即足）**：① 无一手源，全部数字仅存在于无法打开的二手转载与产品页检索摘要；② **未解决的量级矛盾**——**990 GPM ≈ 3747 LPM**，与产品页摘要的「二次侧最大流量 1,500 LPM」差 2.5 倍，两者不可能同为同一参数，**该流量数字一律不得采用**；③ 趋近温差 4–5 °C（转载）与 5 °C（产品页摘要）不一致；④ 转载中「2,500 MW」疑似笔误无法在一手稿处证伪；⑤ 产销时点承诺均无一手支撑。
+- **判定**：**本期不得进刊物**，连「厂商宣称」形式也不建议（不满足「每个数字必须能追到一个一手 URL」）。转挂账。
+
+### 6 · nVent × AMD Helios（RDHx）—— **否决（不建议进刊物）**
+- **未直读**：`investors.nvent.com` 与 `www.nvent.com` **域名不可达（代理策略拒绝，非站点反爬）**；archive.org 不可达。
+- **一手源检索**：PR Newswire 检索「nVent」15 条，**无 nVent 自署名的 AMD Helios 冷却合作稿**。nVent 走 Business Wire 体系，该域不可达。
+- **否决理由**：发布日期未能确认 → **无法证明落在窗内**；具体供货产品、有无热负荷/容量数字一概读不到。**本期不收**，转挂账。
+
+### 7 · Clivet（Midea）OCP 磁悬浮离心压缩机 —— **通过（数字须严格标注厂商口径）**
+- **窗内**：是。dateline「SAN JOSE, Calif., **Oct. 15, 2026**」。SOURCE: **Midea Building Technologies; Clivet**。**直读全文**（5925 字符）。
+- **已证实事实**：
+  - ✅「At the 2026 OCP Global Summit, Midea's brand Clivet **took the stage at the "GW-Scale Open AIDC" forum**, unveiling its next-generation magnetic bearing centrifugal compressor and full-chain liquid cooling solution.」
+  - 报告人：**Dr. Yunxiao Ding, Director of the Research Institute at Midea Building Technologies**
+  - ✅ 奖项「**2026 GW-Scale Open AIDC Excellent Technical Presentation Award**」名称逐字一致
+  - ✅「At this year's OCP summit, **Midea appeared in the NVIDIA MGX ecosystem's participating company list**.」注意是 **Midea**（母品牌）列入，非 Clivet
+  - 技术架构（定性，可写）：独立双轴变频驱动（each impeller has its own independent variable-frequency drive）+ 单/双级可选；低压比时第二级自动停机并旁通、转单级运行；外置轴承嵌入蜗壳凹腔实现轴向长度不增加
+- **45 °C —— 归属须更正**：**不是 Clivet 产品规格，是行业趋势前提句**。原话「**As cold-plate supply temperatures rise toward 45°C**, opportunities for free cooling expand, while water constraints favor dry heat rejection.」→ 成稿应写「稿中以『冷板供液温度趋向 45 °C』为前提论证自然冷却窗口扩大」，**不得**写成 Clivet 设备的供液温度或能力。
+- **厂商宣称**：原话一句含两数字「**At the same cooling capacity, compressor power is reduced by up to 40%, and maximum inlet flow at low pressure ratios increases by approximately 70%.**」
+  - **基准澄清（比 scout 判断的「无基准」略好，但仍不足）**：**有隐含对比基准**——同段原话「**Breaking away from the traditional single-shaft, same-speed dual-stage structure**」，即对照「传统单轴同转速双级结构」。两数字各有归一化条件：40% 限定「At the same cooling capacity」，70% 限定「at low pressure ratios」。
+  - **仍缺（必须标待确认，不可补写）**：无对比机型/型号、无具体工况参数、**未说明系实测台架数据还是仿真**、无第三方验证、「up to 40%」为上限值而非典型值。
+- 来源：http://www.prnewswire.com/news-releases/breakthrough-cooling-solutions-for-the-ai-computing-surge-clivet-showcases-next-gen-magnetic-bearing-centrifugal-compressor-at-ocp-global-summit-302910825.html
+
+### 8 · UfiSpace 液冷交换机 —— **通过（结论为「无热工数字可引」）**
+- **窗内**：是。dateline「SAN JOSE, Calif., **Oct. 14, 2026**」。SOURCE: UfiSpace。**直读全文**（6922 字符）。
+- **已证实**：
+  - ✅「the **S9331-64HO3L**, a **102.4Tbps 2OU ORv3** liquid-cooled platform powered by the **Broadcom Tomahawk 6** ASIC. Equipped with **64 x 1.6T OSFP ports**」。**注意是 2OU**。
+  - ✅「the platform **operates with a Cooling Distribution Unit (CDU)** to deliver real-time cooling and **validate system-level thermal feasibility** for next-generation AI fabrics.」展位 **D19, Expo Hall 3**，演示名「**TH6 Liquid Cooling Live Demo**」。
+  - **成熟度必须写明**：原话「Positioned as a **validation-ready early access architecture**」「provides hyperscalers and system integrators with a live, operational **proof-of-concept**」，目标是「to build **2027/2028** AI clusters」→ **概念验证/早期接入，非可交付产品。**
+- **🔑 确认全文无任何可引热工数字**：无冷板功率(W)、流量(LPM/GPM)、温度(°C)、热阻、TDP、功耗。全部数字均为带宽/端口/缓存。**scout 的「热数据未给」判断正确。**
+- **成稿建议**：价值在「液冷从 CPU/GPU 向网络交换机延伸」的**定性信号**，与第 3 条同一主线，可合并叙述。**不得给任何热工数字。**
+- 来源：https://www.prnewswire.com/apac/news-releases/ufispace-demonstrates-1-6t-ai-fabric-thermal-feasibility-with-live-liquid-cooling-platform-at-ocp-global-summit-2026--302907418.html
+
+### 9 · LITEON × DCX 交割状态 —— **否决为独立事实条；仅可作「挂账跟进」更新**
+- **三个渠道逐一交代**：台湾证交所 MOPS（`mops.twse.com.tw`/`emops.twse.com.tw`/`www.twse.com.tw`）—— **不可达，未查到亦未能查**；LITEON 投资者关系页（`www.liteon.com`）—— **不可达**；波兰 UOKiK（三个入口）—— **不可达**。补充渠道：PR Newswire 检索「DCX liquid cooling」8 条，**无交割完成公告**。
+- **已证实（直读 09-03 一手稿全文 5167 字符）**：原话「**Upon closing of the transaction**, LITEON will hold **approximately 25%** equity ownership in DCX Liquid Cooling Systems with a total transaction value of **approximately US$176 million**.」——「Upon closing」为**未来式**，稿中**无预计交割时点、无监管批准条件**。DCX POLSKA Sp. z o.o.，2019 年成立，总部华沙；企业级 CDU **600kW–2.6MW**、设施级 FDU **最高 16MW**（佐证 item 4 的 2.6 MW 为 DCX 企业级 CDU 产品线上限）。
+- **窗内新旁证**：10-14 LITEON 稿仍称 DCX 为「strategic investment partner」，未出现 subsidiary / affiliate / completed 措辞。**属间接旁证，不构成「未交割」的确证。**
+- **🔑 否决为独立事实条的理由（去重）**：该 09-03 一手 URL **已在第 7、8 期（及第 6 期）报过**，第 8 期「挂账跟进」已逐字引用同一句。**本期无任何新的实质进展可报。**
+- **成稿建议**：维持在挂账文件，**不得**写成「仍未交割」（本期证据强度不支持重复断言）。
+
+## 分析师 / 市场规模数字（单独，严禁混入事实条）
+
+**① 可用 —— IDC Market Impact Study（OCP Foundation 委托），2026-10-13，窗内，一手直读**
+SOURCE 署名即 **Open Compute Project Foundation**（本期唯一取到的 OCP 官方一手稿）。全文直读 5663 字符。原文数字：
+- OCP-recognized IT 设备支出 **2029 年约 8000 亿美元**，为去年同期研究对 2029 年预测值（**2950 亿美元**）的**约 2.7 倍**
+- **2030 年 8920 亿美元**，其中服务器约 **8140 亿美元**；2030 年占所研究基础设施类别总支出**约 51%**
+- **2025 年约 1540 亿美元** → 2030 年 8920 亿美元，CAGR **约 42%**
+- 2030 年 AI 相关支出约 **6280 亿美元**，占预测总额**约 70%**
+- 口径（原文 "About the Study"）：覆盖 servers、external storage、switches、IT racks、**power、cooling**、carrier equipment、peripherals；为**年度支出**，百分比经四舍五入。引语人 Cliff Grossner, Ph.D., Chief Innovation Officer, OCP Foundation。
+- **使用注意**：IDC 预测、**OCP Foundation 委托**（委托方即受益方，须披露）；**非散热专项**，cooling 仅为其覆盖类别之一，**不可用作液冷/散热市场规模**。
+- URL：https://www.prnewswire.com/news-releases/idc-raises-2029-forecast-for-ocp-recognized-infrastructure-spending-by-2-7x-to-800-billion-302906452.html
+
+**② 建议不用 —— Dell'Oro「数据中心物理基础设施」2Q26**：检索摘要「Data Center Physical Infrastructure Market Grows 27 Percent Y/Y to $14 Billion in 2Q 2026」（2026-10-14，窗内）。**未直读**。与**已排除**的「Dell'Oro 液冷市场全组」是**不同数据系列**（DCPI 季度营收，非液冷市场规模），但未直读且与已排除组同源机构，**本期不采用**。该摘要另有一条背景（同样未直读，**不得作事实引用**）：「Ecolab closed its acquisition of liquid cooling specialist CoolIT Systems in July」——与第 3 条稿中「CoolIT, An Ecolab Company」署名自洽。
+**③ 建议不用 —— Credence Research「高密度机架（>100 kW）市场 2034 年达 525 亿美元」**（2026-10-12，窗内，检索摘要）：市场研究公司自投新闻稿，无方法论披露，未直读。
+**④ 其余命中均为窗外**（MarketsandMarkets 数据中心冷却 376.2 亿美元/2033、浸没冷却 57.8 亿美元/2033、液冷歧管 63.3 亿美元/2033 等，发布于 6–9 月），本期不采用。
+
+### 批次 3 总体风险提示
+1. **最大风险是网络不可达造成的「证据缺口」被当成「已核」**。本期仅 2 个域名可达，9 条候选里 **3 条（1 的官方部分、5、6）完全没有一手源**。scout 的 5、6 两条若照抄进刊物，是本期最可能出错的地方。
+2. **「厂商口径」与「既成事实」的混淆是第二大风险**：DCX 2.6 MW / 3 °C / N+1（LITEON 口径）、Clivet 40% / 70%（Midea-Clivet 口径）**全部缺测试工况、全部未说明实测或仿真**。
+3. **功率档位被误读为制冷能力**：LITEON 的 330/880 kW/1.2 MW 是**虚拟机架演示的电功率档位**，120/220/280 kW 才是 CDU 传热能力，95/180/108 kW 是电源与备电。
+4. **成熟度失真**：UfiSpace 明写 validation-ready early access / proof-of-concept / 2027-2028；CoolIT CP-OSFP 方案无产品化表述；CoolIT 新一代 CDU 仍无规格。
+5. **日期错误**：scout 把 LITEON 主稿记为 10-15，实为 **10-14**。
+6. **去重风险**：item 9 的一手 URL 已被三期报过，不可作新事实条。
+
+**不建议进刊物（明确清单）**：Cooler Master 2,500 kW CDU 整条不收（转挂账）；nVent × AMD Helios 整条不收（转挂账）；「San Jose McEnery Convention Center」作为官方场馆不收；item 9 不作独立事实条；4b 不单独成条。
+**建议收录（强度由高到低）**：① CoolIT × Stäubli × Ciena（本期最干净）；② LITEON 热管理组合（日期改 10-14、标厂商口径）；③ Clivet（事实部分扎实，40%/70% 标厂商口径，45 °C 改为趋势前提）；④ UfiSpace（仅定性信号，零热工数字）；⑤ CoolIT 新一代 CDU「仍无规格」（作挂账）；⑥ 分析师节 IDC/OCP 一条（须披露 OCP 委托，不得当散热市场规模）。
+
+---
+
+## 批次 4 · 上期挂账元数据补取
+
+**网络硬约束**：出口代理在网关层**策略拒绝** `www.sciencedirect.com`、`linkinghub.elsevier.com`、`api.elsevier.com`、`pubs.aip.org`、`www.nature.com`、`europepmc.org`、`www.ebi.ac.uk`、`pubmed.ncbi.nlm.nih.gov`、`api.semanticscholar.org`、`scholar.google.com`、`phys.org`、`techxplore.com`、`pku.edu.cn` 等。**可达者仅** `api.crossref.org`、`api.openalex.org`（本次用尽当日免费额度）、`export.arxiv.org`、`doi.org`。
+**「上期 403 是因为 PII 猜错」这一假设不成立**：正确 PII `S0065271726000225` 同样 403，原因是 sciencedirect.com **整域**被网关拒绝，与 PII 无关。
+
+### 1a · DOI 10.1016/j.applthermaleng.2026.133471（第 8 期论文卡）—— **取到**
+- **通讯作者：Yuwei Liu（第一作者兼通讯作者）**。OpenAlex `authorships[0].is_corresponding = true`，`corresponding_author_ids = ["https://openalex.org/A5123464675"]`（仅此一人）。
+- **全部作者与交存顺序**：① Yuwei Liu（first, is_corresponding）② Jintao Liu ③ **Jinghui Liang（第 3 位）** ④ Wenwei Jiang ⑤ Yuanzhi Sun ⑥ Changhui Chen
+- **原始机构串**（OpenAlex `raw_affiliation_strings`；Crossref `author[].affiliation` 全空）：
+  - Yuwei Liu / Jintao Liu / Wenwei Jiang / Yuanzhi Sun：`"School of Mechanical and Electrical Engineering, China University of Mining and Technology-Beijing, Beijing 100083, China"`
+  - Jinghui Liang：`"Beijing Hainachuan Automotive Parts Co., Ltd., Beijing 100176, China"`
+  - Changhui Chen：`"BAIC Motor Powertrain Co., Ltd., Beijing 101100, China"`
+- **裁剪后**：`China University of Mining and Technology-Beijing · School of Mechanical and Electrical Engineering`（字面＝**机械与电气工程学院**）
+- **顺带复核**：第 8 期头条数字**成立**——原文 `"the TOMC pressure drop is reduced by 31.54% and 30.09% relative to the CSMC and PSMC, respectively, while the corresponding maximum temperature rise is decreased by 40.48% and 17.72%"`，即 −31.54%/−40.48% 基准为 **CSMC**，另有相对 PSMC 的 −30.09%/−17.72% 一组第 8 期未报。摘要亦确认 `experimental validation`。
+- **🔑 是否构成对第 8 期的补正：构成，两处**
+  1. 第 8 期 `docs/briefings/2026/2026-10-03.md:36` 原写「**通讯作者待确认。**」→ 现可确认为 **Yuwei Liu（第一作者兼通讯）**。
+  2. 同行原写「**中国矿业大学（北京）机电与信息工程学院**」→ 出版商交存原串为 `"School of Mechanical and Electrical Engineering"`，字面对应「**机械与电气工程学院**」，与「机电与信息工程学院」（该校 School of Mechanical Electronic & Information Engineering）**不是同一个串**。按「单位按出版商交存原始机构串」的规矩应改用原串字面。
+  3. （精度提示，**非错**）第 8 期按机构分组列作者，致 Jinghui Liang 被排在第 5 位叙述；交存顺序中他是第 3 位。
+
+### 1b · DOI 10.1063/5.0347413（第 8 期论文卡）—— **通讯作者仍取不到**
+- **仍取不到**。证据：① Crossref 原始记录 7 位作者 `role` 全为 `author`，`sequence` 仅 first/additional，**无任何 corresponding 标注**，`assertion` 为空数组；② OpenAlex `is_corresponding` **7 位全为 false**，`corresponding_author_ids = []`。即**出版商交存元数据本身为空** → 按 2026-10-12 新规则应维持「待确认」。AIP 原文的 "Author to whom correspondence should be addressed" 脚注需读 `pubs.aip.org`，该域被网关拒绝。
+- **作者与原始机构串（Crossref `author[].affiliation.name`，AIP 有交存；OpenAlex 逐字一致）**：① Ge Gao — Hangzhou International Innovation Institute, Beihang University + School of Aeronautic Science and Engineering, Beihang University ② Guangze Li — 前者 + Tianmushan Laboratory ③ Yuhui Wang — 前者 ④ Liuyong Chang — 前者 + Tianmushan Laboratory ⑤ Longfei Chen — 同 ④ ⑥ Feng Han — College of Energy and Power Engineering, Nanjing University of Aeronautics and Astronautics ⑦ Pedro David Bravo-Mosquera — Department of Aeronautical Engineering, University of São Paulo - São Carlos School of Engineering
+  - 原串里的 `1`–`5` 是 AIP 交存时混入的机构编号；`Tianmushan Laboratory` 属实验室，按规矩不写。
+  - **姓名口径**：OpenAlex 把第 6 位显示为 "Feng Bo Han"，**Crossref（出版商交存）为 "Feng Han"** → 以出版商串为准，**第 8 期写法正确**。
+- **是否构成对第 8 期的补正：不构成。** 作者、顺序、单位与「共 7 人、5 家机构」均与交存串一致；「通讯作者待确认」**仍然正确，继续保留**。
+
+### 2 · DOI 10.1016/bs.aiht.2026.09.001 —— **通讯作者取到；Miljkovic 单位仍取不到；工艺/致密度/粗糙度/热工数据仍取不到**
+- **① 通讯作者：Nenad Miljkovic（末位作者）—— 取到。** OpenAlex `authorships[9].is_corresponding = true`，`corresponding_author_ids` 仅一人。**Crossref 无该字段**（10 位作者 `role` 全为 author、`affiliation` 全为 `[]`、`assertion` 为 None）。
+- **② Miljkovic 的原始机构串：仍取不到。** OpenAlex `raw_affiliation_strings = []`、`institutions = []`；Crossref `affiliation = []`。**不作「一般认为在 UIUC」的推定**，正文应写「单位取不到」。
+- **其余 9 位原始机构串**：Joshi / Bazmi / Park / Farhat / Shatskiy / Zaki：`"Department of Mechanical Science and Engineering, University of Illinois, Urbana, IL, United States"`；Green / Black：`"3D Systems, Inc., 333 Three D Systems Circle, Rock Hill, SC, United States"`；King：同 Illinois 机械系 + `"Materials Research Laboratory, University of Illinois, Urbana, IL"`（实验室，不写）
+  - **裁剪后**：`University of Illinois · Department of Mechanical Science and Engineering`。注意交存串写 `"University of Illinois"` + 城市 `Urbana`，**串里没有 "Urbana-Champaign"**；第 9 期写的「伊利诺伊大学厄巴纳分校」是把城市并进了校名（**提示，非硬性更正**）。
+- **③ 工艺类型、致密度、表面粗糙度、热工数据：仍取不到。** Crossref 与 OpenAlex 均无 abstract；ScienceDirect 正确 PII 因**整域网关拒绝**不可达；arXiv 无对应预印本。**本期不得写任何工艺或性能数字。**
+- **书目字段**：`type = book-chapter`，`container-title = "Advances in Heat Transfer"`，`created 2026-10-08`，**无 volume、无 page、无 ISBN、无 published-online**（第 9 期「无卷页」写法正确）。
+- **是否构成对第 9 期的补正**：**构成一处**。第 9 期 `2026-10-10.md:73` 未标通讯作者 → 现可补为「通讯作者：Nenad Miljkovic（末位）」。「Miljkovic 单位待确认」**继续保留**。
+
+### 3 · DOI 10.1038/s41928-026-01724-y —— **摘要与全部性能数字仍取不到；HFE-7100 与 1,570 W/cm² 判为不可用**
+- **已核字段**：标题、作者顺序（Wei Xiao first … Bai Song）与上期一致；**通讯作者：Bai Song**（OpenAlex `is_corresponding=true`；Crossref 侧无 role 标注）；原始机构串 Xiao/Wu/Jiang/Y. Wang/Song = `"National Key Laboratory of Advanced Micro and Nano Manufacture Technology, Peking University"` + `"School of Mechanics and Engineering Science, Peking University"`；**Wei Wang** 另兼 `"School of Integrated Circuits, Peking University"`。`created` 与 `published-online` 均 **2026-10-07（仍在本期窗口外）**。
+- **摘要：四路再试、全部失败。** ① Crossref 单条全量记录**无 `abstract` 键**；② OpenAlex `abstract_inverted_index` 值为 **null**；③ nature.com **网关拒绝**；④ Europe PMC（两个入口）、PubMed、Semantic Scholar **全部网关拒绝**。arXiv 亦无该文预印本。
+- **🔑 HFE-7100 与 CHF 1,570 W/cm²：判为【不可用】，不得写入本期。** 该数字只出现在 interestingengineering.com / globalsources.com 的搜索摘要，两站本会话**均不可达**，一手源（Nature Electronics 正文、`news.pku.edu.cn`）**亦全部不可达**；既追不到一手 URL，也无法确认二手站是否 AI 改写。**连续三期（第 8/9/10 期）均未能核到任何一手出处 → 判为不可用**，建议固化在「仍取不到」清单，不再反复挂账。同理「水平入口 + 竖直出口」构型描述亦只有二手来源，同判不可用。
+
+### 4 · 第 8 期「嵌入式 HU 型歧管微针肋」的 HU 含义 —— **核不到**
+- **仓库定位**：`docs/briefings/2026/2026-10-03.md` 第 11、27、29、30 行；来源 DOI = **10.1016/j.ijheatmasstransfer.2026.129613**。
+- **已核原文证据**（129613 摘要，OpenAlex 倒排还原）：`"we conduct a comprehensive 3D numerical investigation of embedded HU-type manifold MPF heat sinks"` —— 原文确实用 **"HU-type"**，第 8 期用词**与原文一致**；但**摘要自始至终未展开 HU 两个字母**。
+- **进一步核查**：该篇 Crossref 参考文献 42 条中，**2023 年已有他组使用同一术语**：`"Efficient thermal management of high-power electronics via jet-enhanced HU-type manifold microchannel"`（Wu, 2024, IJHMT Vol.221, DOI 10.1016/j.ijheatmasstransfer.2023.125113），该文 Crossref 与 OpenAlex 均无摘要。同一参考文献表内还有 `"compact double H type manifold microchannels"`（10.1016/j.ijheatmasstransfer.2022.123340）与 `"Z-type manifold microchannel"`（10.1016/j.ijheatmasstransfer.2023.124792）——说明存在**按字母形状命名流道构型（H 型 / Z 型 / U 型）的既有体系**，"HU" 落在该字母命名族与「horizontal-up 缩写」两种可能**无法在现有证据下区分**。
+- **判定：核不到。** 现有一手证据只支持两点：(a) 129613 原文用 "HU-type" 且从未展开；(b) Nature Electronics 标题里 "Horizontal-up" 是写全的词、**并未缩写为 HU**。**不能认定两者是同一个缩写来源**；"HU-type" 早于该文已在他组论文中使用（2023），也不能认定是该组自创。**继续禁止把 129613 的 2000 W/cm² 等数字挪用到 s41928 那篇。**
+
+### 批次 4 · 仍取不到的清单
+1. **DOI 10.1063/5.0347413 的通讯作者** —— 出版商交存元数据本身为空，`pubs.aip.org` 整域被网关拒绝。维持「待确认」。
+2. **DOI 10.1016/bs.aiht.2026.09.001 中 Nenad Miljkovic 的机构串** —— 两 API 均为空。写「取不到」，**不得推定 UIUC**。
+3. **同章节的工艺类型（LPBF / 铜 SLM）、致密度、表面粗糙度、全部热工数据** —— 两 API 无摘要，ScienceDirect 整域被拒，arXiv 无预印本。
+4. **DOI 10.1038/s41928-026-01724-y 的摘要与全部性能数字** —— 连续三期取不到。
+5. **HFE-7100 工质与 CHF 1,570 W/cm²（及「水平入口 + 竖直出口」说法）** —— **判为不可用**，追不到一手 URL。
+6. **"HU" 的展开定义** —— 不得断言 HU = horizontal-up。
+
+**本期可直接写入的新增已核结论（均据出版商交存元数据，按 2026-10-12 新规则不再标待确认）**
+- 10.1016/j.applthermaleng.2026.133471 通讯作者 = **Yuwei Liu**（第一作者兼通讯）；单位原串 `School of Mechanical and Electrical Engineering, China University of Mining and Technology-Beijing`
+- 10.1016/bs.aiht.2026.09.001 通讯作者 = **Nenad Miljkovic**（末位，单位取不到）
+- 10.1038/s41928-026-01724-y 通讯作者 = **Bai Song**（仍在窗口外，2026-10-07）
