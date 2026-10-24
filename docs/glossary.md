@@ -60,3 +60,17 @@
 | VTLM | Versatile Two-Layer Model | 两层降阶模型：把三维共轭传热降为两层耦合二维场，高度方向用封闭式补偿（第 10 期） |
 | AO-ABPF | Alternating-Orientation Arched-Bridge Pin-Fin | 交替取向拱桥形针肋：混合微通道热沉的针肋构型（第 10 期） |
 | ICs | Interconnectors | 互连通道：在相邻微通道之间开通的横向流道，使横流成为强化手段（第 10 期） |
+| SLM | Selective Laser Melting | 选区激光熔化：金属粉末床激光逐层熔化成形，常用 AlSi10Mg（第 11 期） |
+| BCC | Body-Centered Cubic (lattice) | 体心立方点阵：增材冷板内用于减重与扰流的点阵单胞（第 11 期） |
+| VOF | Volume of Fluid | 流体体积法：两相界面追踪的主流数值方法（第 11 期） |
+| CSF | Continuum Surface Force | 连续表面力模型：把表面张力折算为体积力源项（第 11 期） |
+| AMR | Adaptive Mesh Refinement | 自适应网格加密：按解的特征在局部加密网格以省算力（第 11 期） |
+| LRDS | Latent-Relevance Dataset Selection | 潜空间相关性数据集选择：用优化迭代历史在潜空间挑选相关样本训练预测器（第 11 期） |
+| SST | Shear Stress Transport | 剪应力输运：k–ω 湍流模型的一种变体（第 11 期） |
+| TSV | Through-Silicon Via | 硅通孔：3D-IC 中贯穿硅片的垂直互连，兼作热通路（第 11 期） |
+| RDL | Redistribution Layer | 再布线层：芯片/封装内重新分布 I/O 的金属布线层（第 11 期） |
+| HB | Hybrid Bonding | 混合键合：介质与金属同时直接键合的无凸点互连（第 11 期） |
+| TDTR | Time-Domain Thermoreflectance | 时域热反射：泵浦-探测法测薄膜与界面热性质（第 11 期） |
+| SSTR | Steady-State Thermoreflectance | 稳态热反射：稳态加热下由反射率变化反演热导率（第 11 期） |
+| DLC-2 | Direct Liquid Cooling, 2nd gen | Supermicro 的第二代直接液冷栈名称（厂商命名，第 11 期） |
+| BBU | Battery Backup Unit | 机架级电池备电单元，用于替代常规 UPS（第 11 期） |
