@@ -248,14 +248,15 @@
 4. **ATE 133678「激光器制冷剂冷板的数据高效多目标结构优化」**（DOI 10.1016/j.applthermaleng.2026.133678）→ **单位与通讯作者已取到，摘要与数字仍取不到 → 仍挂账、未进刊物。**
    **本期新取到**：OpenAlex 已收录（上期 404）。五位作者（Qingwen Gui、Youwei He、Jiangshuo Cui、Yong Chen、Chaochao Zhou）的 `raw_affiliation_strings` **完全相同**：`School of Mechanical Engineering, University of South China, Hengyang, 421001, China` → **南华大学 机械工程学院**（Crossref 五位仍全空）。**通讯作者 = Youwei He**（OpenAlex `is_corresponding=True`，仅此一位）。OpenAlex 关键词：cold plate、refrigerant cooling、multi-fidelity surrogate modeling、Bayesian optimization、SHAP、thermal-hydraulic performance、pressure drop、temperature deviation、high-power lasers。
    **仍取不到**：摘要与全部性能数字（Crossref 无 abstract 键、OpenAlex 无 inverted index、Semantic Scholar 与 Elsevier API 403、ScienceDirect 整域 403）；**是实验还是仿真仍不可知**（由关键词推测为仿真 + 代理模型，属推测、不可写）。
-   ⚠️ **判窗提醒**：`created` **2026-10-17** —— 该日属**第 10 期**窗口最后一天，**现已永久落在第 11 期及以后各期窗口之外**。若日后取到摘要而仍要收，**必须按「窗口外补记」处理**（rules 第 5、20(c) 条）。
+   ⚠️ **判窗提醒**：`created` **2026-10-17** —— 该日属**第 10 期**窗口最后一天，**现已永久落在第 11 期及以后各期窗口之外**。若日后取到摘要而仍要收，直接收入、如实写原始日期，不加补记标注（2026-11-02 维护者裁定，rules 第 5 条）。
    **顺带记档**：同组另一篇 **DOI 10.2139/ssrn.7656294**（SLM 增材制冷剂冷板，created 2026-10-22）**本期已核实并刊出论文卡**，两篇作者部分重合（Youwei He、Yong Chen、Chaochao Zhou）、单位同为南华大学 机械工程学院，但**属不同工作**（一篇是制冷剂冷板的小样本结构优化、一篇是 SLM 增材冷板的设计与实测），**不构成重复报道**。
    **下期动作**：仅重试摘要；单位与通讯作者已结清。
 5. **IEEE TCPMT 3742181「电子热管理双蒸发器冷却回路启动特性」**（DOI 10.1109/tcpmt.2026.3742181）→ **摘要仍取不到 → 仍挂账、未进刊物。** Crossref 无 abstract（含 unixsd XML 亦未见）、OpenAlex 无摘要、`ieeexplore.ieee.org` 与 Semantic Scholar 不可达；WebSearch 只找到相近的 loop heat pipe 双蒸发器文献，**不可用作该文**。通讯作者：OpenAlex 四位 `is_corresponding` 均 False → 取不到。`created` 2026-10-12，**亦已永久落在本期及以后窗口之外**。
    ⚠️ **本期新发现一处需维护者裁定的单位口径问题**：第 10 期据 `fetch_source.py` 的输出判定「Crossref 四位 affiliation 全为裸字符串 'Southeast University'，院系系出版方未交存，不得补写」。**本期重取完整 Crossref JSON 后发现，每位作者的 affiliation 对象实为**
    `{"name": "Southeast University", "place": ["Nanjing, PR China"], "department": ["School Of Energy And Environment"]}`（四位完全一致）——**`name` 字段确实是裸串，但出版方另在结构化 `department` 字段里交存了院系**（`fetch_source.py` 只打印 `name`，故上期看不到）。OpenAlex 的 raw 串仍只有 "Southeast University"。
    **问题**：rules 第 2 条要求「单位一律按出版商的原始机构串」，而此处出版商交存的院系在 `department` 字段而非 `name` 串内。**此类结构化 `department` 字段是否采用、采用时写法如何，本期不自行放宽，留给维护者裁定**（本条从未上站，不存在已发布错误，故不进「更正」节）。**该问题可能影响后续所有 IEEE 条目的单位写法。**
-   **下期动作**：重试摘要；`department` 字段的采用口径等维护者裁定。
+   **维护者裁定（2026-11-02）**：结构化 `department` 字段**不采用**，单位仍只按 `name` 原串写。此项结案。
+   **下期动作**：重试摘要。
 6. **取数通道与额度（流程层面，供维护者归档）** → **上期「优先把 OpenAlex 额度留给缺单位与摘要的条目」的动作已执行，并查明上期额度问题的真正原因。**
    **关键发现**：OpenAlex 的**列表端点**（`/works?filter=doi:a|b|c` 批量查询）**稳定返回 429**，而**单篇端点**（`/works/https://doi.org/<DOI>`）正常 200。本期 verifier 以 3 s 间隔走单篇端点、14 次调用**全部成功，日额度未耗尽、无一条因额度失败**。上期 scout 报的「免费日额度耗尽」**很可能是批量 filter 触发的限流被误读为额度耗尽**。**下期动作**：一律走单篇端点逐条取，不用批量 filter。
    **本期新增实测不可达记录（403 / DNS 失败）**：`www.ebi.ac.uk`（**Europe PMC，本期专门试过，不可用**）、`linkinghub.elsevier.com`、`api.elsevier.com`、`www.cell.com`、`ouci.dntb.gov.ua`、`colab.ws`、`www.scilit.com`、`scholar.archive.org`、`api.semanticscholar.org`、`www.researchgate.net`、`core.ac.uk` / `api.core.ac.uk`、`www.x-mol.com`、`api.unpaywall.org`、`www.lens.org`、`api.datacite.org`、`www.osti.gov`、`pubmed.ncbi.nlm.nih.gov` / `eutils.ncbi.nlm.nih.gov`、`doaj.org`、`api.openaire.eu`、`www.wikidata.org`、`papers.ssrn.com` / `www.ssrn.com`、`polardatacenters.com` / `polardc.com` / `www.polardc.com`。
@@ -280,7 +281,6 @@
    - **DOI 10.2139/ssrn.7656294**（SLM 增材制冷剂冷板）：**通讯作者**（交存为空）；**2.7 kW 下两组温度对比系仿真还是实测**（摘要未标明，SSRN 全文整域 403）；**压降上升幅度**（摘要未给数字）；制冷剂牌号。
    - **DOI 10.1016/j.ijthermalsci.2026.111450**（昆明理工大学 沟槽-渐缩微通道）：**19.96 K / 57.63% 一组的对照件**（摘要未明示）；**CCM 与 CFM 的全称与几何定义**（摘要未定义）；背景区热流与工质。
    - **DOI 10.1016/j.ijheatfluidflow.2026.110754**（湖南大学 鲨鱼鳍侧壁）：工质、层流/湍流与湍流模型、Re 区间（摘要未给）。
-   - **DOI 10.1016/j.ijheatmasstransfer.2026.129712**（新加坡国立大学 LRDS）：两算例的具体物理工况（热流、工质、功率量级）。
    **下期动作**：仅在 ScienceDirect 或 AIP 可达、或出版商补交存摘要时重试；**不反复挂账**。
 3. **产业侧「待确认」项**：
    - **Polar Data Centers 挪威 Herøya 首期 41 MW / 可扩 100 MW 的 MW 口径**（供电、IT 负载还是制冷容量）——Vertiv 一手稿未说明，`polardatacenters.com` / `polardc.com` 两域 403。**下期动作**：若域名可达则核一次；核不到即结案（口径对读者价值有限）。
@@ -294,7 +294,8 @@
    - **冷板制造工艺角度**：scout 扫 **16 条 Crossref query**（cold plate brazing / skived fin heat sink / friction stir welding cold plate / microchannel heat sink additive manufacturing / laser powder bed fusion heat sink / diffusion bonding microchannel / micro-milling microchannel heat sink / electrochemical additive manufacturing copper heat sink / liquid cold plate manufacturing / additively manufactured cold plate / selective laser melting heat exchanger electronics cooling / vacuum brazing aluminum cooling plate / ITherm 2026 / ECTC 2026 microchannel / micro pin fin fabrication silicon cooling / copper heat sink 3D printing，均带 created 10-18~10-24 过滤），命中基本都不是冷板或散热器的制造（FSW 的 AA7075–AZ31 与 Al/Cu 层压板、钎焊的 (VNbTaMoW)C 陶瓷接头、LPBF 的 CuCrZr/316L 界面与 M2 钢等焊接冶金类；以及 manifold 微通道综述、MCHS 被动强化综述等纯设计/综述类）。**唯一边缘命中即 SSRN 7656294，本期已作为论文卡收录在「冷板仿真与设计」节**（其工艺为 SLM 但无工艺参数，故不单立制造节、不填工艺→企业映射）。**钎焊 / skived / FSW 三项缺口本期无新进展**（按 rules 第 12 条不在刊物里作缺口计数）。
 5. **流程改进建议（供维护者裁定）**：`scripts/fetch_source.py` 目前**不打印 Crossref `created`**，判窗时只能看 `published`（印本名义期），**容易判错**；也不打印 `author[].sequence` 与 OpenAlex 的 `is_corresponding`。本期 verifier 另写了两个临时取数脚本补上这三个字段。**建议把 `created`、`sequence`、`is_corresponding` 三个字段并入 `scripts/fetch_source.py`**；另建议 affiliation 一并打印 Crossref 的结构化 `department` / `place` 字段（见上文第 5 条 TCPMT 的发现）。本期未自行改脚本。
 
-**本期命中 rules 第 20 条触发项（c）窗口外补记 —— PR 保持 open，等维护者裁定**：
-- **Delta 800 VDC 2.5 MW L2L CDU + 面向 Vera Rubin NVL72 的新微通道冷板**，一手稿 **2026-10-15**；
-- **3C 与 Datalec 合并成立 3C Datalec**，一手稿 **2026-10-14**。
-两条**均落在第 10 期窗口（2026-10-10 ~ 10-17）之内、系上期漏收**，而非一般意义上的「窗外旧闻」。两条都已整篇直读一手稿核到位，判为高价值（Delta 是本期唯一带硬性冷却规格的产业条目，且其新冷板正是本刊核心题材；3C Datalec 延续本刊已跟踪的液冷服务整合主线）。**提请维护者裁定**：① 是否同意按「窗口外补记」收录这两条；② 若同意，标注用语是否沿用「（窗口外补记）+ 原始日期」，或改用更准确的「（上期窗口漏收，本期补记）」。**上期漏收本身属 agent 运行问题，已按 rules 第 24 条只写进 PR 正文的「流程备注」，未进刊物。**
+**本期曾命中原 rules 第 20 条触发项（c）窗口外补记，2026-11-02 维护者裁定如下（已据此改稿并合并）**：
+- **Delta 800 VDC L2L CDU（2026-10-15）与 3C × Datalec 合并（2026-10-14）**：上期漏收的**直接收入，不标「窗口外补记」，如实写原始日期**。触发项 (c) 自 rules 第 20 条删除，第 5 条同步改写。
+- **SSRN 7656294（SLM 增材制冷剂冷板，对象为 2 kW 激光切割设备）**：**在覆盖面内**，论文卡保留。
+- **IJHMT 129712（新加坡国立大学 LRDS 自适应网格加密）**：摘要未提冷板 / 芯片 / 电子散热 → **不收**，论文卡、术语表（AMR、LRDS）与学者清单条目已撤。仿真方法类条目须与冷板 / 电子散热明确相关才收。
+- **IEEE 结构化 `department` 字段**：**不采用**（见上文第 5 条）。
