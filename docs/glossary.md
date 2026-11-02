@@ -64,8 +64,6 @@
 | BCC | Body-Centered Cubic (lattice) | 体心立方点阵：增材冷板内用于减重与扰流的点阵单胞（第 11 期） |
 | VOF | Volume of Fluid | 流体体积法：两相界面追踪的主流数值方法（第 11 期） |
 | CSF | Continuum Surface Force | 连续表面力模型：把表面张力折算为体积力源项（第 11 期） |
-| AMR | Adaptive Mesh Refinement | 自适应网格加密：按解的特征在局部加密网格以省算力（第 11 期） |
-| LRDS | Latent-Relevance Dataset Selection | 潜空间相关性数据集选择：用优化迭代历史在潜空间挑选相关样本训练预测器（第 11 期） |
 | SST | Shear Stress Transport | 剪应力输运：k–ω 湍流模型的一种变体（第 11 期） |
 | TSV | Through-Silicon Via | 硅通孔：3D-IC 中贯穿硅片的垂直互连，兼作热通路（第 11 期） |
 | RDL | Redistribution Layer | 再布线层：芯片/封装内重新分布 I/O 的金属布线层（第 11 期） |
