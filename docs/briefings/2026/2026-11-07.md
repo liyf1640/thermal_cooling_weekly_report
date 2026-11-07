@@ -125,8 +125,12 @@
 
 ## 四、前瞻分析
 
-- **MarketsandMarkets（2026-10-26）**：数据中心**冷却液分配单元（CDU）**市场 **2026 年 14.1 亿美元 → 2033 年 100.2 亿美元，CAGR 32.3%**（预测期 2026–2033）。分段：**2025 年**按**价值**计，**在排式（in-row）CDU 占 54.3%**、**超大规模数据中心占 77.0%**；预测期内**直连芯片冷却的 CAGR 最高、为 34.3%**（该项原文未标按价值计）；**北美**按**价值**计区域 CAGR 最高、为 **33.1%**。口径：CDU（设备）市场规模预测，与第 11 期所引同机构的「AI 数据中心液冷市场」及第 9 期的「含 Solution + Services 的全球数据中心液冷市场」**均不是同一数列**；稿中未披露方法论与基准年。来源：<https://www.prnewswire.com/news-releases/data-center-coolant-distribution-units-market-worth-10-02-billion-by-2033---exclusive-report-by-marketsandmarkets-302919164.html>
+- **MarketsandMarkets（2026-10-26）**：数据中心**冷却液分配单元（CDU）**市场 **2026 年 14.1 亿美元 → 2033 年 100.2 亿美元，CAGR 32.3%**（预测期 2026–2033）。分段：**2025 年**按**价值**计，**在排式（in-row）CDU 占 54.3%**、**超大规模数据中心占 77.0%**；预测期内**直连芯片冷却的 CAGR 最高、为 34.3%**（该项原文未标按价值计）；**北美**按**价值**计区域 CAGR 最高、为 **33.1%**。口径：CDU（设备）市场规模预测，与第 11 期所引同机构的「AI 数据中心液冷市场」及第 7 期的「含 Solution + Services 的全球数据中心液冷市场」**均不是同一数列**；稿中未披露方法论与基准年。来源：<https://www.prnewswire.com/news-releases/data-center-coolant-distribution-units-market-worth-10-02-billion-by-2033---exclusive-report-by-marketsandmarkets-302919164.html>
 
 > **备注**：本章节数字均为分析师估计，仅供参考。
+
+## 更正
+
+- **「含 Solution + Services 的全球数据中心液冷市场、2026 年 40.7 亿美元 → 2033 年 276.5 亿美元（CAGR 31.5%）」这组数字出自本刊第 7 期（2026-09-26）**，来源为 MarketsandMarkets 该报告页：<https://www.marketsandmarkets.com/Market-Reports/data-center-liquid-cooling-market-84374345.html>。**第 11 期「前瞻分析」节把该组数字记作「第 9 期所引」，该期号不再采用**——第 9 期未设「前瞻分析」节，未引用任何分析师数字。
 
 *—— 散热方案周报第 12 期*
