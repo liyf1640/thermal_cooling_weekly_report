@@ -301,3 +301,142 @@
 - **IEEE 结构化 `department` 字段**：**不采用**（见上文第 5 条）。
 
 **2026-11-02 维护者裁定（流程）**：第 12 期（窗口 2026-10-25 ~ 10-31）因第 11 期 PR 当时未合并而被跳期闸门拦下，**维护者决定不补**；下一期按例行节奏出，窗口自第 11 期（10-24）之后起算。另裁定：补全前期「待确认」项不再构成 rules 第 20 条 (a) 触发项。
+
+## 第 12 期（2026-11-07）
+
+**第 11 期挂账回应（逐条）**：
+1. **六条强相关 Elsevier 论文 + HAWFNO + ATE 133678 的摘要重试** → **全部仍三路全缺，一个都没取到。**
+   做法：每条各取一次 OpenAlex 单篇端点（`abstract_inverted_index`）与 Crossref `/works/<DOI>`（`abstract` 键），
+   112877 与 129752 另跑 `fetch_source.py`；HAWFNO 另试 `doi.org`（403）与 WebSearch（零命中）。
+   - `10.1016/j.icheatmasstransfer.2026.112877`（TPMS 微通道热沉 for chip cooling，created 2026-10-20）—— **第 2 次失败**
+   - `10.1016/j.icheatmasstransfer.2026.112866`（分段同轴屏蔽 TSV + 正弦针肋 for 3D IC，created 2026-10-19）—— **第 2 次失败**
+   - `10.1016/j.ijheatfluidflow.2026.110759`（液态金属微通道冷板 CPU 冷却，created 2026-10-20）—— **第 2 次失败**
+   - `10.1016/j.ijheatmasstransfer.2026.129752`（PFO-50 柔性尾板微柱阵列，created 2026-10-19）—— **第 2 次失败**；
+     ⚠️ **但其姊妹篇 SSRN 7670126（刚性尾板，created 2026-10-25）本期已核实并刊出论文卡**，两篇作者名单、自变量与载体均不同、属独立工作，已在双方记录里互相注明
+   - `10.1016/j.icheatmasstransfer.2026.112885`（新翅型与布局，created 2026-10-19）—— **第 2 次失败**
+   - `10.1016/j.icheatmasstransfer.2026.112841`（**HAWFNO** 混合注意力加权 FNO，created 2026-10-19）—— **第 2 次失败**；
+     ⚠️ **算例是否为电子冷却 / 冷板仍无法判定**，题名里的 "conjugate heat transfer"、"hot-spot" 不能当内容依据 → **按覆盖面闸门仍否决**
+   - `10.1016/j.applthermaleng.2026.133678`（南华大学 激光器制冷剂冷板数据高效多目标结构优化，created 2026-10-17）—— **第 3 次失败**；
+     单位与通讯作者（Youwei He）第 11 期已结清，**只缺摘要与数字**。顺带确认英文标题原文字面：
+     `Data-efficient multi-objective structural optimization and design space exploration of refrigerant-based cold plate for laser device`（Crossref 与 OpenAlex 一致）
+   **结论与建议**：这八条的共同点是 **Elsevier 未向 Crossref 交存 abstract、OpenAlex 因此也没有**，而 ScienceDirect 整域被出口策略拒绝
+   —— **不是取数方式的问题，是通道根本不存在**。本期已另试一条新路子（**arXiv 检索同名预印本**，5 个检索式全部零命中或无关），亦无效。
+   **请维护者裁定一个止损规则**（例如「同一条摘要连续 N 期取不到即结案、不再挂账」），否则这批条目会无限期占用每期的开篇动作。
+2. **第 11 期已刊条目中的「待确认」项** → **本期未重试，按上期自定的动作执行。**
+   上期动作写的是「**仅在 ScienceDirect 或 AIP 可达、或出版商补交存摘要时重试；不反复挂账**」。本期 ScienceDirect 整域仍不可达，
+   故 `10.1063/5.0355126`（圣三一 微柱架构：通讯作者 / 工质 / 4.8→8.9 W/cm²·K 所属构型）、`10.1063/5.0350893`（阿尔伯塔 PINN：通讯作者 / RANS 求解器与 Re 区间）、
+   `10.2139/ssrn.7656294`（SLM 增材制冷剂冷板：通讯作者 / 两组温度系仿真还是实测 / 压降升幅 / 制冷剂牌号）、
+   `10.1016/j.ijthermalsci.2026.111450`（昆明理工 沟槽-渐缩：19.96 K / 57.63% 的对照件 / CCM 与 CFM 全称 / 背景区热流与工质）、
+   `10.1016/j.ijheatfluidflow.2026.110754`（湖南大学 鲨鱼鳍侧壁：工质 / 流动状态与湍流模型 / Re 区间）**五条均未动**。
+   ⚠️ **AIP 两条（0355126、0350893）本期未单独试 `pubs.aip.org`** —— 下期若要动，这是唯一还没试过的通道。
+3. **产业侧三条「待确认」**：
+   - **Polar Data Centers 挪威 Herøya 41 MW / 可扩 100 MW 的 MW 口径** → **结案，不再挂账。** `polardatacenters.com` 本期仍不可读。
+     🔴 **但须纠正这条挂账的前提**：**41 MW / 100 MW 本身是有一手出处的 —— 出自 Vertiv 2026-10-21 一手稿**，
+     第 11 期已如实记为「MW 口径（供电 / IT 负载 / 制冷容量）稿中未说明 → 待确认」。
+     所以待确认的从来不是这两个数字，而是**其量纲口径**，且第 11 期标注正确 → **第 11 期记录维持不变、不需更正，本期不新增 Polar 条目**。
+     搜索里的「约 40 MW 初期、PUE 目标 1.12」追不到一手，**继续排除，且不得与 41 / 100 MW 并列或互相印证**。
+   - **3C（与 Datalec 合并）在液冷链条上的具体环节** → **仍未补到一手稿**，本期未检出 3C 另发产品稿。
+     刊物既有备注「不可读作冷板或 CDU 制造商」继续有效。**下期动作**：若该公司另发产品稿则核一次。
+   - **Delta 800 VDC L2L CDU 的 ATD / 供回水温度 / 尺寸 / 冗余等级** → **建议从「挂账待补」改判为「原稿未披露，结案」。**
+     `www.deltaww.com` 本期不可读；更关键的是第 11 期已逐字核过那份 2026-10-15 一手稿并明确记载**这些参数稿中均未给**
+     —— 既然一手稿本身就没有，这不是取数失败而是**稿方未披露**；继续当作可补的挂账挂下去，**会诱使后续周期去二手源凑数**。
+     第 11 期禁令继续有效：**SuperCDU-1500 与 GoCool 系列的 4–7.5 °C ATD 是别的型号，不得套用、不得并列、不得作为「同厂参考值」**；
+     亦不可与第 10 期 LITEON × DCX 的「2.6 MW + ATD 3 °C + N+1 冗余泵」互相代入。
+4. **InterPACK 2026 会后论文 DOI 复查**（会期 2026-10-26 至 10-29，**本期窗口内已结束**）→ **仍零命中，如实记录。**
+   `api.crossref.org/prefixes/10.1115/works` 按 created 2026-10-25~11-07 共 294 条（翻了前 100 条），**无 `ipack2026-*`**；
+   10.1115 前缀下 query 带 IPACK2026 零命中；全库 query "InterPACK electronic packaging thermal" + 窗口过滤 16 条无一为 InterPACK 论文；
+   直取 `10.1115/ipack2026-fm1` / `-fm2` / `-170001` 均 404。
+   ⚠️ **对照证据**：同期 ASME 的 **`msec2026-*`（MSEC2026，created 2026-11-04）与 `drivn2026-*`（DRIVN，created 2026-10-29）已上线**
+   → 说明 ASME 本身在交存，**InterPACK 只是滞后**。**下期动作**：再查一次 `ipack2026-*`。
+   会议程序页（`interpack.secure-platform.com`）与 ASME Digital Collection 本期未试。
+5. **`scripts/fetch_source.py` 改进建议** → **本期仍未自行改脚本，建议原样重提。**
+   该脚本仍**不打印 Crossref `created`**（判窗只能看 `published`，容易判错）、不打印 `author[].sequence` 与 OpenAlex 的 `is_corresponding`。
+   本期 scout 与 verifier 又各自绕开脚本直接取这三个字段。**建议把 `created`、`sequence`、`is_corresponding` 并入脚本**；
+   affiliation 一并打印 Crossref 的 `department` / `place`（便于看清原串结构，**采不采用另按规则 2 判**）。
+   ⚠️ 本期新增一条值得写进脚本说明的发现：**`curl` 直取 `www.datacenterdynamics.com` 会撞 Cloudflare 挑战**（只回约 5.8 KB "Just a moment..." 壳页，
+   加 `--compressed` 无效），**只有 `fetch_source.py`（urllib）能穿过** —— DCD 一律用该脚本取。
+
+**本期新挂账（第 13 期回应）**：
+1. **四条标题高度对口但摘要三路全缺的条目 —— 元数据已核清，本期未上站。**
+   与第 11 期六条同一处置：**从未上站、不存在已发布错误**；按第 11 期的既有判例（摘要取不到即不进刊物），本期只记档不刊出。
+   - **`10.1016/j.ijthermalsci.2026.111477`**（created **2026-11-03**，*IJTS* 233/111477）
+     `A two-phase microchannel cold plate system for AI data center GPUs: CHF-constrained GPU-HBM co-thermal management`
+     —— **本期标题层面最贴本刊主线的一条。** ⚠️ **作者名须以 Crossref（出版商）为准**：11 位 = Fengzhao Ni / Shihuan Zhang / Haoran Li /
+     Yonghai Zhang / **Xiang Ma** / Xiaoping Yang / **Jinjia Wei** / Gang Qu / Peng Liang / Yun Zhu / Shouqing Li
+     （**OpenAlex 把 Xiang Ma 作 "X Y Ma"、把 Jinjia Wei 作 "Jie Wei"，两者均不可用**）。
+     单位（OpenAlex 原串）：Ni / Shihuan Zhang / Yonghai Zhang / Ma / Yang / Wei → **西安交通大学 化学工程与技术学院**（原串另含国家重点实验室，按规则不写）；
+     Haoran Li、Shouqing Li → `China United Network Communications Co., Ltd, Shaanxi Branch`；Gang Qu、Yun Zhu → 同公司宁夏分公司；
+     Peng Liang → `China United Network Communications Group Co., Ltd` —— **即中国联通，属产学合作，值得在收录时点出**。
+     通讯作者：**Shihuan Zhang 与 Yonghai Zhang**（注：**Jinjia Wei 是第 7 位，非第一或通讯作者**）。
+   - **`10.1016/j.ijheatmasstransfer.2026.129813`**（created **2026-11-04**，IJHMT 274/129813）
+     `Scaling up embedded microfluidic cooling from millimeter to centimeter-sized chips`
+     作者 Wei Xiao / Zhiyao Jiang / Weiheng Li / **Bai Song（通讯作者）**；四位同串 → **北京大学 力学与工程科学系**（原串另含国家重点实验室，按规则不写）。
+     ⚠️ **本期专门试过 arXiv 检索该组预印本，5 个检索式全部零命中 → 确认 Bai Song 组这篇没有 arXiv 版。**
+   - **`10.1016/j.ijheatmasstransfer.2026.129793`**（created **2026-11-02**，IJHMT 274/129793）
+     `Research on manifold micro-jet impingement cooling technology for high-power thin-disk lasers`（激光器冷板，**在覆盖面内**）
+     ⚠️ **Crossref 把姓名装反了**（`given` 填的是姓），正确顺序取 OpenAlex display name：
+     **Chenjie Wang / Guangwen Jiang / Sen Yang / Saile Zhang / Qin Lei / Tianqi Zou / Wen-Quan Tao**。
+     单位：Chenjie Wang → **西安交通大学 能源与动力工程学院** + **中国科学院西安光学精密机械研究所**；
+     Jiang / Sen Yang / Saile Zhang / Qin Lei / Tianqi Zou → 中科院西安光机所；**Wen-Quan Tao（通讯作者）** → 西安交大能源与动力工程学院。
+   - **`10.1109/tcpmt.2026.3751096`**（created **2026-11-06**，IEEE TCPMT **Early Access**）
+     `A Network Model for Liquid Cooling in Data Center Servers utilizing an ML Model for Evaporative Chip Cooling`
+     作者 Kartik Upadhyay / Sumanta Acharya，Crossref 两位均为裸串 **`Illinois Institute of Technology`**（Chicago, IL, USA；无院系，不补写）。通讯作者取不到。
+   **下期动作**：以 OpenAlex 单篇端点各重试一次摘要，优先 111477 与 129813；若连同第 11 期六条一并仍缺，请按上文第 1 条的止损规则处理。
+2. **本期已刊条目中的「待确认」项（取到即补记）**：
+   - **`10.2139/ssrn.7670126`**（西安交大 刚性尾板微柱阵列）：**Zheng Weng、Shuaihua Ma、Zheng Li、Yuang Jiang 四位的单位**
+     （Crossref 六位 affiliation 全空、OpenAlex 这四位 `raw_affiliation_strings` 为空数组，SSRN 全文整域不可读）；
+     **1.49 K / 20.2% 所对应「代表性工况」的质量流速与热流密度**；**「低质量流速」的具体数值**。
+   - **`10.1109/wipdaeurope69886.2026.11747072`**（浙江大学 热管辅助 skived 翅片）：**通讯作者**（两位 `is_corresponding` 全 False）。
+     另：该条的 114.8 / 93.9 / 105.0 / 90.5 / 19.8 / 6.9 °C 与 65.2% **均取自 OpenAlex 交存索引重建的出版方摘要**，
+     Crossref 未交存 abstract、IEEE Xplore 不可读 → **数字未经第二通道交叉核**，下期若 Xplore 可读建议复核一次。
+   - **`10.1109/tcpmt.2026.3742181`**（东南大学 双蒸发器）：**通讯作者**（OpenAlex 四位 `is_corresponding` 两期复核均为 False）。
+   - **`10.1007/s40964-026-02044-5`**（比勒陀利亚大学 BPE）：**出版商页面的原始机构串**
+     （本期单位据 OpenAlex 原串取得，**非出版商页面直取**；`link.springer.com` 303 跳到 `idp.springer.com` 后 DNS 不解析，
+     第 7 期用过的 `citation_author_institution` 元标签法本期走不通）。
+   - **`10.1016/j.ecmx.2026.102444`**（Wallaga University FG-H TPMS）：**「冷却性能好 14.3%」的物理量**（原文只写 "14.3% better cooling performance"）；
+     湍流模型 "validated" 的**验证对象**。该刊为开放获取，ScienceDirect 可达后应能一次结清。
+3. **`10.3390/mi17111225`（BGA 焊点热-力耦合）—— 本期判为不收，记档备查。**
+   完整元数据已核清：作者 5 位 Yuqing Dong / Gang Nan / Zhihui Xie / Zhuoqun Lu / Yanlin Ge；
+   单位 **海军工程大学 动力工程学院**（前四位；Lu 另 Hunan University of Humanities, Science and Technology 能源与机电工程学院）、
+   **武汉工程大学 机械与电气工程学院**（Ge）；**通讯作者 Zhihui Xie 与 Yanlin Ge**；created 2026-10-26，*Micromachines* 17(11), 1225。
+   **不收的两个理由**：① **覆盖面偏弱** —— 摘要自述研究对象是 `BGA solder joints` 的热-力耦合性能，
+   **微通道强制液冷只是给定的边界条件**，摘要无任何一句以微通道冷却结构本身为研究对象（无通道几何、无流量 / 压降、无冷板优化）；
+   ② **其标题性数字 74.5% 口径读不到** —— 原文仅 `with a maximum reduction ratio of 74.5%`，**降低的是什么量、相对什么基准摘要未交代**，
+   `www.mdpi.com` 本会话不可读（connect_rejected + DNS 不解析）故无法从全文核清。
+   已核可用的两个数字（7.8 K、5.88×10⁻³ mm）**口径是「全部算例中该指标的极大值与极小值之差」、不是某两方案的差**，易被误读。
+   **下期动作**：若 MDPI 可读则核清 74.5%，再由维护者定是否补收；**在此之前 74.5% 不得使用**（已入排除清单）。
+4. **产业侧新挂账**：
+   - **nVent × AMD Helios 双后门 RDHx 的首发日期与首发渠道** —— 本期据 **DCD 以「Press Release」署名在赞助（Sponsored）版位刊出的通稿正文**翻案刊出，
+     **刊出日 2026-10-15 可核，首发日未核**。该页**非完整通稿**（被裁去公司简介段与媒体联系人）、**不含 NYSE 证券代码**
+     → **nVent 的证券代码不以该页为出处**。一手通道（nVent 官网与投资者站、GlobeNewswire、StockTitan）本期均不可读。
+     **下期动作**：若任一一手通道可读，核首发日与完整通稿；另核 RDHx 的热容量（**稿方未披露，非取数失败**）。
+   - **Nidec NIR3.0 的一手发布稿与原始发布日** —— 本期仅据 **DCD 记者署名（Dan Swinhoe）的自采报道**收录，
+     已在刊物里明示其证据口径弱于本期其他产业条目。`mynewsdesk.com` 与 `www.nidec.com` 本期均不可读。
+     **下期动作**：核一手稿、原始发布日、3.2 MW 的工况（供回液温度 / 趋近温差 / 流量）与外形尺寸、发布主体的具体事业部。
+     ⚠️ **「原型」与「Booth #E63」在该 DCD 页中零命中，未经核实前不得写。**
+   - **Cooler Master 2,500 kW 液-液 in-row CDU** → **结案为「二手来源不可用」，不再挂账。** `coolermaster.com` **连续三期不可读**，
+     且量级自相矛盾始终无法消解（990 GPM ≈ 3,747 LPM vs 产品页 1,500 LPM，差约 2.5 倍；ATD 4–5 °C vs 5 °C；转载中出现疑似笔误的「2,500 MW」）。
+     **在没有一手稿能裁定哪个数字为真的情况下，任何一个数字都不能写** → 整组数字已入排除清单，避免后续周期只捡其中一个来用。
+5. **取数通道变化（本期实测，与既往记录不符，请归档）**：
+   - **本期新增不可读**：`www.mdpi.com`（connect_rejected + DNS 不解析，**MDPI 全文本期读不到，这是新情况**）、
+     `kirj.ee`（爱沙尼亚科学院）、`link.springer.com`（303 → `idp.springer.com` 后 DNS 不解析，**第 7 期可用的 Springer 文章页法本期失效**）、
+     `www.globenewswire.com`（含文章页，非仅搜索页）、`www.nvent.com`、`investors.nvent.com`、`www.stocktitan.net`、`www.nidec.com`、
+     `www.coolermaster.com`、`polardatacenters.com`、`www.deltaww.com`、`www.datacenterdynamics.com/en/search/`（403，**文章页本身可读**）。
+   - **本期实测可读**：`api.crossref.org`、`api.openalex.org`（**单篇端点**）、`export.arxiv.org`、`arxiv.org/pdf`、`doi.org`、
+     `www.prnewswire.com`（含站内搜索与公司稿件列表页，**可取到精确 ET 时间戳**）、`www.datacenterdynamics.com`（**须带 www，且必须用 `fetch_source.py`**）。
+   - **已证无效、不必再试**：`doi.org` + Crossref 内容协商（unixsd XML）对 Elsevier 既无 abstract 也无 affiliation；
+     OpenAlex **批量 `?filter=doi:a|b|c` 稳定 429**（单篇端点正常，~3 s 间隔）。
+   - ⚠️ **判窗口径再次踩到**：`10.1016/j.ijheatmasstransfer.2026.129770` 的 **OpenAlex `created_date` 为 2026-08-27，比 Crossref `created`
+     2026-10-27 早两个月**；`10.1109/wipdaeurope69886.2026.11747072` 的 Crossref `issued` 只给会期月份 **2026-09**、而 `created` 是 **2026-11-02**。
+     **两例都再次证明：判窗只能用 Crossref `created`。**
+6. **本期的两处覆盖面裁定（agent 自行从严判，若维护者不同意请指正）**：
+   - **`10.1063/5.0353789`（青岛大学 TPMS 换热器，created 2026-11-02）→ 否决，覆盖面外。** 对象是**通用 TPMS 换热器**、基准是**传统 PCHE**，
+     工况以 Re 表征，无热流密度、无芯片 / 热源设定、无电子算例；摘要里涉及电子散热的文字**只有末句应用展望一句**：
+     `...provide physical guidance for the design of compact liquid-cooling systems, particularly for applications such as electronic
+     cooling and battery thermal management.` → 属「展望里泛提一句」，按覆盖面闸门不计入。已核数字留档见排除清单。
+   - **`10.3176/proc.2026.4.08`（塔林理工大学 AM 感知冷板拓扑优化，created 2026-11-02）→ 否决，覆盖面外。**
+     物理对象是**电机水冷套**（摘要首句 `high-power-density motors`、标题后缀 `for electric machine water jackets`），
+     "reduced-order **cold plate** model" 是**借用的降阶建模方法、不是物理对象**（原文 `framework **based on** a reduced-order cold plate model`）；
+     摘要**零**芯片 / 电子器件 / 功率半导体 / 数据中心字样；作者所属为**电力工程与机电系**。
+     与既有判例一致（第 11 期否决的 "Dual-Cooling-Media Cold Plate **for Electric Vehicles**"）。
+     **保留意见**：其方法（AM 可制造性正则化 + 降阶冷板模型拓扑优化）与冷板拓扑优化同源，若维护者希望在跨期方法清单留一行线索亦可，**但不进正文**。
