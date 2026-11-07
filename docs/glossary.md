@@ -72,3 +72,8 @@
 | SSTR | Steady-State Thermoreflectance | 稳态热反射：稳态加热下由反射率变化反演热导率（第 11 期） |
 | DLC-2 | Direct Liquid Cooling, 2nd gen | Supermicro 的第二代直接液冷栈名称（厂商命名，第 11 期） |
 | BBU | Battery Backup Unit | 机架级电池备电单元，用于替代常规 UPS（第 11 期） |
+| ODP | Ozone Depletion Potential | 臭氧消耗潜值：制冷剂/介电液对臭氧层破坏能力的相对指标（第 12 期） |
+| BPE | Bound Powder Extrusion | 粘结粉末挤出：金属粉末与粘结剂混合挤出成形，再脱脂烧结；与 M-FFF 同一路线（第 12 期） |
+| NPC | Neutral-Point Clamped | 中点钳位：三电平功率变换器的一种拓扑（第 12 期） |
+| DPWM | Discontinuous Pulse-Width Modulation | 断续脉宽调制：影响功率模块损耗分布的调制策略（第 12 期） |
+| ORW | Open Rack Wide | OCP 的宽机架规格，用于双宽 AI 机架（第 12 期） |

@@ -238,3 +238,72 @@ DC Market Insights 管道稿（2026-10-22）"Recent Developments" 节的二手�
 **（四）本期因「摘要三路全缺」否决的六条论文 —— 不是数字有误，而是一个数字都取不到**
 10.1016/j.icheatmasstransfer.2026.112877、10.1016/j.icheatmasstransfer.2026.112841、10.1016/j.ijheatfluidflow.2026.110759、10.1016/j.ijheatmasstransfer.2026.129752、10.1016/j.icheatmasstransfer.2026.112885、10.1016/j.icheatmasstransfer.2026.112866。
 **六条均从未上站，不存在已发布错误**；标题、作者、单位、通讯作者已核实留档于 `drafts/open-items.md` 第 11 期条目。**这六条不构成「已排除数字」，列此仅为避免下期误以为曾被否决而跳过** —— 下期若取到摘要，可按窗口外补记正常收录。
+
+---
+
+## 第 12 期（2026-11-07）已排除 / 存疑
+
+**（一）因覆盖面被否决的两篇 —— 数字本身已核通过，列此以备追溯，但不得作为本刊数据引用**
+- **`10.1063/5.0353789`**（青岛大学 机电工程学院 Zhenwei Zhang / **Qinghai Zhao（通讯）** / Yunyi Ma / Hangyu Sun / Yu Chen，
+  *Physics of Fluids* 38, 115101，created 2026-11-02）：5 种 TPMS（Primitive / IWP / Gyroid / Diamond / FRD）对比**传统 PCHE**、
+  同几何尺寸、**孔隙率 70%**、**Re 500–3000**、CFD + 增材样件实验验证；**Re=500 时 FRD 总换热量 +69%、总传热系数 +78%（基准 = PCHE）**；
+  归一化压降 **IWP 8.6 Pa/W 至 FRD 34.3 Pa/W**。
+  ❌ **否决理由：覆盖面外**（通用换热器，电子散热仅见于摘要末句应用展望）。**该条从未上站，不存在已发布错误。**
+- **`10.3176/proc.2026.4.08`**（塔林理工大学 电力工程与机电系 Yang Zhang / Martin Sarap / Toomas Vaimann / Ants Kallaste，
+  *Proc. Estonian Acad. Sci.* 2026(4) pp. 346–352，created 2026-11-02）：**摘要无任何数值**（全为定性结论）。
+  ❌ **否决理由：覆盖面外**（物理对象为电机水冷套）。**从未上站。**
+
+**（二）口径读不到、本期判为不可用的数字**
+- ❌ **`10.3390/mi17111225` 的「最大降低比 74.5%」**：原文仅 `with a maximum reduction ratio of 74.5%`，
+  **降低的是什么量、相对什么基准，摘要完全未交代**；`www.mdpi.com` 本会话不可读（connect_rejected + DNS 不解析），无法从全文核清。
+  **本期不可用。** 同篇已核可用的 **7.8 K** 与 **5.88×10⁻³ mm** 口径是「**全部算例中该指标的极大值与极小值之差**」、
+  **不是某两方案之差**，引用时若不带这一限定即为误读。该条本期整条未上站。
+
+**（三）Cooler Master 2,500 kW 液-液 in-row CDU —— 连续三期不可读，本期结案，整组数字永久排除**
+`coolermaster.com` 第 10、11、12 期**连续三期**不可读；量级自相矛盾始终无法消解。**以下整组数字一律不得使用，不得只取其中之一**：
+- ❌ **990 GPM（≈3,747 LPM）** 与 ❌ **1,500 LPM**（二者差约 2.5 倍，不可能同为同一参数）
+- ❌ **趋近温差 4–5 °C** 与 ❌ **5 °C**
+- ❌ 转载中出现的 ❌ **「2,500 MW」**（疑似笔误，无一手稿可证伪）
+- ❌ 标称 **2,500 kW** 本身（无一手出处）；❌ 同站 **1.4 MW** 型号亦标 1,500 LPM / 5 °C；❌ Q4 2026 量产目标；❌ 功耗约 **19.5 kW**；❌ 设施侧供水 **2–45 °C**
+
+**（四）nVent / AMD Helios 相关的第三方数字 —— 延续排除，本期已复核证据页干净**
+- ❌ **Helios 约 225–245 kW/机架**（来源 StockWirex，第三方站点，追不到一手）
+- ❌ **"RDHX Pro 78 kW @ 14 °C"** —— 系 nVent **另一款产品**的规格，**与 AMD Helios 双后门无关，勿混引**
+  （本期已逐字确认：所据的 DCD 赞助版位通稿页中这两项**均零命中**，证据页干净）
+- ⚠️ 另记：该 DCD 页**不含 NYSE 证券代码** → **「nVent (NYSE: NVT)」不得标到该页为出处**
+
+**（五）MarketsandMarkets CDU 市场稿（2026-10-26，一手直读）内转述的第三方事实 —— 一律不采用**
+该稿正文含一批**无一手出处、属该机构转述**的第三方内容。本刊**全部不采用**，记此备查：
+- ❌ **Vertiv 350 kW 与 2.3 MW CDU** 的产品规格转述。⚠️ 本刊 `companies.md` 已有**经一手核过**的 2.3 MW CoolChip 记录（第 7 期）
+  —— **要用就用本刊自己核过的那份出处，不要引这段**；**350 kW 一档本刊尚无一手出处**。
+- ❌ **Uptime Institute 2025 调查「69% 受访者」**（称更高机架密度是直接液冷采用的首要驱动）；❌ Uptime Institute 2026 的定性表述。
+- ❌ **融资年表整组**：2020 年 2 笔共 **USD 166.2M**、2021 年 4 笔 **USD 64.6M**、2022 年 3 笔 **USD 86.7M**、
+  2023 年 1 笔 **USD 17.0M**、2024 年 1 笔 **USD 20.0M**（来源未注）。
+  ⚠️ **注意与第 11 期已排除的另一组融资年表口径不同**（第 11 期那组出自同机构「浸没冷却液市场」稿），**两组都不得使用**。
+- ❌ **M&M 自家厂商评级**：「star players」= Schneider Electric、Vertiv Group Corp.、Delta Electronics, Inc.、nVent、DCX Liquid Cooling Systems；
+  「startups and SMEs」= Nortek Air Solutions、Excool Ltd、LNEYA Thermo Refrigeration Co., Ltd.（**分析师主观评级、非事实**）。
+- ❌ **Key Players 的国别标注**（Schneider/France、Vertiv/US、Delta/Taiwan、nVent/US、DCX/Poland）—— 不作本刊公司国别依据。
+- ❌ 「CDU 正越来越多地部署在**数百千瓦至兆瓦级**」（无出处的定性量级描述）；❌ 「2025 年北美为该市场领先地区」（M&M 自家结论）。
+
+**（六）伪一手稿 —— 新发现，须明确排除**
+- ❌ **《From Cooling to Backup Power, Data Center Demand Is Showing Up in Quarterly Results》**（PR Newswire，2026-10-28 14:37 ET）：
+  发稿主体为 **"Equity Insider"**，属**付费股评 / 荐股稿、不是公司一手稿**。
+  ⚠️ 该稿会在搜 "Vertiv Reports Strong Third Quarter 2026" 时一同命中，**极易被误当作一手产业事实**，特此排除。
+
+**（七）延续排除的既有项（本期检索中再次出现或仍适用）**
+- ❌ **Polar Data Centers「约 40 MW 初期、PUE 目标 1.12」**（DCD / w.media 等二手，追不到一手）：
+  ⚠️ **不得与 Vertiv 一手稿的「首期 41 MW、可扩至 100 MW」并列或互相印证** —— 后者有一手出处、待确认的只是 MW 的量纲口径（第 11 期已正确标注）。
+- ❌ **Delta SuperCDU-1500 与 GoCool 系列的 4–7.5 °C 趋近温差**：**属别的型号**，
+  **不得套用于 800 VDC L2L CDU、不得并列、不得作为「同厂参考值」**；亦不可与第 10 期 LITEON × DCX 的「2.6 MW + ATD 3 °C + N+1 冗余泵」互相代入。
+- ❌ **Dell'Oro 液冷市场整组**（2025 年近 30 亿美元、2029 年约 70 亿美元、冷板占约 47%）与 **Dell'Oro DCPI「2Q26 +27% 至 140 亿美元」**；
+  ❌ **Global Market Insights「2026 年 60 亿 → 2035 年 271 亿美元」**；❌ **Credence Research「高密度机架 2034 年 525 亿美元」**
+  —— 本期检索未再返回，**继续不采用**。
+
+**（八）不是「已排除数字」、仅记此避免下期误判的条目**
+下列条目**因摘要三路全缺而未上站，不是数字有误、也不是被否决过**，下期若取到摘要可按既有规则正常收录：
+`10.1016/j.icheatmasstransfer.2026.112877`、`112866`、`112885`、`112841`（HAWFNO）、`10.1016/j.ijheatfluidflow.2026.110759`、
+`10.1016/j.ijheatmasstransfer.2026.129752`、`10.1016/j.applthermaleng.2026.133678`（以上为第 11 期六条 + HAWFNO + ATE 133678 的重试失败）；
+以及本期新增四条 `10.1016/j.ijthermalsci.2026.111477`、`10.1016/j.ijheatmasstransfer.2026.129813`、
+`10.1016/j.ijheatmasstransfer.2026.129793`、`10.1109/tcpmt.2026.3751096`。
+**元数据（标题、作者序、逐位单位原串、通讯作者、Crossref `created`）均已核实留档于 `drafts/open-items.md` 第 12 期条目。**
+⚠️ **HAWFNO（112841）另有覆盖面问题**：算例是否为电子冷却 / 冷板**仍无法判定**，题名措辞不能当内容依据 → 即便取到摘要也须先过覆盖面闸门。
