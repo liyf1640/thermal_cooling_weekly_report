@@ -307,3 +307,107 @@ DC Market Insights 管道稿（2026-10-22）"Recent Developments" 节的二手�
 `10.1016/j.ijheatmasstransfer.2026.129793`、`10.1109/tcpmt.2026.3751096`。
 **元数据（标题、作者序、逐位单位原串、通讯作者、Crossref `created`）均已核实留档于 `drafts/open-items.md` 第 12 期条目。**
 ⚠️ **HAWFNO（112841）另有覆盖面问题**：算例是否为电子冷却 / 冷板**仍无法判定**，题名措辞不能当内容依据 → 即便取到摘要也须先过覆盖面闸门。
+
+---
+
+## 第 13 期（2026-11-14）已排除 / 存疑
+
+**（一）学术类 —— 覆盖面否决**
+- ❌ **`10.1038/s44435-026-00023-4`**（都柏林圣三一学院 斜切肋液冷微通道热沉，*npj Thermal Science and Engineering* 1(1) 文章号 21，created 2026-11-11）
+  —— **覆盖面否决（agent 从严判）**：标题＋摘要全文 `electron*` / `chip` / `CPU/GPU` / `data cent*` / `power device` /
+  `semiconductor` / `cold plate` / `device` **全部 0 次**，连 `cooling` 都 0（标题只有 `liquid-cooled`），
+  应用场景唯一表述为 `high heat-flux thermal management`。
+  ⚠️ **这不是「数字有误」** —— 数字已全核实并留档于 `drafts/open-items.md` 第 13 期第 4 条（PI 1.30–1.54、+40% / −18% / 湿润面积 −5%、
+  PC_Base_30° 的 +66% / +55%）。**已提请维护者裁定「MCHS 这一器件类别是否即构成闸门里的电子散热」**，裁定后可按结论收录。
+- ❌ **`10.1063/5.0353789`**（青岛大学 通用 TPMS 换热器）与 **`10.3176/proc.2026.4.08`**（塔林理工 电机水冷套）——
+  第 12 期已否决，本期口径延续，**继续不采用**。
+
+**（二）学术类 —— 摘要不可得 / 元数据冲突，无法核**
+- ❌ **`10.1016/j.ijheatmasstransfer.2026.129821`**（`Microstructure-controlled transport regimes in dielectric-fluid microchannel
+  flow boiling`，IJHMT 274/129821，created 2026-11-10）：摘要 Crossref / OpenAlex / arXiv **三路全缺** → **覆盖面无法核实**
+  （**不得从「介电液」推定电子散热**，题名亦无 electronic / chip / cold plate 字样）；无任何可引数字；
+  且**第一作者姓名两通道冲突**（Crossref `Fitsum H. Natnael` vs OpenAlex `Natnael F. Haile`，ORCID 域不可达无法裁决）。
+- ❌ **`10.1016/j.energy.2026.142969`**（压电多射流阵列强化冷却表面，created 2026-11-10）：摘要双缺，题名无电子/芯片字样，**不得据题名推定**。
+- ❌ **`10.1016/j.rineng.2026.114145`**（混合纳流体射流冲击「高热流器件」，created 2026-11-12）：摘要双缺，
+  **两通道 affiliation 均为空**（单位亦无从核），`high heat flux devices` 是否为电子器件无法确认。
+- ❌ **`10.1016/j.icheatmasstransfer.2026.113079`**（数据中心环路热虹吸系统级优化，ICHMT 181/113079，created 2026-11-09）：
+  摘要双缺 → 无法确认是否涉芯片级冷板（题名更像机房级系统）；末位作者姓名两通道冲突（Crossref `Yit Jing Ee` vs OpenAlex `Jing Ee Yit`）。
+- ❌ **`10.1109/tcpmt.2026.3751185`**（拓扑优化冷板抑制 AI 芯片热串扰，created 2026-11-13）：**元数据已核齐、摘要零获取** →
+  本期不上站，**但这不是被否决的数字**，已按第（八）类处理、记入 open-items（含 IEEE Xplore 文档号 11796570 线索）。
+
+**（三）学术类 —— 不在覆盖面 / 不属本角度（scout 扫到、未进核验或经核排除）**
+- ❌ `10.21203/rs.3.rs-11305335/v1`（Tecnalia 真空钎焊 binder jetting 件与 gyroid 点阵，created 2026-11-12）：
+  摘要全文**不含 cold plate / heat sink / electronics / cooling 字样**，属通用增材件钎焊连接，且为预印本 → 覆盖面外。
+- ❌ 电池冷板类：`10.1016/j.applthermaleng.2026.133878`（仿蜘蛛网流道）、`10.1016/j.ijthermalsci.2026.111441`（鲨鱼鳍针肋）、
+  `10.1016/j.rineng.2026.114156`（制冷剂直冷）—— 标题明示电池热管理 → 不在覆盖面。
+- ❌ 纯流体 / 无传热的方法类：`arXiv:2611.16341`（SUMNO 多重网格神经算子，v1 2026-11-12）、`arXiv:2611.12424`（H-PINN，v1 2026-11-09）、
+  `10.1016/j.compfluid.2026.107342`（GPU 加速格子 Boltzmann，无冷板依据）、`10.53365/nrfhh.4472`（光滑圆管 ML-CFD，**摘要自称仿真「将进行」、无结果**）。
+- ❌ `10.1016/j.measurement.2026.123850`（功率驱动器件退化建模 PINN）：属寿命退化、非传热建模。
+- ❌ `10.1016/j.tsep.2026.105002`（自由表面射流 + 混合纳米流体 CFD-ML 代理）：摘要无电子散热表述；
+  ⚠️ 另为**判窗判例**——Crossref created 2026-11-11 而 OpenAlex `created_date` 2026-09-16，**再次证明判窗只能用 Crossref `created`**。
+- ❌ 其他未过闸门者：`10.1007/s12206-026-1049-4`、`10.1007/s11630-026-2378-4`、`10.1016/j.trpro.2026.08.040`（AM 换热器文献计量综述）、
+  `10.1016/j.applthermaleng.2026.133956`（铜平板振荡热管）、`arXiv:2611.11716`（近结区电子熵输运主动冷却，属器件物理、未取摘要核）。
+- 🟡 `10.1016/j.rineng.2026.114102`（PCM 椭圆针肋热沉 + RNN，created 2026-11-11）：**覆盖面在内、本期不收（相关性弱，避免凑数）**，
+  **不是被否决的数字**，已核数字留档于 open-items 第 13 期第 4 条。
+
+**（四）产业类 —— 本期不收**
+- ❌ **Armada + Johnson Controls 都柏林 Galleon Forge Two**（一手稿 2026-11-11，PRN 03:00 ET）：**本期不收。**
+  全稿 `liquid cooling` / `cold plate` / `direct-to-chip` **零命中**，散热内容仅一句无数字的产品组合罗列
+  （`coolant distribution units, chillers, and building controls` + 无 WUE 数值的「零水冷却」）；
+  且**稿内两处口径矛盾**：① `at least 500 MW of capacity in 2027` 的 **capacity 口径稿中未定义**（制造产能？交付容量？部署 IT 容量？）；
+  ② **单机容量三处自相矛盾** —— 正文 `five Leviathan ... totaling more than 9 MW`（折算约 1.8 MW/台）、About 段 `10 MW Leviathans`、
+  正文又称 `multi-megawatt-scale`。
+  → ❌ **「10 MW Leviathan」与任何每台 MW 折算值一律不得使用**；❌ **「500 MW capacity」不得写成「产能」或「IT 容量」**。
+  （另记：302935706 与 302935710 经逐段比对确认为**同一稿重复发布**，另有德/法/西语版，**算一个事件**。）
+- ❌ XNRGY（2026-11-09，10 月出货约 115 台冷水机 + 500 台空侧设备、共 >350 MW）：属冷水机 / 风冷产能，非液冷。
+- ❌ Teadit 垫片稿：PRN 列表时间戳 Nov 13 14:13 ET 而正文落款 `VADODARA, India, Nov. 14, 2026`，**两者不一致**；内容为密封件营销。
+- ❌ Compal SC26（11-10，仅列 OG430-2-L1 / OG231-2-L1 型号、无冷却参数）；❌ Supermicro H15 EPYC 9006 出货（11-11，前段无液冷要点）；
+  ❌ LITEON electronica（11-11，光互连）。
+
+**（五）产业类 —— 已刊条目中明令不得外推 / 不得代入的数字**
+- ❌ **把 Project Deschutes 的「2 MW @ 趋近温差 3 °C」中的 3 °C 代入 Delta 800 VDC 2.5 MW L2L CDU** —— 两个不同型号，严禁串用。
+  该机型的 ATD / 供回水温度 / 尺寸 / 冗余等级**两份一手稿（第 11、13 期）均未披露**。
+  （第 11 期既有禁令继续有效：**Delta SuperCDU-1500 与 GoCool 系列的 4–7.5 °C ATD 属别的型号**，不得套用、不得并列；
+  亦不可与第 10 期 LITEON × DCX 的「2.6 MW + ATD 3 °C + N+1 冗余泵」互相代入。）
+- ❌ **Delta「3,000 W 计算部件」在不加稿内归属矛盾说明的情况下使用** —— 导语挂 Power Shelf Embedded Cold Plate、
+  细节段挂 VPD 双面冷却方案，两处归属不一致；本期按细节段同句规格组写在 VPD 名下**并在备注写明该不一致**。
+- ❌ **Frore 的 12 °C / 22 °C / +25% / +35% 在不注明「稿中未给对比基线」的情况下使用**；
+  ❌ **严禁为其补写「相对风冷」「相对常规冷板」「相对自家前代」任何基线**。
+- ❌ **Frore「独角兽 / unicorn」及任何估值表述**（稿中无估值、无融资轮次、无投资方、无第三方来源）。
+- ❌ **Frore 的「每 token 省约 20% / 约 26% 能耗与水」、「每 100 MW 可做约 135 MW 的活」、「三座数据中心顶四座」** —— 整组不用。
+- ❌ **把 Frore 的热点功率密度（hotspot power density）670 / 770 W/cm² 与 Delta 的热流密度（heat flux）>170 W/cm² 并列比较** —— 两者口径不同。
+- ❌ **Daikin 欧洲侧 CDU 的「400 kW~2.5 MW」「最多十台联控」「戛纳展出」「订单开放日 2026-11-01 或 2027-11-01」「稿日 2026-11-02」** ——
+  一手源 `www.daikin.eu` 403 / DNS 不解析，**全部未核**；唯一旁证是 Wissen Research 稿内的二手汇编（且该稿写作 "In October 2026"，与线索日期不符）。
+  ⚠️ **不得与已核的 Daikin Applied（美国）「自家 CDU 仍在开发中、目标 2027 下半年」并列或互相印证。**
+- ❌ **Chatsworth 的 48V DC 电源托架 18–33 kW 与母排 350–2500 A 与散热容量混写** —— 二者是电气侧参数；
+  ZutaCore 集成方案与 CoolStream RDHx **本身零散热数字**，不得代入其他型号参数。
+- ❌ **Vertiv「容量为传统面板式 RPP 的 3~5 倍」在不标「厂商宣称」与不写明基准（`traditional panelboard-based RPPs`）的情况下使用。**
+
+**（六）分析师稿内的二手转述 —— 一律不引用**
+本期「前瞻分析」节只采用 Wissen Research 的**核心三数字 + 口径定义**（2026 年 195 亿美元 / 2031 年 420 亿美元 / CAGR 16.5%）。
+同一稿内其余数字**均为该机构对第三方或厂商公开资料的转述、无测算无方法无出处链接**，一律排除：
+- ❌ 厂商规格汇编：**Vertiv CoolLoop RDHx 80 kW/机架**、**Boyd ROL2300 CDU 2.3 MW 与「单台支持 >10 个 NVIDIA NVL72 机架」**、
+  **JCI Silent-Aire CDU 500 kW~>10 MW**、**Carrier CDU 1.3~5 MW**（原文句式为 `Suppliers are building out the hardware:` 后的规格罗列）。
+- ❌ 第三方调研转述：**DOE COOLERCHIPS 1.5（1 MW/机架，称 2026-08-26 公布）**、**Uptime Institute 2025 调查 75% / 35% / 22%**、
+  **ICEF 95%**、**CBRE 北美 9,432 MW / +36% / 吸纳 2,497.6 MW / +38% / 空置率 1.4%**、**JLL 约 35 GW 管道 / 64%**、
+  **APAC 投资 116 亿美元 / 26.5 GW / 约 50%**、**印度 375 MW→1,500 MW**、**Carrier Fort Worth >6 亿美元 / >100 万平方英尺**、
+  **Schneider 2026-02-18 班加罗尔工厂**。
+  其中 DOE COOLERCHIPS 1.5 与 Uptime 75% 已挂账，待取一手源后另期再议。
+- ❌ MarketsandMarkets 2026-11-13 的 Data Center Power Market（2031 年 524.3 亿美元）与 Laminated Busbar 稿 —— **非冷却市场**，不入文。
+
+**（七）NVIDIA 相关 —— 继续排除**
+- ❌ 本期检索得到的二手 / 转述 **Rubin GPU 单芯片功耗说法（2,300 W / 1,800 W / 3,600 W，归属 Rubin Ultra 或 NVL144 各说不一、互相矛盾）**
+  —— 追不到任何一手，**一律不得引用**。本期两条提到 NVIDIA 的一手稿（Daikin Applied D60-W、第 11 期 Delta）
+  **均无任何 NVIDIA 冷板规格、单芯片 TDP、单机架功率或流量水温要求**。
+
+**（八）不是「已排除数字」、仅记此避免下期误判的条目**
+下列条目**因摘要取不到而未上站，不是数字有误、也不是被否决过**，取到摘要后可按既有规则正常收录：
+- 🟢 **`10.1109/tcpmt.2026.3751096`（伊利诺伊理工 DCEC 冷板网络模型）本期已取到摘要并上站（第 13 期），从本类移出。**
+  取法：**OpenAlex 单篇 DOI 端点**，在 Crossref `created`（2026-11-06）后约一周出现 → **IEEE 条目值得隔期重试**。
+- 仍在本类的条目：`10.1016/j.ijthermalsci.2026.111477`、`10.1016/j.ijheatmasstransfer.2026.129813`、
+  `10.1016/j.ijheatmasstransfer.2026.129793`（以上三条本期为**第 2 次**重试失败，均 Elsevier）；
+  第 11 期六条 `10.1016/j.icheatmasstransfer.2026.112877`、`112866`、`112885`、`112841`（HAWFNO，**另有覆盖面问题**）、
+  `10.1016/j.ijheatfluidflow.2026.110759`、`10.1016/j.ijheatmasstransfer.2026.129752`，以及 `10.1016/j.applthermaleng.2026.133678`；
+  本期新增 `10.1109/tcpmt.2026.3751185`（IEEE，元数据已核齐、Xplore 文档号 11796570 已取得）。
+  **Elsevier 诸条的共同点是出版商未向 Crossref 交存 abstract、OpenAlex 因此也没有，而 ScienceDirect 整域不可达 —— 不是取数方式的问题。**
+  ⚠️ **止损规则仍待维护者裁定**（第 12 期已提请一次，本期重提；建议「同一条摘要连续 3 期取不到即结案、移出挂账」）。

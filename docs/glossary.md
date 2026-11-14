@@ -77,3 +77,21 @@
 | NPC | Neutral-Point Clamped | 中点钳位：三电平功率变换器的一种拓扑（第 12 期） |
 | DPWM | Discontinuous Pulse-Width Modulation | 断续脉宽调制：影响功率模块损耗分布的调制策略（第 12 期） |
 | ORW | Open Rack Wide | OCP 的宽机架规格，用于双宽 AI 机架（第 12 期） |
+| DCEC | (two-phase) Direct-to-Chip Evaporative Cooling | 两相直触芯片蒸发冷却：冷却液在贴芯片的冷板内蒸发相变带走热量（第 13 期；**原文全称带 two-phase**） |
+| NITEC | Nanofluidic Ionic Thermoelectric energy Conversion | 纳流体离子热电能量转换：靠纳流道内离子的热扩散产生电势，用于余热取能（第 13 期） |
+| MCJHS | Microchannel array Jet impingement Heat Sink | 阵列射流冲击与微通道复合热沉（第 13 期原文缩写） |
+| TPF | Thermal Performance Factor | 热性能因子：换热增益与流动阻力代价的综合评价量（第 13 期） |
+| LBM | Lattice Boltzmann Method | 格子 Boltzmann 方法：以离散速度分布函数演化求解流动与相变的介观方法（第 13 期） |
+| l.u. | lattice unit | 格子单位：LBM 中的无量纲长度单位，**不经换算不等于物理尺寸**（第 13 期） |
+| pPUE | partial Power Usage Effectiveness | 局部能源使用效率：只统计某一边界（如服务器级）内的总功耗与 IT 功耗之比（第 13 期） |
+| WUE | Water Usage Effectiveness | 水使用效率：数据中心年耗水量与 IT 能耗之比（第 13 期） |
+| VPD | Vertical Power Delivery | 垂直供电：供电模块置于负载正下方以缩短供电路径的板级架构（第 13 期） |
+| OAC | Open Adapter Card | OCP 的开放适配卡规格（第 13 期） |
+| UQD | Universal Quick Disconnect | 通用快断接头：液冷回路免工具插拔、断开自密封的接头（第 13 期） |
+| RCU | Rack Containment Unit | 机架容纳单元：在机架处捕获残余热并送入冷却回路的风冷封闭单元（第 13 期） |
+| RPP | Remote Power Panel | 远程配电盘：机房内二次配电盘，向机架分路供电（第 13 期） |
+| MCCB | Molded Case Circuit Breaker | 塑壳断路器（第 13 期） |
+| PFAS | Per- and Polyfluoroalkyl Substances | 全氟与多氟烷基物质：受监管的含氟化合物族，冷却液合规的关键约束（第 13 期） |
+| HT1 | NSF Category HT1 | NSF 对**可能偶发接触食品**的传热流体设立的注册类别，**不等同于可食用**（第 13 期） |
+| TIM | Thermal Interface Material | 热界面材料：填充芯片与冷板之间空隙以降低接触热阻（第 13 期） |
+| MEMS | Micro-Electro-Mechanical Systems | 微机电系统：以半导体工艺制作的微型传感器与执行器（第 13 期） |
