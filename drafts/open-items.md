@@ -461,3 +461,130 @@
 - **规则同步**：rules 第 20 条触发项 (a)「更正前期内容」删除——前期写错的陈述只在新一期「更正」节标注、不回改已发布期次的文件，
   写完照常自审自合；第 2、25、26 条与 SKILL.md、TEMPLATE.md 同步改写。触发项只剩 (b) 撤回已发布数字（收回后没有更正值可替的那种）。
 - nVent × AMD（DCD 赞助版位刊出的通稿）与 Nidec NIR3.0（DCD 记者报道）两条的证据等级，维护者未另作裁定，按稿内已写明的口径随本期上站。
+## 第 13 期（2026-11-14）
+
+**第 12 期挂账回应（逐条）**：
+
+1. **四条标题高度对口但摘要三路全缺的条目重试** → **一条取到、三条仍缺。**
+   - 🟢 **`10.1109/tcpmt.2026.3751096`**（Illinois Institute of Technology，DCEC 冷板网络模型 + ML 代理）—— **摘要本期已从 OpenAlex 单篇端点取到**，
+     本期已作为论文卡收录。Crossref `created` **2026-11-06**（落在第 12 期窗口内、系上期漏收），按 rules 第 5 条**如实写原始日期、不加补记标注**。
+   - 🔴 **`10.1016/j.ijthermalsci.2026.111477`**（两相微通道冷板 for AI GPU，CHF 约束 GPU-HBM 协同）—— **第 2 次失败**（OpenAlex 单篇端点，`abstract_inverted_index` 为 null）
+   - 🔴 **`10.1016/j.ijheatmasstransfer.2026.129813`**（北京大学 嵌入式微流体冷却从毫米放大到厘米级芯片）—— **第 2 次失败**（同上）
+   - 🔴 **`10.1016/j.ijheatmasstransfer.2026.129793`**（西安交大 × 中科院西安光机所 薄片激光器歧管微射流冲击）—— **第 2 次失败**（同上）
+   **结论**：Elsevier 三条的共同点仍是**出版商未向 Crossref 交存 abstract、OpenAlex 因此也没有**，ScienceDirect 整域 403；
+   而 IEEE 一条在 created 后约一周出现了摘要 → **IEEE 条目值得隔期重试，Elsevier 条目重试无效**。
+2. **第 11 期六条 + ATE 133678 的摘要止损规则** → **维护者上期未裁定，本期原样重提。**
+   本期未再对这七条发起重试（第 12 期已连续失败两到三次，且通道性质未变）。
+   **请维护者裁定一条止损规则**，建议：**同一条摘要连续 3 期取不到即结案、移出挂账，只留在 `drafts/excluded-numbers.md` 第（八）类备查**；
+   若将来 ScienceDirect 通道恢复可用，再由当期 scout 作为新发现重新提出。
+3. **AIP 两条（`10.1063/5.0355126`、`10.1063/5.0350893`）的唯一未试通道 `pubs.aip.org`** → **本期已试，不可达（CONNECT tunnel failed, 403），该通道就此排除。**
+   这两条的「通讯作者 / 工质 / 4.8→8.9 W/cm²·K 所属构型 / RANS 求解器与 Re 区间」**按上期自定动作结案、不再挂账**。
+   同组另三条（`10.2139/ssrn.7656294`、`10.1016/j.ijthermalsci.2026.111450`、`10.1016/j.ijheatfluidflow.2026.110754`）
+   因 ScienceDirect / SSRN 仍整域 403，**本期未动、一并结案**。
+4. **InterPACK 2026 会后论文 DOI 复查（`ipack2026-*`）** → **第 3 次零命中，如实记录。**
+   `api.crossref.org/prefixes/10.1115/works` 按 created 2026-11-01~11-14 共 **382 条**，分 4 页（offset 0/100/200/300）全部拉取，
+   **DOI 或标题含 ipack 的为 0 条**；query.bibliographic "IPACK2026" / "InterPACK 2026" 亦零命中。
+   同前缀下新上线的是 `msec2026-*`（created 2026-11-04）与 **`fedsm2026-*`（created 2026-11-13）** → **ASME 仍在交存，InterPACK 单独滞后**。
+   **建议**：会期已过去两周半仍未交存，**改为每两期查一次**，不必每期占开篇动作。
+5. **`scripts/fetch_source.py` 改进建议** → **本期仍未自行改脚本，第 3 次原样重提。**
+   该脚本仍不打印 Crossref `created`（判窗只能看 `published`，容易判错）、不打印 `author[].sequence` 与 OpenAlex 的 `is_corresponding`。
+   本期主代理与两名 verifier 又各自绕开脚本直接取这三个字段。**建议把 `created`、`sequence`、`is_corresponding` 并入脚本**。
+   ⚠️ 本期新增一条值得写进脚本说明的实测：**`pubs.aip.org` 经代理 CONNECT 403**（与 ScienceDirect / SSRN 同类，整域不可达）。
+
+**本期新挂账（第 14 期回应）**：
+
+1. **`10.1109/tcpmt.2026.3751185` —— 本期题名最对口的一条，元数据已核齐、摘要零获取，未上站。**
+   `Addressing Thermal Crosstalk in AI Chips and Heterogeneous Packages with Topology-Optimized Cold Plates`
+   （Crossref `created` **2026-11-13T20:18:56Z**，IEEE TCPMT **Early Access**，`page` 1-1）
+   作者 Jaswanth Sai Bangaru Garu（first）/ Zubair Shaikh / Taehwan Kim / Jae Choon Kim / Jaeho Lee；
+   Crossref `name` 原串：三位为裸串 **`University of California`**（⚠️ **校区未写明**，`place` 字段为 `Irvine, CA, USA`，
+   但按 rules 第 2 条不写城市/州省，且 `name` 串里没有校区 → **正文只能写到 University of California，不得推定为欧文分校**）；
+   Taehwan Kim 与 Jae Choon Kim 为 **`Samsung Electronics Co., Ltd`**（`place` `Hwasung, Republic of Korea`）。
+   三位 UC 作者另有结构化 `department: ['Department of Mechanical and Aerospace Engineering']` → 按 2026-11-02 裁定**不采用**。通讯作者取不到。
+   已试并失败：OpenAlex 单篇 DOI 端点 **404（两次）**、OpenAlex `?search=` 标题检索 **429 ×4**、IEEE Xplore 整域 403、
+   Semantic Scholar 403、arXiv 两个检索式各 0 条。
+   🟢 **已取得下期线索**：经 `doi.org` 跳转头解析出 **IEEE Xplore 文档号 11796570**。
+   **下期动作**：以该文档号再试一次 Xplore；OpenAlex 单篇端点隔期重试（本期 IEEE 的 3751096 正是在 created 后约一周才出现摘要）。
+2. **本期已刊条目中的「待确认」项（取到即补记）** —— 本期全部条目的摘要与单位**均只能由出版商交存元数据取得、出版商页面无一可直读**：
+   - **`10.3390/mi17111312`**（元智大学 × CerTone MEMS 微传感器）：**通讯作者**（Crossref 无标注、OpenAlex 五位全 False）；**商用冷板的厂牌与型号**
+   - **`10.1109/tcpmt.2026.3751096`**（伊利诺伊理工 DCEC）：**通讯作者**；**42% 与 97% 各自的对照基准**（原文未写明）；热流密度、工质牌号、pPUE 数值
+   - **`10.1016/j.enss.2026.100194`**（西安交大 NITEC + 针肋冷板）：**四个数字各属仿真还是实验**（摘要称两者并用但未区分）
+   - **`10.1088/2631-8695/aebd48`**（西安光机所 分区液冷板）：**4.41 K→1.50 K 的对照件**；热流密度、工质、流量；**通讯作者**
+     （⚠️ OpenAlex 五位 `is_corresponding` **全为 True**，判为 IOP 交存伪影、不可点名）
+   - **`10.3390/surfaces9040094`**（山东工商学院 MCJHS + 多孔骨架）：射流速度 / 多孔填充厚度 / 热流密度的**参数区间**；最大表面温度与**压降绝对值**
+   - **`10.21203/rs.3.rs-11578799/v1`**（University of Misan × 布鲁内尔 流动沸腾对比）：**三种构型的具体尺寸**；**压降数值**；通讯作者；**所投期刊名**
+   - **`10.1115/fedsm2026-184041`**（罗切斯特理工 ML 预测）：通讯作者；**ML 代理自身的精度指标**；翅片高度与宽度的尺寸区间
+   - **`10.1063/5.0359276`**（西安交大 × 南洋理工 均热板 LBM）：通讯作者；**格子单位对应的物理腔高**；热流密度与绝对热阻值
+   - **`10.3389/fmech.2026.1965238`**（纽黑文大学 横向肋）：**压降的量化值**；热流密度与绝对壁温
+   **下期动作**：仅在相应出版商域恢复可达时重试；**不反复挂账**。
+3. **产业侧挂账**：
+   - **Delta 800 VDC 2.5 MW L2L CDU 的 ATD / 供回水温度 / 尺寸 / 冗余等级** → **判为「稿方未披露 + 产品页不可达」**。
+     本期两份 Delta 一手稿（第 11 期的 OCP 稿、本期的 SC26 稿）均未给这四项；`www.deltaww.com` **连续第二期 403**，
+     备用域 `www.delta-americas.com` 根路径与产品页**亦 403**。**下期动作**：若任一域恢复可达则核一次；否则**结案**（稿方本身未披露，继续挂下去会诱使去二手源凑数）。
+   - **Daikin 欧洲侧 CDU 稿（称 400 kW~2.5 MW、稿日约 2026-11-02、订单开放日各来源冲突）** → **本期一手源完全不可达，整条否决、未写入刊物。**
+     `www.daikin.eu`（带/不带 www）403，WebFetch 报 `getaddrinfo ENOTFOUND`（**该域在会话网络白名单外**）；`www.daikin.com/press/2026/` 403；
+     DCD 搜索路径 403、`/en/news/cooling/` 404、`/en/news/` 列表只到 11-13 且无该条。
+     ⚠️ **本期唯一找到的旁证恰是不可用的二手源**：Wissen Research 稿内有一段称「2026 年 10 月 Daikin Industries 推出 AI 数据中心 CDU 产品线、
+     单机达 2.5 MW、起于 400 kW、最多十台联控、在戛纳某行业大会展出」——市场研究公司 PR 里的二手汇编，**且稿期写作 October 2026 与线索的 11-02 不符**，按 rules 第 1 条不作证据。
+     ⚠️ **不得把该欧洲侧线索与本期已核的 Daikin Applied（美国）「自家 CDU 仍在开发中、目标 2027 下半年」并列或互相印证** —— 两者可能是不同法人实体。
+     **下期动作**：**请维护者把 `www.daikin.eu` 加入会话网络白名单**，否则该条永远无法核。
+   - **DOE COOLERCHIPS 1.5（称 2026-08-26 公布、目标 1 MW/机架）与 Uptime Institute《2025 Cooling Systems Survey》的 75%** →
+     本期仅见于 Wissen Research 稿的二手转述，**本刊未取得 DOE 公告与 Uptime 原报告 → 未引用**。
+     **下期动作**：单独去核 DOE 与 Uptime 一手源；取不到即结案，不反复挂账。
+   - **3C Datalec 在液冷链条上的具体环节** → **本期仍未检出该公司新稿**（PRNewswire 搜 `Datalec` 与 `3C Datalec`，最新稿仍为 2026-10-14/15 合并公告本身）。
+     刊物既有备注「不可读作冷板或 CDU 制造商」继续有效。**下期动作**：若该公司另发产品稿则核一次。
+4. **本期的覆盖面裁定（agent 自行从严判，若维护者不同意请指正）**：
+   - **`10.1038/s44435-026-00023-4` → 从严否决，未上站。** *npj Thermal Science and Engineering* 1(1) 文章号 21，created 2026-11-11，
+     `Numerical investigation of the thermal-hydraulic performance of liquid-cooled oblique-cut-fin microchannel heat sink configurations`，
+     **Prasad Kangude**（第一、通讯作者）/ **Anthony James Robinson**，均 **都柏林圣三一学院 机械、制造与生物医学工程系**。
+     否决依据：verifier 对标题＋摘要全文作关键词计数 —— `electron*` **0**、`chip` **0**、`CPU/GPU` **0**、`data cent*` **0**、
+     `power device` **0**、`semiconductor` **0**、`cold plate` **0**、`device` **0**，连 `cooling` 都 **0**（标题里只有 `liquid-cooled`）；
+     应用场景唯一表述为 `high heat-flux thermal management` → 按闸门「摘要须明确涉及冷板/芯片/功率半导体/电子散热」**不满足**。
+     已核数字留档（裁定后可直接用）：PC_3_30° 的 **PI 1.30–1.54**；该构型换热系数**最多 +40%**、压降**最多 −18%**、
+     湿润面积比基准**少 5%**（基准＝直肋基准件）；另 PC_Base_30° 换热**平均 +约 66%** 但流阻**平均 +约 55%**；
+     八种构型分 symmetric(SC) / periodic(PC) × 30° / 60°；**无热流密度、无绝对温度、无 Re 具体区间**。
+     🔴 **请维护者裁定一条通则**：**「液冷微通道热沉（MCHS）」这一器件类别本身，是否即构成闸门里的「电子散热」**？
+     本期按「摘要字面无电子散热表述即不收」从严处理，但 MCHS 在本刊历史上多期作为芯片级冷板器件收录（第 8、10 期等），
+     口径若不统一，日后同类条目的收否会随摘要措辞波动。
+   - **`10.1016/j.rineng.2026.114102` → 覆盖面在内、但本期不收（相关性弱，避免凑数）。**
+     PCM 椭圆针肋热沉 + RNN 预测，created 2026-11-11，*Results in Engineering* 文章号 114102；
+     **Mehdi Barzegar**（第一）/ **Vali Kalantar**（**通讯作者，为第二作者、不是末位**）/ Mohammad Sefid / Sina Soleimani
+     —— 前三位 **亚兹德大学 机械工程系**、Soleimani **亚兹德大学 计算机工程系**。
+     闸门依据 `passive thermal management of transient heat-generating electronic systems`（在内）；
+     但对象是**被动 PCM 针肋热沉、非液冷冷板**，热流量级 **1 / 5 / 10 kW/m²** 偏低。
+     已核数字留档：石蜡 **RT44HC** + 铝针肋；椭圆纵横比 **1–4**、针数 **63–189**；
+     **10 kW/m² 下 63 针 + AR=4 相对同为 63 针的 AR=1** 取得最大瞬时基底温降 **8.1 K**、强化比 **5.3**；设定点温度 **60 °C**；
+     1 kW/m² 下这些参数对温降影响很小；RNN 用数值数据训练、**无精度指标**。
+5. **姓名 / 刊名差异记档（不进「更正」节——均为从未上站的候选条目）**：
+   - **`10.1016/j.ijheatmasstransfer.2026.129821`**（已否决）：第一作者 Crossref `Fitsum H. Natnael` vs
+     OpenAlex `Natnael F. Haile`（ORCID 0000-0002-7184-4222），**姓氏完全不同**；`pub.orcid.org` 本期 403 无法裁决。
+     三位作者 Crossref affiliation 全空，OpenAlex 原串为 `Department of Mechanical Engineering, University of California,
+     Santa Barbara, 93106, CA, USA`（Yangying Zhu 为通讯）。**下期若 ScienceDirect 可达则裁决姓名**。
+   - **`10.1088/2631-8695/aebd48`**（已上站）：末位作者 Crossref `Jiatao Wang` vs OpenAlex `J.C. Wang` → **本期采 Crossref 全名**。
+   - **`10.1016/j.icheatmasstransfer.2026.113079`**（已否决）：末位作者 Crossref `Yit Jing Ee` vs OpenAlex `Jing Ee Yit`。
+6. **InterPACK 2026 会后论文 DOI（`ipack2026-*`）** → **第 3 次零命中。**
+   prefix 10.1115、created 2026-11-01~11-14 共 **382 条**（offset 0/100/200/300 全部拉取），DOI 或标题含 ipack 的 **0 条**；
+   query.bibliographic "IPACK2026" / "InterPACK 2026" 亦零命中。同前缀新上线的是 `msec2026-*`（created 11-04）与
+   **`fedsm2026-*`（created 11-13，本期已从其中收录一条）** → **ASME 仍在交存，InterPACK 单独滞后**。
+   **建议**：会期（2026-10-26~10-29）已过去两周半仍未交存，**改为每两期查一次**，不必每期占开篇动作。
+7. **`scripts/fetch_source.py` 改进建议（第 3 次原样重提）**：仍不打印 Crossref `created`、`author[].sequence` 与 OpenAlex `is_corresponding`。
+   本期主代理与两名 verifier 又各自绕开脚本直接取这三个字段。**建议把这三个字段并入脚本。**
+8. **网络白名单（本期最大的取数瓶颈，请维护者裁定）**：本期学术侧**全部证据只能来自 Crossref 与 OpenAlex 的交存元数据**，
+   以下域全部 CONNECT 403 或 DNS 不解析，各试一次后放弃：
+   `www.mdpi.com`、`iopscience.iop.org`、`www.nature.com`、`www.researchsquare.com`、`ieeexplore.ieee.org`、
+   `api.semanticscholar.org`、`pub.orcid.org`、`pubs.aip.org`、`www.daikin.eu`、`www.daikin.com`、
+   `www.deltaww.com`、`www.delta-americas.com`、`www.datacenterdynamics.com/en/search/`（**搜索路径**；稿件页与 `/en/news/` 列表页可读）。
+   ⚠️ 另：**OpenAlex 的 `?search=` 与 `?filter=title.search:` 端点本期一律 429（重试 4 次无效）**，只有单篇 DOI 端点可用
+   —— 这使「按标题找同名预印本 / 找缺失摘要」这条路本期整体失效。
+   **建议优先加白**：`www.mdpi.com`、`iopscience.iop.org`、`www.nature.com`、`ieeexplore.ieee.org`、`www.daikin.eu`。
+9. **可用通道记档（供下期直接沿用）**：
+   - 学术：`api.crossref.org/works/<DOI>`、`api.openalex.org/works/https://doi.org/<DOI>`（**仅单篇端点，~3 s 间隔**）、
+     `export.arxiv.org/api/query`、`arxiv.org/pdf`
+   - 产业：`www.prnewswire.com` 稿件页**与** `www.prnewswire.com/search/all/?keyword=…`
+     （🟢 **本期新确认：该搜索路径可取到精确 ET 时间戳且输出极省 token（500–2,600 字符），比 `/search/news/?keyword=` 更准**）；
+     `www.datacenterdynamics.com` 稿件页与 `/en/news/` 列表页（**须带 www 且必须用 `fetch_source.py`**）
+   - **判窗一律用 Crossref `created`**：本期又添两例佐证 —— `10.1016/j.tsep.2026.105002` 的 Crossref created 为 2026-11-11
+     而 OpenAlex `created_date` 为 2026-09-16；`10.1115/fedsm2026-184041` 的 published-print 为 2026-07-26（会期名义日期）
+     而 created 为 2026-11-13。
+10. **流程遗留**：`origin/wip/briefing-2026-11-07`（第 12 期的存档分支）**未被第 12 期按 SKILL.md 第 5 步清理**。
+    其日期不晚于当时的 LAST，故不影响续跑判断；本期未动它。**建议维护者确认后删除**。
