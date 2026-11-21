@@ -3,7 +3,7 @@ issue: 14
 window: 2026-11-15 ~ 2026-11-21
 last: 第 13 期 · 2026-11-14 (PR #12, merged 2026-11-14)
 gates: 上期 PR 已合并（#12）；距上期 7 天 ≥ 5 → 两道跳期闸门均未命中
-completed: [0, 1]
+completed: [0, 1, 2, 3, 4]
 step2_status: 三批核验已回（学术 4 条 + THERMINIC 3 条 + 产业全部）；第四批（CuBricks / 玻璃封装微流道）进行中
 verified_pass: |
   学术：
@@ -25,4 +25,4 @@ verified_reject: |
   ZutaCore × Munters Z₂O（一手全不可达，数字仅见检索摘要）→ 否决
   Frost & Sullivan 全球 HVAC 383.6 亿美元（口径非液冷、无数据中心细分）→ 否决
 empty_angles: 冷板制造工艺的同行评审新论文（钎焊/skived/FSW/ECAM/LPBF）本期仍未检出——已扫过且为空
-updated: 2026-11-21T14:38:16Z
+updated: 2026-11-21T15:03:56Z

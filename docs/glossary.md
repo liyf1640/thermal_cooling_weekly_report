@@ -95,3 +95,13 @@
 | HT1 | NSF Category HT1 | NSF 对**可能偶发接触食品**的传热流体设立的注册类别，**不等同于可食用**（第 13 期） |
 | TIM | Thermal Interface Material | 热界面材料：填充芯片与冷板之间空隙以降低接触热阻（第 13 期） |
 | MEMS | Micro-Electro-Mechanical Systems | 微机电系统：以半导体工艺制作的微型传感器与执行器（第 13 期） |
+| TGV | Through-Glass Via | 穿玻璃通孔：贯穿玻璃转接板的导电/导热通道，填铜后可强化垂直导热（第 14 期） |
+| RPI 壁面沸腾模型 | Rensselaer Polytechnic Institute wall boiling model | CFD 中常用的壁面沸腾热流分配模型，把壁面热流分为对流、淬火与蒸发三部分（第 14 期） |
+| PG25 | 25% Propylene Glycol–Water Mixture | 25% 丙二醇水溶液：液冷二次侧常用工质，兼顾防冻与传热（第 14 期） |
+| Ra / Rz | Roughness Average / Maximum Height of Profile | 表面粗糙度参数：Ra 为轮廓算术平均偏差、Rz 为轮廓最大高度；冷板接触面常需同时标注（第 14 期） |
+| DBC | Direct Bonded Copper | 直接键合铜基板：功率模块中兼任电气绝缘与导热的陶瓷覆铜基板（第 14 期） |
+| AMB | Active Metal Brazed (substrate) | 活性金属钎焊基板：功率模块陶瓷基板的另一种工艺路线，与 DBC 并列（第 14 期） |
+| CMM | Coordinate Measuring Machine | 三坐标测量机：冷板平面度等几何量的尺寸检验手段，非热性能测试（第 14 期） |
+| PoC | Proof of Concept | 概念验证：尚未量产、未发货的验证性样机或展品（第 14 期） |
+| ATS | Automatic Transfer Switch | 自动切换开关：CDU 等设备内置的双路供电自动切换部件（第 14 期） |
+| W–Cu | Tungsten–Copper | 钨铜合金：高热导率且热膨胀系数可调，用作大功率半导体激光 bar 封装的热扩展基板（第 14 期） |
