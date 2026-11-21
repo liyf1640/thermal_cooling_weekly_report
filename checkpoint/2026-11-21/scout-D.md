@@ -155,3 +155,77 @@ IJHMT 129781 等为 2027-03；IJTS 为 2027-03；ATE / ICHMT / TSEP / CSITE 为 
 **强度排序**：候选 1（窗外，需调用方定夺）、2、3、4、5、6、7、15、16 最强。全部 Elsevier 条目摘要零获取。
 **通道备注**：Crossref 对 ASME ISSN `2377-5496`、`2332-0451` 返回 404，J. Electronic Packaging 与 J. Heat & Mass Transfer 本栏未扫到；
 Frontiers in Mech. Eng.（2297-3079）未查。
+
+---
+
+# scout-D 增量回传（补查三项）
+
+## 1. OpenAlex 单篇端点逐条实测（间隔 3 s，无 429）
+解决了「Crossref 与 OpenAlex 均无摘要」与「候选 20 未试」的矛盾：原结论只对 Elsevier 大部分条目成立。
+
+| 候选 | DOI | 结果 |
+|---|---|---|
+| 2 | 10.1016/j.applthermaleng.2026.134045 | null（HTTP 200，无摘要） |
+| 3 | 10.1016/j.energy.2026.143202 | null |
+| 4 | 10.1016/j.ijheatmasstransfer.2026.129918 | null |
+| **5** | 10.1016/j.ijheatmasstransfer.2026.129907 | **取到** |
+| 6 | 10.1016/j.ijheatmasstransfer.2026.129866 | null |
+| 7 | 10.1016/j.ijheatmasstransfer.2026.129924 | null |
+| 15 | 10.1016/j.ijthermalsci.2026.111493 | null |
+| 16 | 10.1016/j.ijthermalsci.2026.111490 | null |
+| **20** | 10.1109/tcpmt.2026.3754479 | **取到** |
+
+候选 2、3、4、6、7、15、16 共 7 条仍摘要零获取，只剩标题可依。
+
+### 候选 5 摘要要点（IJHMT 129907，Jadhav / Avestruz / Adera）
+- 覆盖面字面：`ultra-high heat flux power electronics`；局部热流 `exceeds 1 kW/cm²`；`thermal management of silicon power electronics`
+- 换热系数：单相浸没冷却两种介电液 **h ≈ 1100 W/(m²·K)**，为对流空冷（**≈ 26 W/(m²·K)**）的 **43 倍**
+- 近乎相同结温下，浸没冷却约耗散 **26 W**，对流空冷仅约 **1.4 W**
+- 热流分配：硅功率器件约 **65%** 热量经 drain tab 散出、约 **35%** 经塑封体散出
+- 总热阻：相比**自然空冷**降低约 **75%**
+- 浸没冷却几乎不向 PCB 铺展热量；实验与 **ANSYS Icepak** 共轭传热模型对比验证
+  ⚠️ 摘要正文另写 `ANSYS Fluent`，**Icepak 与 Fluent 在原文里不一致**，核稿时留意
+- 应用：把验证后的模型用于电动车牵引逆变器，浸没冷却使结温保持在安全上限（**≈ 150 °C**）以下、邻近器件热串扰极小；强制风冷不行
+
+### 候选 20 摘要要点（TCPMT 3754479，Early Access）
+- 覆盖面字面：摘要首句 `advanced electronics processing`，结尾 `eco-friendly, high-heat-flux cooling`
+  —— **是电子工艺设备热管理，不是芯片冷板**
+- 结构：双径向多入口多出口（DRME）小通道热沉，**水力直径 2 mm**
+- 冷却液：DES（深共熔溶剂）基纳米流体，纳米颗粒为**六方氮化硼 hBN**；工作范围 **−12 °C 至沸点 151.9 °C**（常压），热稳定至 151.9 °C
+- 性能：实验显示**底板温度保持在 40 °C 以下**，与计算预测吻合
+- 与「高性能螺旋小通道热沉」对比：所需泵压更低、温度均匀性更好
+  —— **摘要未给泵压降低百分比，也未给热流密度与流量**
+- 摘要点出对标氟碳冷却液的高 GWP 问题，但**无对比数字**
+
+## 2. 候选 21（10.3390/mi17111351）完整 Crossref 摘要（原文，仅一段）
+"Tungsten-Copper (W–Cu) alloys are widely used as heat spreaders in high-power semiconductor laser bar packages because of
+their high thermal conductivity and tailorable thermal expansion. Here, we show that unidirectional forging of 70W–30Cu
+changes the bulk thermal conductivity by less than 5% but reduces the output power of packaged laser bars by approximately
+20% at the same injection current. The degradation is not explained by bulk conduction alone. Forging introduces surface
+pits, local softening of the Cu network, and interfacial damage that increase contact and constriction resistance along the
+die-attach heat path, creating localized thermal bottlenecks. A combined analysis of thermal diffusivity, heat capacity,
+electrical conductivity, hardness, and an illustrative finite-difference thermal model shows that an effective conductivity
+of 2 W m−1 K−1 raises the peak temperature, despite an unchanged bulk conductivity. The results indicate that microstructural
+uniformity and interfacial integrity, rather than average thermal conductivity, control device-level thermal management, and
+that forging parameters must be optimized to preserve continuous heat flow pathways."
+
+四问答复：
+- 体热导率「<5%」：原文即 `changes the bulk thermal conductivity by less than 5%`，**摘要未给锻造前后具体热导率数值**
+- 输出功率降约 20%：基准为 `at the same injection current`（同注入电流下、锻造 vs 未锻造，后者隐含）；
+  **摘要未写具体注入电流值，也无绝对功率值**
+- 有效热导率 2 W/(m·K)：出现在 `an illustrative finite-difference thermal model` 语境中，措辞指向模型设定；
+  **摘要没明说是假设还是测得**，只能说它与 `illustrative` 模型同句，不能断言
+- 热阻绝对值：**摘要未给**。更多数字需读全文，而 www.mdpi.com 不可达，通道不存在
+
+## 3. 补扫三刊（正确 ISSN，created 窗口 2026-11-15~21）
+| 刊 | ISSN | 窗内条数 |
+|---|---|---|
+| ASME J. Electronic Packaging | 1043-7398 / 1528-9044 | 均为 0 |
+| ASME J. Heat and Mass Transfer | 0022-1481 / 1528-8943 | 均为 0 |
+| Frontiers in Mechanical Engineering | 2297-3079 | 12 |
+
+- 两本 ASME 刊 Crossref 窗内均无记录；**无法区分「窗内无新交存」与「元数据延迟」**。
+- Frontiers 12 条只有 1 条涉冷却：`10.3389/fmech.2026.1952624`（圆柱锂电池波纹通道代理模型优化，created 2026-11-16T06:37:40Z，vol 12）
+  —— **电池冷却，不满足覆盖面闸门，不收**。其余 11 条为机器人、车道检测、结构力学等，无关。
+
+上轮候选 1~21 的其他内容、排序与「已查但不收」清单不变。
