@@ -411,3 +411,241 @@ DC Market Insights 管道稿（2026-10-22）"Recent Developments" 节的二手�
   本期新增 `10.1109/tcpmt.2026.3751185`（IEEE，元数据已核齐、Xplore 文档号 11796570 已取得）。
   **Elsevier 诸条的共同点是出版商未向 Crossref 交存 abstract、OpenAlex 因此也没有，而 ScienceDirect 整域不可达 —— 不是取数方式的问题。**
   ⚠️ **止损规则仍待维护者裁定**（第 12 期已提请一次，本期重提；建议「同一条摘要连续 3 期取不到即结案、移出挂账」）。
+
+## 第 14 期（2026-11-21）已排除 / 存疑
+
+**（一）学术类 —— 覆盖面从严否决（已核数字留档，维护者裁定后可直接用）**
+
+- 🔴 **`10.1109/tcpmt.2026.3754479` → 从严否决，未上站。** `A Biradial Multiple Entry Mini-channel Heat Sink for
+  Processing Electronic Materials with an Organic Deep Eutectic Solvent (DES) Based Nano-coolant`，
+  *IEEE TCPMT* Early Access，Crossref `created` **2026-11-16T20:04:47Z**，page 1-1 无 volume。
+  作者与单位（Crossref 交存串逐字）：**Sujatha Selvamurugan**（first）/ Mannem S V Sayi Teja Reddy / Dhiman Chatterjee /
+  Sarit K Das —— `Indian Institute of Technology Madras`；**Badal Modi** / **Dhairyashil Desai** —— `Lam Research Bangalore`；
+  **Pyarimohan Dehury** —— `Institute of Chemical Technology–IndianOil Odisha Campus`（连接符为 en dash U+2013）。
+  通讯作者取不到（OpenAlex 七位全 false）。交存 `department` 为 `PhD Scholar` / `Graduate student`（**职位误填，不采用**）。
+  **否决依据**：摘要**通篇无 chip / die / CPU / GPU / processor / package / cold plate 任何一词**；
+  对象框定为首句 `Efficient thermal management in advanced electronics processing…`、末句 `designing eco-friendly,
+  high-heat-flux cooling systems using engineered fluids in robust mini-channel architecture`；题名为 `for Processing
+  Electronic Materials`；实验指标是**底板温度 < 40 °C**（典型工艺台量级、非芯片结温）；作者含 Lam Research 两位
+  → 判为**电子工艺（制造）设备侧的小通道热沉 + 环保工质，不是芯片冷板**。
+  **已核数字留档**：双径向多入口多出口（DRME）小通道热沉，**水力直径 2 mm**；**DES（深共熔溶剂）基纳米流体 + 六方氮化硼 hBN**；
+  工质工作范围原文逐字 `with an operating range of -12 to a boiling point of 151.9 °C at atmospheric pressure, with
+  thermal stability up to 151.9 °C`（⚠️ **原文 −12 后无单位**；⚠️ **沸点与热稳定上限原文给的是同一个数 151.9 °C**）；
+  实验**底板温度保持 40 °C 以下**、与计算预测吻合；与「高性能螺旋小通道热沉」相比**泵压更低、温度均匀性更好（纯定性）**。
+  ❌ **摘要未给**：泵压降低百分比、热流密度、流量/流速、加热功率、进出口数量、hBN 浓度、DES 具体组分、
+  热导率提升数值、压降绝对值、GWP 数值。
+  ⚠️ **另一项独立发现**：OpenAlex 该 work（W7167481455）**合并了一个 SSRN 投稿版**
+  —— `locations` 含 `https://doi.org/10.2139/ssrn.7067699`（SSRN Electronic Journal，`version: submittedVersion`），
+  OpenAlex `created_date` 2026-07-07 即该投稿版入库时间、**不是 IEEE 版日期**（ssrn.com 整域不可达，投稿日无法直接核）
+  → **IEEE 版落在本期窗内，但首发并非本周**；若日后判为在覆盖面内，**成稿须注明先有 SSRN 投稿版**。
+- 🔴 **`10.54097/fdaate22` → 否决，未上站（三条独立理由）。**
+  `Multi-Objective Optimization of Manifold Microchannel Heat Sink Structures Using a Gaussian Process Surrogate and NSGA-II`，
+  *Academic Journal of Applied Sciences*（Darcy & Roy Press），Crossref `created` **2026-11-21**，`published` 2026-11-20。
+  作者：**Weifu Huang**、**Wenyan Xue** —— 均 `The College of Mechanical and Energy Engineering, Guangdong Ocean University`。
+  **否决依据**：① **摘要只有 `manifold microchannel heat sink`，无 chip / electronics 字面** → 与第 13 期否决
+  `10.1038/s44435-026-00023-4` 同一口径（该通则仍待维护者裁定，见 `open-items.md`）；
+  ② **出版商层级低**（Darcy & Roy Press）；③ **热阻拟合质量差且作者自承参数不可辨识** —— 热阻半经验拟合 **R² = 0.6229**，
+  原文称「因两个大系数相互抵消而参数不可辨识」，**样本只有几十个**。
+  **已核数字留档**：压降拟合 **R² = 0.8994**、热阻拟合 **R² = 0.6229**；对比高斯过程回归与两种树集成，
+  把单次目标评估由一次仿真降为一次矩阵乘法；NSGA-II 求 Pareto 前沿 + TOPSIS 给等权折中解 + 拉丁超立方权重扫描检验稳定性；
+  推荐设计**无 pin fin、深度比 4.48、4 排**，**压降为热阻最优解的 36.4%、热阻增加 4.4%**，
+  **100 组随机权重中 71 组仍最优**。
+- **`arXiv:2611.21707`（EJBench）→ 否决，未上站。** `Bookkeeping Is Not Judgement: EJBench, an Engineering Judgement
+  Benchmark Built from a Conjugate Heat Transfer Design Campaign`，2026-11-16 提交 v1，预印本未同行评审。
+  作者 James Sadler / Rotimi Alabi / Kotub Uddin，**单位待确认**（arXiv 元数据无单位，未读 PDF）。
+  **否决依据**：覆盖面字面虽满足（`Its tasks come from a conjugate heat transfer design campaign for battery cold plates`），
+  但 ① **对象是电池冷板**、② **论文本身是 LLM 工程判断基准、不是冷板设计或 CFD 加速方法**，对冷板内对流换热的高保真快速建模
+  **无方法学价值** → 按仿真方法角度的判据不收。
+  **已核数字留档**：三类任务（把无标签测试结果匹配到工况点 / 选择先揭示哪些已存储算例再签字 / 按电芯峰值温度对新工况排序）；
+  答案取自收敛仿真、不用 LLM 评判；**十个前沿模型最佳得分 0.71**，模型对做错与做对的任务给出几乎相同的置信度；
+  用 LoRA + 强化学习对 Qwen3.5-9B 后训练，留出测试集得分自 **0.071 升到 0.106**；23 页，发布数据划分、评测框架与榜单。
+- **`10.1016/j.rineng.2026.114102` → 覆盖面在内但不收（第 13 期已记，本期维持）**：PCM 椭圆针肋热沉 + RNN，被动非液冷、热流量级偏低。
+- **本期其他因主题弱或仅边缘而未收的条目（仅记 DOI 备查，避免下期重复提出）**：
+  `10.1016/j.ijheatmasstransfer.2026.129905`（点热源热超材料，通用）、`10.1016/j.ijheatmasstransfer.2026.129781`
+  （饱和界面体积相变模型，Garimella/Weibel 组，摘要未提电子）、`129908`（Tesla 阀两相混合）、
+  `10.1016/j.applthermaleng.2026.134001`（阶跃热负荷瞬态沸腾）、`134020`（冲击射流双层微通道热沉 + 知识迁移强化学习，
+  标题未写 chip/electronics）、`134044`（多层振荡热扩展器，航空）、`10.1016/j.icheatmasstransfer.2026.113131`（双蒸发器两相系统）、
+  `113153`（单射流多孔平板）、`113139` `113189` `113176` `113187` `113129`、`10.1016/j.ijthermalsci.2026.111505`
+  （SLM 圆通道热沉，电子指向未证实）、`111478`（圆柱电池包液冷）、`10.1016/j.tsep.2026.105010` `104981`、
+  `10.1016/j.enconman.2026.122398` `122376`、`10.1016/j.energy.2026.142977`、`10.1016/j.apenergy.2026.129281` `129288`、
+  `10.1016/j.ijheatfluidflow.2026.110795`、`10.1109/tcpmt.2026.3755873`（井下电子 PCB 可靠性，非散热）、
+  `10.3390/en19225582`（EV 电池 TIM 综述）、`10.1016/j.est.2026.125867`（电池液冷板）、`10.3390/eng7110648`（光伏冷板）、
+  `10.1016/j.ijheatmasstransfer.2026.129923`（燃料电池 FNO，无电子散热字面）、`10.3389/fmech.2026.1952624`（圆柱锂电池波纹通道）、
+  `10.2139/ssrn.7693278`（直触芯片冷板布置热水力优化，SSRN 不可达未核）、`10.1016/j.icheatmasstransfer.2026.113163`
+  （板式气冷器，不涉工艺）、`arXiv:2611.25512`（数据中心电气代理，与冷却无关）、
+  `10.1109/estc68880.2026.11778937`（封装级热扩展，摘要无具体数字）、`11779285`（封装热原型 CNN，摘要无具体数值、无冷板对象）、
+  `11779390`（WaLTIS 晶圆级热界面叠层，纯仿真、无具体热阻数值、企业专有、非冷板）。
+
+**（二）产业类 —— 整条否决**
+
+- 🔴 **ZutaCore × Munters「Z₂O」SC26 发布 → 整条否决，全部数字不得引用。**
+  一手稿通道**全部失败**：BusinessWire（`…/20261116955324/en/ZutaCore-Unveils-ZO-at-SC26-Zero-HO-Near-Zero-Cooling-Energy`）
+  代理 403；`zutacore.com` / `www.zutacore.com` 403；`www.munters.com` 403；`www.globenewswire.com` 403；
+  **PRN 搜 `ZutaCore` 无任何 Z₂O 英文稿**（命中 5 条全是 MiTAC 稿的多语种译本，Nov 16 22:48–23:01 ET）。
+  ❌ **一律不得引用（仅见于检索摘要，无一手出处）**：**建模 pPUE 1.03**、**WUE = 0**、**625 kW IT 块**、
+  **74% 年冷却能耗降低**、**首个服务器配置 ASRock Rack HGX B300**、**其他伙伴方案 2027 年上市**。
+  ⚠️ **MiTAC 一手稿里的年化 pPUE 1.03 与上述建模 1.03 分属不同稿件，严禁合并或互相印证**，
+  成稿中不得出现「两处 1.03 互证」的叙述。
+- 🔴 **Frost & Sullivan 全球 HVAC 设备市场 2031 年 US$383.6 billion（CAGR 7.0% from 2025）→ 整条否决，不入「前瞻分析」节。**
+  一手稿已读（`…/global-hvac-equipment-market-to-reach-383-6-billion-by-2031…-302946840.html`，Nov 20, 2026 09:21 ET，
+  dateline LONDON）。否决依据：① 标的是**全球 HVAC 设备市场**（建筑暖通：热泵、低 GWP 制冷剂、建筑电气化、区域供冷、IoT 楼控）；
+  ② **全文零次出现 liquid cooling / cold plate / direct-to-chip / immersion / CDU / PUE**（逐字读完 5,777 字符确认）；
+  ③「数据中心冷却」仅为三个**定性**增长机会之一，**无任何数据中心细分的规模、占比或 CAGR**；
+  ④ 与本刊液冷/冷板数字**量级差 2–3 个数量级且口径完全不同，并列必然误导**；
+  ⑤ 实质是 Frost Radar™ 榜单推广（10 家入选全为传统暖通巨头 Bosch / Carrier / Daikin Industries / JCI / LG / Midea /
+  Mitsubishi Electric / Panasonic / Samsung / Trane，**无一家液冷或冷板专业厂商**）。
+  ⚠️ 另注该稿**未给基年 2025 的绝对值**，383.6 billion 无法与任何基数对照。
+- ❌ **Phononic 的 Trinity Capital 1 亿美元债务融资（一手稿 Nov 17, 2026 08:00 ET；DCD 2026-11-19）→ 本期不收。**
+  **稿内不含液冷或冷板内容** —— 固态热电冷却，面向激光器、存储等局部器件，不是冷板路线。
+  金额 US$100 million 本身有一手，但利率、期限、提款安排、冷却能力与客户（DCD 称未具名美国超大规模厂商）均未披露。
+- ❌ **Panduit AI Cooling Lab**（一手稿 Nov 16, 2026 21:10 ET，dateline TINLEY PARK, Ill.）：
+  Thermal Lab 扩建更名、展示 RDHx / 单相 DTC / 两相 DTC / 浸没四种路线，**原文无任何数字**（无面积、投资额、设备品牌与容量）
+  → 演示实验室、非产品，本期不收。（⚠️ 搜索聚合页写 11-17，以 PRN 稿的 11-16 为准。）
+- ❌ **Compal Rubin HGX NVL8 机架级 DLC（SC26）**（Nov 18, 2026 10:00 ET）：仅列每机架最多 9 台 OG231-2-L1、
+  共 72 颗 Rubin GPU（每台 8 颗），**只提「DLC、泄漏防护」、无任何热学数字** → 不收。
+  ⚠️ 稿中 **400 PF NVFP4 与 10× token 吞吐为 NVIDIA 口径转述、与冷板无关，不得引用**。
+  （🟢 该稿**无任何 Rubin 单芯片功耗**，符合既有排除项。）
+- ❌ **ASUS Vera Rubin NVL72 出货与 SC26**（Nov 17, 2026 01:30 ET；同稿另有 01:08 ET 条目）：仅提 NVL8 有 3U 混合冷却型号与
+  2U 全液冷型号，**无冷板热学数据** → 不收。
+- ❌ **Midea SC26 北美首秀**（Nov 20, 2026 06:53 ET，dateline CHICAGO，磁悬浮 CDU + 干冷器预制模块）：
+  属已覆盖的 Midea Building Technologies，且是**整机预制与冷机侧、非冷板** → 不收。
+- ❌ **MSI**（11-16，DLC 1OU 2 节点，CPU TDP 最高 600 W）、**Acbel**（11-16，冷板或浸没液冷电源）、
+  **ValorC3**（11-18，数据中心开发稿）、**Modexus Solutions（原 Modine）**（11-18 投资者日稿）→ 相关性弱或非冷板，不收。
+- ❌ **Supermicro Vera Rubin NVL72 + 1.8 MW 行内 CDU**（StorageReview 页面日期 2026-09-25）、
+  **Munters 投资与产能**（2026-11-11）→ **均早于本期窗口**，不收。
+
+**（三）产业类 —— 二手误述与不得沿用的表述**
+
+- 🔴 **DCD 关于 CoolIT CHx 3000 的两处问题，严禁沿用**：
+  ① ❌ **「双换热器（dual heat exchangers）支持 45 °C 暖水（warm-water）运行」** —— **CoolIT 一手产品页无「暖水」与
+  「双换热器」任何字样**，一手原文是 `white or grey space operation with an IP54 rating in up to 45°C ambient air`
+  （**45 °C 环境空气**，不是暖水）。
+  ⚠️ 另注**一手页自身也不一致**：引言段写 `up to 45°C ambient air`、Features 段写 `up to 50°C ambient operation`
+  → 成稿若提，只能写「厂商标称 IP54、可在最高 45 °C 环境空气下运行（同页另一处写 50 °C，口径不一）」。
+  ② ❌ **DCD 把 3 °C 的温差换算成 37.4 °F** —— 温差 3 °C = **5.4 °F**，37.4 °F 是绝对温度换算
+  → **不得引用 DCD 的任何 °F 数值**。
+- ❌ **CoolIT CHx 3000 的「Q1 2027 起发货」「与 Alfa Laval 合作换热器与流量部件」「3D TRASAR 监测七项参数」
+  在不标「据 DCD」的情况下使用** —— 三项**一手产品页与一手新闻条目均未提**。
+- 🔴 **Nexalus × Renda Nova8 的两项稿外推断，严禁入稿**：
+  ① ❌ **「八颗 96 GB RTX PRO 6000 Blackwell」** —— **DCD 原文从未出现 "RTX PRO 6000" 或 "96 GB"**，
+  只写 `eight Nvidia Blackwell GPUs`。该细节仅存在于检索转述。
+  ② ❌ **「内部液冷回路经液对气换热器排热到室内空气」** —— **DCD 稿中完全没有这句**；
+  DCD 只写 `It fits a standard 19-inch rack in an existing air-cooled data center`、
+  `operators can swap it in for current equipment without adding new piping or cooling infrastructure`。
+  ③ ⚠️ **+20% 的对比基线 DCD 未单独给出**（`compared to…` 从句语法上只挂在 +22% 能效那一项）
+  → **严禁为 +20% 补写任何基线**；且原文是 **AI token 吞吐**、不是泛指的「吞吐」。两项都是 `up to（最高）`、不是典型值。
+- ❌ **从 MES 稿末博客 URL（`…why-a-tighter-flatness-spec-can-double-cold-plate-cost/`）推出「成本翻倍」** ——
+  PRN 正文**从未给出任何成本倍数或百分比**，只说 `Cost rises in steps`。
+  ⚠️ 另：MES 稿**全篇无任何实测或测试数据**（无热阻/温差/热流密度测量、无样本量与对照组；唯一「验证」是来料 CMM 尺寸检验），
+  其 0.040 mm 碟形 → 局部「最多」多 40 µm TIM 为**上限式估算、无推导无测量**；
+  dateline 写 Columbus, Ohio 而 About 段写总部在 **Lewis Center, Ohio**（写总部用后者）。
+- 🔴 **❌ 把 ZTE 的 PUE 1.15 写成 CDU 单体指标，或把两处 1.15 合并** —— 稿中有**两处归属不同**的 1.15：
+  一处为 `The combination of 800V high-voltage DC and the 1500 kW liquid cooling CDU … keeping PUE stably within 1.15`
+  （**800 V HVDC + CDU 的组合，不含 32 °C 送风**）；另一处为南京滨江数据中心案例
+  `power density of up to 60 kW, adopting high-efficiency HVDC power distribution and busway, 32°C air supply, and group
+  control optimization, achieving a PUE of only 1.15`。**两处必须分开写，且均不得写成 CDU 指标。**
+  ⚠️ **Karakoram-01 的「冷板液冷」仅为 `adopts technologies such as` 的列举之一**，不得据此给该项目补任何容量、PUE、
+  机架密度或液冷覆盖比例。
+- 🔴 **❌ 把 Aviemore 的「140 kW / 240 kW / 600 kW 至兆瓦级 / 800 VDC 首批商用系统 2027 Q2 出货」写成该公司产品路线图或承诺**
+  —— 这四句是其对**行业走势的无出处断言**（原文 `AI racks draw 140 kW today. Racks of 240 kW are close behind and 600 kW
+  to megawatt-class racks are in future planning. Power inside the rack is also moving from 54 VDC to 800 VDC, with the
+  first commercial systems expected to ship in Q2 2027.`），**稿中完全没有给自家泵的上市或出货时间**。
+  ❌ 亦不得把「无槽电机累计出货 >15,000 台、零电机缺陷」挂到本批泵上（**那是其无槽电机的整体历史**）；
+  ❌ `UL and Intertek certifiable on request` 是**可认证、非已认证**，不得写成已取得认证；`patent-pending` 是申请中、非已授权。
+- ⚠️ **MiTAC 52U 液冷机架的「GPU 密度比常规部署高 50%」若要使用，须原样标注基线仅表述为 `conventional deployments`**
+  —— 稿中无具体对比机型。
+- ⚠️ **Solenis 的「超过 500 个数据中心」不得写成「500 个液冷数据中心」** —— 该规模是与 Chem-Aqua 合并后的**全部**数据中心客户，
+  稿中未说明其中多少是液冷站点。
+- ❌ **Arivor 的「零泄漏」不得写成实测泄漏率** —— 原文为 `help keep zero leakage and contamination during maintenance`，
+  是定性宣称；其 CTO 引语中的「降低 PUE」亦为定性，**稿中无任何 PUE 数值**。
+
+**（四）分析师稿内的二手转述 —— 一律不引用**
+
+本期「前瞻分析」节只采用 MarketsandMarkets 漏液检测系统市场的**核心数字 + 口径定义**
+（2026 年 6.3 亿美元 / 2031 年 10.7 亿美元 / CAGR 11.3% / 2025 年 5.8 亿美元）。同一稿内其余内容按 rules 第 4 条排除：
+- ❌ **稿内对第三方产业事件的转述**：2026 年 10 月 **TATSUTA** 扩产漏液检测系统（称到 2027 年 9 月产能提至 2026 年底约 2.5 倍，
+  投资额未披露）；2026 年 10 月 **Acuity Inc. 以 6.75 亿美元收购 Parameter Technologies**（预计 2027 财年 Q2 完成、
+  截至 2026-10-29 待交割）；2025 年 1 月 **nVent 以 17 亿美元出售 Thermal Management 业务给 Brookfield**（税后净额约 14 亿美元）。
+  → **三条均为分析师稿内的二手汇编，本期未引用**；若日后取到一手稿可按新发现独立收录（见 `open-items.md`）。
+- ❌ **该稿的细分预测数字本期未采用**（硬件 2026 年 5.5 亿美元、软件 CAGR 14.3%、感测线缆与绳式传感器 2026 年 2.5 亿美元、
+  设备集成式 CAGR 最高、北美 2026 年 2.7 亿美元、亚太 CAGR 15.0%）—— 口径过细且未经一手核，仅记此备查。
+- ⚠️ **MarketsandMarkets 的 10.7 亿美元若被引用，必须同时写明该市场不限于液冷**（稿中把冷冻水管、凝结水管、CDU
+  与冷却液循环系统的漏液一并计入，并称需求同时来自采用水基冷却基础设施的传统风冷设施与采用液冷的设施）
+  → **不可当作「液冷漏液检测市场」引用**；稿中**未给**其中液冷相关的占比。
+- ❌ **MarketsandMarkets 2026-11-17 的数据中心漏液检测系统市场稿内所列厂商规格汇编**（nVent、TATSUTA、Vertiv、
+  Schneider Electric、Honeywell、Parameter、STULZ、TTK Leak Detection、Legrand、Delta Electronics）
+  —— 仅为厂商名录，无规格数字，不作任何产品结论依据。
+
+**（五）禁止推算清单（本期核验过程中做过的校验计算，一律不得出现在刊物）**
+
+- ❌ **`0.27 K/W × 25 mm² = 6.75`** 不得用于改写 CuBricks 的 **6.72 mm²K/W**（真值约 0.2688 K/W，两数自洽，照原值写即可）
+- ❌ **玻璃封装方案 (i) 的 196 柱 = 14×14** —— **原文未给阵列排布**
+- ❌ **`2.8 × 2.8 = 7.84 mm²`、`1 × 1 = 1 mm²`** —— 摘要未给面积数值
+- ❌ **`502 / 248 ≈ 2.02 倍`** —— 原文未做该比值，只说 `showing the potential for significant thermal performance gains`
+- ❌ **`W/cm² × 冷却区面积 = 芯片总功率`** —— 摘要未给芯片功率
+- ❌ 把玻璃封装方案 (i) 的 **`Tj < 85 °C`（上界）写成 `Tj = 85 °C`（点值）**
+- ❌ 把 `11779775` 的 **`a factor of three`（3 倍）写成 300% 或百分比**，或指明该偏差的被比量（热阻 vs 温度，**原文未明确**）
+- ❌ 把 `mi17111351` 的 **「体热导率变化（changes）不足 5%」写成「降低不足 5%」**
+- ❌ 把 `mi17111351` 的 **有效热导率 2 W/(m·K) 写成实测值** —— 该值与「**示意性**」有限差分模型同句，
+  句中明确列举的实测量是热扩散率、比热容、电导率、硬度，**有效热导率不在实测清单内**；原文未明文写 assumed 或 measured
+- ❌ 把 `3751185` 的 **HBM 43 °C 写成「约 43 °C」** —— 原文 `approximately` 只修饰 90 °C
+- ❌ 给 `11779791` 的 **Novel 1 配任何泵功数字或倍数**（原文仅 `albeit at a significantly elevated pumping power`）；
+  ❌ 为其 **5.1% 那一项补写参照基准**（原文未写明）
+- ❌ 把 `11779794` 的 **6.2 / 6.5 kPa 写成逐配置硬归属或时间演化**（原文 `increases only slightly from 6.2 to 6.5 kPa`）；
+  ❌ 把其 **0.055 / 0.09 K/W 标为「单芯片」或「模块总」热阻**（摘要未给定义口径）
+- ❌ 把 CuBricks 的基准比较写成 **「优于 X%」「低 N 倍热阻」乃至「显著优于」** —— **基准侧无任何数值**，
+  原文结论措辞仅为 `a promising alternative`
+- ❌ 把 CuBricks 的 **泵功 0.043 W 与压降互推** —— **泵功 ≠ 压降**，摘要未给压降
+
+**（六）单位与姓名写法 —— 本期的裁剪与排除**
+
+- ❌ **把 `3751185` 的加州大学三位写成「加州大学欧文分校」** —— Crossref 结构化交存 `name = "University of California"`
+  （**串内完全没有 Irvine**）、`place = ["Irvine, CA, USA"]`，OpenAlex `raw_affiliation_strings` 恰为 name + place 的扁平拼接
+  → **无任何原始交存证据表明 Irvine 属校名**，维持第 13 期裁定，只写到 `University of California`。
+- ❌ **把 CuBricks 三位写成「Kempten University of Applied Sciences」** —— 同一陷阱：Crossref `name = "University of
+  Applied Sciences"`、`place = ["Kempten, Germany"]`；`Kempten University of Applied Sciences` 是 **OpenAlex 的归一名**
+  （I2802623092，ror.org/02m4p8096），按 rules 第 2 条**不采用** → 写 `University of Applied Sciences` + 标「具体校名待确认」。
+  （IEEE Xplore 与 `pub.orcid.org` 两条可交叉验证的通道本期均 http=000 拒连。）
+- ❌ **把研究中心/实验室名写进单位**：`Texas Institute for Electronics`（→ 只写 The University of Texas at Austin）、
+  `POWERlab`（→ 只写 EPFL）、`CHIMES`（→ 只写 Georgia Institute of Technology / Pennsylvania State University）、
+  `Energy Transport Lab (ETL)`（→ 只写 University of Michigan 机械工程系）。
+  ⚠️ 注意 **`CHIMES` 出现在 Crossref 的 `affiliation[].name` 原串里面、不是 `department` 字段**，仍按研究中心级删除。
+- ❌ **采用交存的结构化 `department` 字段**（2026-11-02 裁定）：本期涉及
+  `Department of Mechanical and Aerospace Engineering`（3751185）、`Mechanical Engineering Department` / `Mechanical Power
+  Department`（11779791）、`Department of Energy`（11779794）、`Department of Electromechanical, Systems and Metal
+  Engineering`（11779775）、`PhD Scholar` / `Graduate student`（3754479，**职位误填，双重理由不采用**）。
+- ❌ **采用 OpenAlex 归一后的作者姓名**：本期 `11779791` 三位（归一名多出中名 `Atif` / `Osama` / `M.`）、
+  `3751185` 作者 4（`Jaechoon Kim`）均以 **Crossref 交存串**为准。
+- ⚠️ **`11779775` 的 `Michiel De Paepe` 与 `Michel De Paepe` 两条独立条目不得自行合并或删除其中一条**
+  —— 两源都如此，是否同一人待确认（`11779807` 同课题组稿件同样并存两种拼写）。
+- ❌ **把 `mi17111351` 的单位写出城市与邮编** —— 原串 `School of Opto-Electronic Engineering, Xi'an Technological
+  University, Xi'an 710021, China`，按 rules 第 2 条删去 `Xi'an 710021`。
+
+**（七）NVIDIA 相关 —— 继续排除**
+
+- ❌ 二手 / 转述的 **Rubin GPU 单芯片功耗说法（2,300 W / 1,800 W / 3,600 W）** 继续一律不得引用。
+  🟢 本期提到 NVIDIA 的一手稿（Compal、ASUS、MiTAC、CoolIT 产品页）**均无任何 NVIDIA 冷板规格、单芯片 TDP、
+  单机架功率或流量水温要求**；CoolIT CHx 3000 产品页只写「支持 NVIDIA Vera Rubin 与 AMD Helios」，无对应热规格。
+
+**（八）不是「已排除数字」、仅记此避免下期误判的条目**
+
+下列条目**因摘要取不到而未上站，不是数字有误、也不是被否决过**，取到摘要后可按既有规则正常收录（详见 `open-items.md` 新挂账 1、4）：
+- 🟢 **`10.1109/tcpmt.2026.3751185` 本期已取到摘要并上站（第 14 期），从本类移出。**
+  取法：**OpenAlex 单篇 DOI 端点**，在 Crossref `created`（2026-11-13）后约 8 天出现 → **再次验证 IEEE 条目值得隔期重试**。
+- **本期新增 · THERMINIC 2026 / ESTC 2026 共 16 条**（`abstract_inverted_index` 全为 null，HTTP 200）：
+  `11779811`（**Sinusoidal Meso-Channel Cold Plates，OVHcloud × Univ. Reims，标题字面最对口**）、`11779756`、`11779739`、
+  `11779742`、`11779806`、`11779804`、`11779807`、`11779750`（**SLA 氧化铝陶瓷热沉，有制造工艺成分**）、`11779754`、
+  `11779760`、`11779787`、`11779788`、`11779746`、`11779729`、`11779785`、`11779765`、`11779745`（Synopsys）、
+  `11779752`（**skived 热沉，缺口工艺之一**）、`11779771`（**LPBF 铜-石墨烯，缺口工艺之一**）。
+- **本期新增 · Elsevier in-press 共 7 条**（Crossref 与 OpenAlex 均无摘要）：
+  `10.1016/j.applthermaleng.2026.134045`（**拓扑优化小通道冷板 + 节流结构，本期标题最贴主线**）、
+  `10.1016/j.energy.2026.143202`（开放式微通道冷板 for AI 服务器）、`10.1016/j.ijheatmasstransfer.2026.129918`（CuIO 歧管微通道）、
+  `129866`、`129924`、`10.1016/j.ijthermalsci.2026.111493`（MicroChanNet）、`111490`。
+- 仍在本类的往期条目：`10.1016/j.ijthermalsci.2026.111477`、`10.1016/j.ijheatmasstransfer.2026.129813`、`129793`
+  （以上三条第 13 期为第 2 次失败）；第 11 期六条 `10.1016/j.icheatmasstransfer.2026.112877`、`112866`、`112885`、
+  `112841`（HAWFNO，**另有覆盖面问题**）、`10.1016/j.ijheatfluidflow.2026.110759`、`10.1016/j.ijheatmasstransfer.2026.129752`，
+  以及 `10.1016/j.applthermaleng.2026.133678`。
+  **Elsevier 诸条的共同点仍是出版商未向 Crossref 交存 abstract、OpenAlex 因此也没有，而 ScienceDirect 整域不可达
+  —— 不是取数方式的问题。**
+  ⚠️ **止损规则仍待维护者裁定**（第 12、13 期各提请一次，本期第 3 次重提；本期新增「按出版商分别设定」的建议，
+  依据是 IEEE 条目隔期重试本期成功、而 Elsevier 条目机制性无解）。
