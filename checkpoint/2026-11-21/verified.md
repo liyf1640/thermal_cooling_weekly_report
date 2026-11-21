@@ -404,3 +404,138 @@ Renda 方 **Ian "8Pack" Parry**；两家称 F1 经验用于 Nova8 开发；Nexal
 **新增可用通道**：✅ `www.coolitsystems.com`（含 `/sitemap_index.xml`、`/cdu-product-sitemap.xml`，有一手产品规格页，价值高）；
 ✅ PRN 稿页原始 HTML 中 `grep -oE '[0-9]{1,2}:[0-9]{2} ET|datePublished'` 可直接取精确 ET 时间戳，比搜索页更可靠；
 ✅ 用 `python3 -I` + 与 fetch_source 相同 UA 直取 DCD 列表页 HTML 可提取 slug（curl 仍撞 Cloudflare）。
+
+---
+
+## 学术侧 第二批 · THERMINIC 3 条
+
+**通道**：Crossref 单篇 ×3 全 200，**三条均无 `abstract` 字段（已逐条确认 `has("abstract")=false`）**，摘要只能走 OpenAlex；
+OpenAlex 单篇 ×3 全 200，间隔 ≥3 s 无 429。`ieeexplore.ieee.org/document/11779791` 试一次即放弃（CONNECT 403，HTTP 000）
+→ **一手全文不可达，所有「摘要未给」项本期无法补证**。
+⚠️ verifier 另读了 `scripts/fetch_source.py` 源码：其 `from_doi()`（第 89 行起）**只打印 `published`，不输出 `created`、
+`sequence`、`is_corresponding`，也不打印 Crossref 的 `affiliation[].place` / `department`** → 无法满足本期铁律，故本批未用作判据。
+
+**三条共通**
+- **Crossref `created` 均为 2026-11-19**（20:21:05Z / 20:20:19Z / 20:12:43Z）→ **scout 记录复核无误，在窗内**。
+- `published` = `[[2026,9]]`（会期名义月份，无日）；Crossref `event` 显示会期 **2026-09-16~09-18, Berlin, Germany**，
+  会议全称 *2026 32nd International Workshop on Thermal Investigations of ICs and Systems (THERMINIC)*，
+  type=`proceedings-article`，publisher=IEEE，**无 volume / issue**。→ 按 `created` 判窗成立。
+- ⚠️ **OpenAlex `created_date` 不可用于判窗**：三条分别 2026-09-18 / 09-09 / 09-28，是 OpenAlex 自己的入库日，
+  与 Crossref `created` 不同源且互不一致。**成稿只引 Crossref `created`。**
+- ⚠️ **通讯作者：三条全部作者 `is_corresponding` 均为 false** → 按铁律 4 **三条均不可点名通讯作者**。
+  Crossref 侧亦无通讯标记（`author[].role` 一律 `{"vocabulary":"crossref","role":"author"}`）。
+- Crossref 三条都交存了结构化 `department`，按裁定**不采用**；原始机构串中均不含院系（候选 1 的 #7 除外）。
+
+### 候选 1 · `10.1109/therminic70452.2026.11779791` —— **通过**
+`Thermo-Hydraulic Performance of Microchannel Heat Sinks with Square Pin-Fin Geometries: A Numerical Investigation`
+`created` 2026-11-19T20:21:05Z；page `01-10`；无卷期。
+**完整作者 7 位（两源独立取到均 7 位 —— scout 担心的「可能不止 7 位」不成立）**，全部 `is_corresponding: false`：
+
+| # | Crossref 交存姓名 | Crossref `affiliation[].name` 逐字 | 裁剪后建议写 |
+|---|---|---|---|
+| 1 | Ashraf Morsi（`first`） | `Alexandria University`（place `Alexandria, Egypt`；dept `Mechanical Engineering Department`） | Alexandria University |
+| 2 | Mohammed Abdel Razzaq | `Texas Institute for Electronics, The University of Texas at Austin`（place `Austin, TX, USA`） | **The University of Texas at Austin**（⚠️ Texas Institute for Electronics 为**研究所级中心名**，按铁律 2 删） |
+| 3 | Youssef Khalid | `Cairo University`（place `Cairo, Egypt`；dept `Mechanical Power Department`） | Cairo University |
+| 4 | Mohamed Naser | `Alexandria University` | Alexandria University |
+| 5 | **Mohamed Elkholy** | `Menoufia University` | Menoufia University |
+| 6 | **Ibrahim Elhagali** | `Power and Wide-Band-Gap Electronics Research Laboratory (POWERlab), EPFL`（place `Lausanne, Switzerland`） | **EPFL**（⚠️ POWERlab 为实验室名，删） |
+| 7 | **Osama Maklad** | `School of Engineering, University of Greenwich`（place `London, UK`） | School of Engineering, University of Greenwich（院系在原串内，可留） |
+
+⚠️ **两源姓名不一致（3 位）**：Crossref 交存串与 OpenAlex `raw_author_name` **一致地**写作
+**Mohamed Elkholy / Ibrahim Elhagali / Osama Maklad**；只有 OpenAlex **归一后的 `display_name`** 多出中名
+「Atif」「Osama」「M.」。**scout 用的是归一名** → **成稿采用出版商交存串**。
+**数字逐项**：
+- 工质 **PG25（25% 丙二醇水溶液）** ✅ `a 25% propylene glycol-water mixture (PG25) as the working fluid`
+- 基准 **HTC 26,452 W/m²K** ✅（原文单位写作 `W/m²K`）／**压降 128.5 Pa** ✅／**泵功 0.001646 mW/mm²** ✅
+  `The base case (five-inlet with square pins) achieves a heat transfer coefficient (HTC) of 26,452 W/m²K at a pressure
+  drop of 128.5 Pa and a pumping power of 0.001646 mW/mm²`
+- **Novel 1 的 HTC 41,975 W/m²K** ✅ `the novel design (Novel 1) achieves the highest HTC of 41,975 W/m²K`
+- **+40.2% 基准 = base case（五入口 + 方形针肋）** ✅ `representing a 40.2% improvement over the base case`，
+  base case 前句已定义为 `(five-inlet with square pins)` → **scout 口径正确**
+- **+5.1%：数值核实，但基准原文未明示** ⚠️ 原文 `while the aspect-ratio modification with cut-through holes delivers a
+  5.1% HTC improvement with moderate hydraulic cost` —— **没有** `over the base case` 之类限定
+  → **只能照原文写「5.1% HTC 提升」，不得补写「相对基准案例」**
+- 「泵功显著增加」**未量化** ⚠️ 原文仅 `albeit at a significantly elevated pumping power`，**无任何数值**
+  → **不得给 Novel 1 配任何泵功数字或倍数**
+- **三维 CFD** ✅；**实验验证：摘要未给**（全文为计算工作）；**网格无关性 / 湍流模型：摘要均未给，一字未提**
+- ⚠️ **摘要自身数目不一致**：原文写 `seven optimisation phases are systematically evaluated`，但随后列举明显多于七项
+  → **成稿不要转述「七个优化阶段」，也不要替它调和**
+- **覆盖面字面**（逐字）：`The results demonstrate that geometric optimization can yield substantial performance
+  improvements and provide guidelines for the design of high-performance microchannel cold plates.` → scout 引用准确
+**摘要未给**：热流密度数值（仅 `extreme heat fluxes` 定性）、热源功率、通道与针肋尺寸、流量/质量流速、Re 区间、
+绝对壁温或结温、入口温度、湍流模型、网格无关性、Novel 1 几何细节与其泵功/压降数值、倒角 10/20/30% 各自结果、去鳍策略结果、实验验证。
+
+### 候选 2 · `10.1109/therminic70452.2026.11779794` —— **待确认（部分）**
+`Transient CFD Modelling of Two-Phase Microchannel Cooling in a Multi-Chip Power Module`
+`created` 2026-11-19T20:20:19Z；page `1-7`。
+**作者确为 2 位**（两源一致），均 `is_corresponding: false`：
+Sadegh Sadeghi（`first`）、Amir Sajjad Bahman —— Crossref `affiliation[].name` 均 `Aalborg University`
+（place `Aalborg, Denmark`；dept `Department of Energy`）。
+**裁剪后建议写：两位均 Aalborg University**。`Department of Energy` **仅在 Crossref 结构化 `department` 字段、
+不在任一原始机构串中** → 按裁定**不写**；国别不写（scout 的「Aalborg University, Denmark」应去掉国别）。
+**数字逐项**：
+- **三芯片、每芯片 190 W** ✅ `Three power semiconductor chips, each dissipating 190 W`
+- **亚冷 R134a + 矩形微通道** ✅ `are cooled using subcooled R134a flowing through rectangular microchannels`
+- **沸腾起始约 0.04 s** ✅ `The simulations predict boiling initiation at about 0.04 s`
+- **0.15 s 后两相热阻 0.055 K/W vs 单相 0.09 K/W**：数值与时刻✅
+  ⚠️ **但摘要未说明这是单芯片热阻还是模块总热阻**，亦未给定义口径（结到入口液？结到环境？）
+  → **待确认，不得自行标注「单芯片」或「模块」**
+- **压降归属** ⚠️ 原文逐字 `while the pressure drop increases only slightly from 6.2 to 6.5 kPa`，紧接两相/单相对比主句。
+  **不是时间演化**；语境指**单相→两相**。但摘要**未逐一标注**哪个数属哪个配置
+  → **照抄原文措辞「压降仅由 6.2 kPa 微增至 6.5 kPa」，不做逐配置硬归属，更不可写成时间演化**
+- **冷却剂出口温度 22.4 °C（两相）vs 23.2 °C（单相）** ✅ 原文用 `coolant outlet temperature`，未说明是否为液相温度
+  → scout 写「出口液温」略加戏，**建议写「冷却剂出口温度」**
+- 模型构成 ✅ `conjugate heat transfer and an Eulerian–Eulerian multiphase formulation coupled with the RPI wall-boiling model`
+- **覆盖面字面**：`a transient three-dimensional computational fluid dynamics (CFD) investigation of two-phase
+  microchannel cooling in a multi-chip power module`；结论句 `capture transient boiling and thermal interactions in multi-chip cooling systems`
+**摘要未给**：微通道尺寸/数量、质量流速或流量、亚冷度、入口温度与压力、工作压力、芯片面积与热流密度、
+热阻定义口径与是否逐芯片、芯片间相互作用的量化结果、蒸汽干度、**有无实验验证（摘要自称 `This computational study`，
+无任何实验对照或验证字样）**、网格无关性、时间步长、RPI 模型参数标定来源。
+
+### 候选 3 · `10.1109/therminic70452.2026.11779775` —— **待确认（部分）**
+**完整标题（两源逐字一致，scout 截断已补全）**：
+`Experimental Validation of a Lumped Parameter Thermal Model for Spreading Resistance in Direct-Cooled Power Electronics`
+（`subtitle` 与 `original-title` 均为空数组，无副标题）
+`created` 2026-11-19T20:12:43Z；page `01-10`。
+**完整作者 5 位（scout 完全未取的缺口已补齐，两源一致）**，全部 `is_corresponding: false`，
+Crossref `affiliation[].name` 五条均 `Ghent University`（place `Ghent, Belgium`；
+dept `Department of Electromechanical, Systems and Metal Engineering`）：
+1 Lander Cnudde（`first`）／2 Jasper Nonneman／3 Jana Rogiers／4 **Michiel De Paepe**／5 **Michel De Paepe**
+⚠️⚠️ **第 4、5 位是 `Michiel De Paepe` 与 `Michel De Paepe` 两个不同拼写、各自独立成条**。
+**两源都如此**（OpenAlex 还把二者解析为两个不同 author 实体）。无法从元数据判断是两位同姓作者，还是出版商重复交存/拼写错误。
+→ **成稿若列全名单，须按交存原样列出并加注「出版商交存如此，是否为同一人待确认」；
+绝不可自行合并为一人或删掉其中一条。** IEEE 全文不可达，本期无法裁定。
+**裁剪后建议写：五位均 Ghent University**（院系仅见于结构化 `department` 字段、不在原串中 → 不写）。
+**数字/声明逐项**：
+- 液冷铜热沉 + 代表功率半导体裸片的局部热源 ✅
+- **「偏差最大达 3 倍」原文逐字**：`deviations of up to a factor of three were observed between simulations and measurements`
+  → 量纲是 **a factor of three（3 倍）**，**不是 300%**，也不是百分比 → 成稿写「最大达 3 倍（factor of three）」
+  ⚠️ **偏差对象（热阻 vs 温度）摘要未明确**：该句未指明被比量；前句表征对象为 `the resulting temperature field and
+  thermal resistance`（两者皆有），后句才落在 `quantitative prediction of thermal resistance`
+  → **不得断言「热阻偏差 3 倍」或「温度偏差 3 倍」**
+- 作者结论 ✅ `The results demonstrate that the current modelling approach is not sufficiently accurate for
+  quantitative prediction of thermal resistance`
+  ⚠️ 原文说的是 `the current modelling approach`；**「集总参数 lumped parameter」只出现在标题，摘要正文一次未用**
+  → 成稿如写「集总参数模型」须注明出自标题
+- 另可引的定性结论：`the model correctly reproduces the qualitative temperature trends and heat spreading behaviour
+  observed experimentally`；`highlight the importance of experimental validation when modelling spreading-dominated
+  thermal paths in power electronics cooling`
+- **绝对热阻值 / 热源功率 / 流量 / 温度：摘要全部未给**。逐字复核：该摘要**除 `a factor of three` 外不含任何数值**
+  → 任何绝对量都不得补写
+- **覆盖面字面**（逐字，scout 所引核实无误）：`This work presents the experimental validation of a thermal model for a
+  liquid-cooled copper heat sink subjected to a localized heat source representative for a power semiconductor die.`
+  （下一句 `A dedicated test section with embedded temperature sensors was developed to characterise the resulting
+  temperature field and thermal resistance.`）
+**摘要未给**：热源功率与热流密度、裸片/热源尺寸、热沉几何与通道形式（标题称 direct-cooled，摘要只说 liquid-cooled
+copper heat sink，未说明是微通道/射流/针肋）、工质种类、流量或流速、入口温度、绝对热阻值与温度值、
+嵌入式温度传感器数量与型号、测量不确定度、偏差 3 倍对应的工况、集总参数模型的节点划分与参数来源、是否含 CFD 对照。
+
+## 第二批成稿硬性提醒
+1. **三条都不能点通讯作者**（`is_corresponding` 全 false）。
+2. **候选 1 删两个中心/实验室名**：Texas Institute for Electronics → 只写 The University of Texas at Austin；POWERlab → 只写 EPFL。
+3. **候选 1 三位作者姓名以交存串为准**（Mohamed Elkholy / Ibrahim Elhagali / Osama Maklad）。
+4. **候选 1 的 5.1% 不得补写基准**；**Novel 1 的泵功增加不得配任何数字**。
+5. **候选 2 的 6.2→6.5 kPa 照抄原文措辞**，不做逐配置硬归属，也不是时间演化；**0.055/0.09 K/W 不标单芯片或模块**。
+6. **候选 3 写「3 倍（factor of three）」而非 300%**，且**不指明偏差对象**；作者名单须原样保留 Michiel 与 Michel 两条并加注。
+7. 三条均为**已刊出的 IEEE 会议录论文（非预印本）**，但全文不可达，所有「摘要未给」项只能标待确认，**不跨源推断**。
+8. 未发现与前期已归档周报冲突的内容（本批 3 条均首次收录），**无需「更正」节条目**。
