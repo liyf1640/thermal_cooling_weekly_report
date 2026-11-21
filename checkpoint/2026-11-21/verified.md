@@ -539,3 +539,132 @@ copper heat sink，未说明是微通道/射流/针肋）、工质种类、流�
 6. **候选 3 写「3 倍（factor of three）」而非 300%**，且**不指明偏差对象**；作者名单须原样保留 Michiel 与 Michel 两条并加注。
 7. 三条均为**已刊出的 IEEE 会议录论文（非预印本）**，但全文不可达，所有「摘要未给」项只能标待确认，**不跨源推断**。
 8. 未发现与前期已归档周报冲突的内容（本批 3 条均首次收录），**无需「更正」节条目**。
+
+---
+
+## 学术侧 第三批 · CuBricks 与玻璃封装（2 条，均不否决但各带强制标注）
+
+### 1 · `10.1109/therminic70452.2026.11779768` CuBricks —— **待确认（部分）**
+所有数字、结构描述、实验验证表述、基准表述**全部逐字核实通过，与 scout 一致，无一处不符**。
+唯一待确认项是**单位的具体校名**。
+- **Crossref `created`** = `2026-11-19T20:12:54Z`；`published` = `[[2026,9]]`；`published-online` null；`deposited` 2026-11-20T08:10:24Z
+  ⚠️ OpenAlex `created_date` = 2026-10-24，与 Crossref **相差 26 天** → 再次证实不同源，**已弃用**
+- `type` = `proceedings-article`，container = THERMINIC 2026，page `01-10` → **已刊出的同行评审会议论文，非预印本，勿称「期刊论文」**
+- **作者 3 位**，Crossref 交存串与 OpenAlex `raw_author_name` / `display_name` **逐字全一致**（无归一名问题）：
+  Johann Renner（`first`，ORCID 0009-0007-7527-7302）／Cuong Hoang（0009-0005-0964-9097）／Till Huesgen（0000-0001-5726-1218，末位）
+  **`is_corresponding` 三位全 False → 不可点名通讯作者**
+- 🔴 **`Kempten` 是机构名还是城市 —— 判断：在出版商交存数据里是「城市」，证据决定性**：
+  1. Crossref **分字段**交存：`name = "University of Applied Sciences"`，`place = ["Kempten, Germany"]`
+     —— IEEE 明确把 `Kempten, Germany` 归入 **place** 槽位
+  2. OpenAlex `raw_affiliation_strings` = `"University of Applied Sciences, Kempten, Germany"`，
+     **恰好等于 Crossref 的 `name` + `", "` + `place` 逐字拼接** → OpenAlex 串里的 Kempten **来源就是 place 字段**，
+     并非另有一份含 Kempten 的校名原串
+  3. → **没有任何原始交存证据表明 `Kempten` 属于校名**。OpenAlex 归一名 `Kempten University of Applied Sciences`
+     （I2802623092，ror.org/02m4p8096，主页 hs-kempten.de）按铁律 1 **绝不可作为单位写法**，仅为「是哪所学校」的旁证
+  4. 直接证据（IEEE Xplore 作者单位行、ORCID 雇主记录）**两条通道均 http=000 被代理拒连**，本轮无法取得
+  **→ 采用建议 A：写 `University of Applied Sciences` 并标「具体校名待确认」。按铁律 2 国别也不写。**
+- **数字逐项**（摘要末句原文 `…achieving a thermal resistance of down to 0.27 K/W (6.72 mm²K/W) at a pumping power
+  per chip of 0.043 W for a 25 mm² SiC-MOSFET die.`）：
+  - 热阻最低 **0.27 K/W** ✅（`down to` = 最低）
+  - **6.72 mm²K/W** ✅ ⚠️ 原文写作 `mm²K/W`**无中点**
+  - 泵功 **0.043 W/芯片** ✅ `per chip` 原文明载
+  - 对象 **25 mm² SiC-MOSFET 裸片** ✅
+  - **verifier 自算校验**：`6.72 ÷ 25 = 0.2688 K/W`，四舍五入到两位 = **0.27** ✅ → **是同一量的两种表达**
+    （面积归一热阻 = 热阻 × 25 mm²），真值约 0.2688 K/W。
+    ⚠️ **成稿不要写「0.27 × 25 = 6.75」式反推，也不要把 6.72 改成 6.75**；两个数都照原值写。
+  - **「最低」的取得条件：摘要未给** —— 只说研究了 `various single- and double-sided cooled designs … regarding the
+    impact of the channel pattern and copper thickness`，**未说 0.27 K/W 出自哪一种设计**
+    → **只能写「在所考察的多种设计中最低可达 0.27 K/W」，不得指定为「双面冷却下」或任何具体条件**
+- **基准（逐字）**：`a benchmark against dielectric-cooled state-of-the-art research setups and an industrial pin-fin
+  water-glycol-operated automotive power module demonstrates that the CuBrick concept is a promising alternative for
+  high-power-density thermal management`
+  ⚠️ 基准一原文为**复数 `setups`**；**基准侧无任何数值**（无基准热阻、泵功、百分比、倍数）
+  🔴 **「优于基准 X%」「低 N 倍热阻」一律不得写，连「显著优于」也不得写** —— 原文只给到
+  `a promising alternative`（一个有前景的替代方案），**比「优于」弱得多**，成稿须照此弱措辞转述
+- **结构（逐字核实）**：`perforated copper blocks, termed "CuBricks," which serve as both heat exchangers and electrical
+  interconnects`；`Soldered onto a standard FR4 PCB with integrated fluidic pockets, this design eliminates traditional
+  DBC or AMB substrates and enables a vertical coolant flow through the circuit carrier.`
+  ⚠️ 原文是 `DBC **or** AMB`；PCB 限定为 `standard` FR4；流体腔原文 `integrated fluidic pockets`
+- **实验验证**：✅ `Experimental results from a thermal test vehicle are validated against CFD simulations.`
+  ⚠️ **但摘要没有说末句那组数字是实测值还是 CFD 值** → 安全写法「报告热阻最低 0.27 K/W…」，**不要写「实测热阻 0.27 K/W」**
+  另：摘要自述范围 `Focusing exclusively on the thermal characterization of this concept`
+  → **不得暗示已做电气/可靠性/寿命验证**
+- **覆盖面字面**：标题 `for Power Semiconductors`；`a novel dielectric immersion cooling concept for power modules`；
+  `an industrial pin-fin water-glycol-operated automotive power module`；`for a 25 mm² SiC-MOSFET die`；`high-power-density thermal management`
+- **摘要未给**：热流密度、芯片/加载功率、**介电流体牌号或种类（连类别都没有）**、流量/流速、
+  **任何温度绝对值（无 Tj、无进口温度、无 ΔT）**、基准数值、0.27 K/W 对应的具体设计、铜厚与流道图案的取值范围、
+  芯片数量/模块拓扑、**压降（只给泵功，泵功 ≠ 压降，不得互推）**
+
+### 2 · `10.1109/estc68880.2026.11778975` 玻璃封装微流道 —— **待确认（部分）**
+数字全部逐字核实，两套方案的面积/柱数对应关系与 scout 所报**完全一致（没搞混）**，psi→kPa 换算 verifier 自算两遍均正确。
+🔴 **但最关键一项查实为：摘要完全无法判断这些数字是实测还是仿真** —— 摘要中**没有出现**
+`measured` / `measurement` / `experimental` / `simulation` / `simulated` / `CFD` / `FEM` / `model` 中的任何一个词。
+**成稿绝不可写「实测」。**
+- **Crossref `created`** = `2026-11-17T20:16:10Z`；`published` = `[[2026,9]]`；`deposited` 2026-11-20T06:49:41Z；
+  `event` = *2026 IEEE 11th Electronics System-Integration Technology Conference (ESTC)*，Helsinki, Finland，会期 2026-09-09~09-11
+  ⚠️ OpenAlex `created_date` = 2026-11-18（差 1 天）→ 已弃用
+- `type` = `proceedings-article`，page `1-5` → **已刊出的同行评审会议论文（5 页短文）**
+- **作者 3 位**，Crossref 交存串与 OpenAlex 逐字全一致（第一作者 given name 交存为 **`Joon Woo`，两词无连字符**）；
+  三位**均未交存 ORCID**；**`is_corresponding` 三位全 False → 不可点名通讯作者**（**不得**把末位 Swaminathan 写成通讯作者）：
+  Joon Woo Kim（`first`）— `Georgia Institute of Technology CHIMES`（place `Atlanta, GA, USA`）
+  Ruposri Bhattacharjee — `Pennsylvania State University CHIMES`（place `University Park, PA, USA`）
+  Madhavan Swaminathan（末位）— 同上
+- **单位裁剪**：⚠️ `CHIMES` 出现在 Crossref 的 **`affiliation[].name` 原串里面**，不是 `department` 字段
+  （本文记录根本没有 `department` 字段）。但按铁律 2，**CHIMES 是研究中心级 → 删除**；place 全删。
+  → **Joon Woo Kim = Georgia Institute of Technology；另两位 = Pennsylvania State University**
+  ✅ 与 scout 的 GT / PSU 判断一致，**但 scout 把 CHIMES 带进了单位里，成稿必须去掉**。
+  院系在原串中**完全未出现** → **不写任何院系**。
+- **数字逐项（两套方案归属全部正确，无一项错配）**：
+
+| 项 | 方案 (i) 平行微流道 + 填铜 TGV | 方案 (ii) 直接接触 pin-fin |
+|---|---|---|
+| 有源冷却柱数 | **196** ✅ | **81** ✅ |
+| 阵列排布 | **摘要未给**（只给总数 196，**未**说 14×14） | `dense 9×9 array` ✅ |
+| 区域 | `2.8 mm × 2.8 mm zone` ✅ | `1 mm × 1 mm cooling zone` ✅ |
+| 流体/电互连 | `integrates both … on the same side` | `separates … onto opposite sides` |
+| 功率密度 | **248 W/cm²** ✅ | **502 W/cm²** ✅ |
+| Tj | `T_j < 85 °C` ✅ **确为不等式** | `T_j = 78.6 °C` ✅ **确为等式** |
+| ΔP | `8.34 psi (57.5 kPa)` ✅ | `8.42 psi (58.1 kPa)` ✅ |
+
+  ⚠️ 方案 (i) 的 196 柱**原文未给阵列形状** → **不得写成 14×14**（即使 14²=196，属推算）
+  **verifier 自算换算校验**（1 psi = 6.894757 kPa）：8.34 psi = 57.502 kPa → **57.5** ✅；
+  8.42 psi = 58.054 kPa → **58.1** ✅ → **原文两组换算均正确，可放心引用**
+- **248 / 502 W/cm² 是「冷却能力」还是「施加热流密度」—— 原文用 `reaches`，未明确二选一**：
+  摘要**没有**出现 `cooling capacity` / `heat flux` / `applied heat flux` / `dissipated power density` / `heat removal` 任何一个词
+  → **不得写成「冷却能力上限」，也不得写成「施加热流密度」**（两者都是替出版商下结论）
+  → **建议写法**：「方案 (i) 在 Tj < 85 °C、ΔP = 8.34 psi（57.5 kPa）下**达到** 248 W/cm²；方案 (ii) 在 Tj = 78.6 °C、
+  ΔP = 8.42 psi（58.1 kPa）下**达到** 502 W/cm²。」
+  ⚠️ (i) 的 Tj 是**上界（<85）**、(ii) 是**点值（=78.6）**，**不要把 (i) 写成「Tj = 85 °C」**
+- 结论句很弱：`showing the potential for significant thermal performance gains as the architecture moves toward direct
+  copper-to-coolant interaction` —— 只是 `showing the potential for`
+  🔴 **不得把 502 vs 248 包装成「提升 2 倍」** —— 原文没做这个比值，`502/248 ≈ 2.02` 属推算
+- 🔴 **实测 vs 仿真 —— 摘要无法判断**。与方法学相关的**全部**表述只有：
+  `This paper presents an evaluation of two distinct glass-embedded liquid cooling architectures developed as rapid
+  test vehicles`；`Step (i) reaches…` / `step (ii) reaches…`；全文称 `step (i)` / `step (ii)`。
+  `rapid test vehicles` 说明**开发了测试载体**，但**不等于这组数字是在载体上测出来的**。
+  对比 CuBricks 摘要明确写 `Experimental results … are validated against CFD simulations.`，**本文摘要缺少这一句，差别明显**。
+  → **必须标注「摘要未说明实测或仿真」；不标注则应改判否决**（不标注等于向读者暗示实测，而原文无此依据）
+- **覆盖面字面**：`Glass is an attractive interposer material for heterogeneous integration`；
+  `its low bulk thermal conductivity presents challenges for high-power 3D packaging applications`；
+  `two distinct glass-embedded liquid cooling architectures`；
+  `(i) a parallel microchannel cooling structure integrated with copper-filled through-glass vias (TGVs)`；
+  `(ii) a direct-contact pin-fin architecture in which copper pillars formed through the glass are selectively exposed
+  to the coolant flow`；`Both architectures maintain the top surface of the active die available for further 3D stacking`
+- **摘要未给**：**冷却剂种类（连「水」都没说）**、流量/流速/Re、**与无冷却基准或传统方案的对比（(i) 与 (ii) 之间也未做比值）**、
+  通道尺寸与 pin 直径/节距、芯片功率与芯片尺寸（**不得用 W/cm² × 面积推总功率**）、进口冷却剂温度/环境温度/ΔT、
+  热阻、玻璃厚度与 TGV 直径/深宽比、**实测 vs 仿真的方法说明**、可靠性/漏液/热循环数据、方案 (i) 的 196 柱阵列排布
+
+### 第三批跨条提示
+1. 两条都不否决，但**都带强制标注**：CuBricks 标「具体校名待确认」，玻璃封装标「摘要未说明实测或仿真」。
+2. 判窗：`created` 分别 **2026-11-19** 与 **2026-11-17**；`published` 都是 2026-09（会期名义月）。
+   **OpenAlex `created_date` 再次被证实不可用**（本批偏离 26 天与 1 天）。
+3. **两条均不可点名通讯作者**（共 6 位作者 `is_corresponding` 全 False）。
+4. 🟢 **值得写进核验规程的发现**：两条的 OpenAlex `raw_affiliation_strings` **都等于 Crossref `name` + `", "` + `place`
+   的扁平拼接**，即 OpenAlex 原串**不含任何 Crossref 之外的机构信息，却把城市/州/国别混入串中**。
+   **今后从 OpenAlex 原串取单位时必须先与 Crossref 的 `name` / `place` 对账，否则会把城市当成校名写进稿里**
+   —— CuBricks 的 Kempten 就是这个陷阱的典型。
+5. **禁止推算清单**（两条合计，均为 verifier 校验用计算，**不得出现在成稿**）：
+   `0.27 × 25 = 6.75`（勿用于改写 6.72）、`196 = 14×14`、`2.8×2.8 = 7.84 mm²`、`502/248 ≈ 2 倍`、`W/cm² × 面积 = 芯片功率`
+6. CuBricks 需修：`state-of-the-art research setups` 是**复数**；结论措辞仅为 `a promising alternative`，**不是「优于」**。
+7. 玻璃封装需修：单位里的 **CHIMES 必须删除**。
+8. 两条均首次收录，**未发现与往期冲突，无需「更正」节**。
