@@ -588,3 +588,210 @@
      而 created 为 2026-11-13。
 10. **流程遗留**：`origin/wip/briefing-2026-11-07`（第 12 期的存档分支）**未被第 12 期按 SKILL.md 第 5 步清理**。
     其日期不晚于当时的 LAST，故不影响续跑判断；本期未动它。**建议维护者确认后删除**。
+
+## 第 14 期（2026-11-21）
+
+**第 13 期挂账回应（逐条）**：
+
+1. **`10.1109/tcpmt.2026.3751185`（题名最对口、元数据已核齐、摘要零获取）** → 🟢 **本期摘要已取到，挂账结清，已作论文卡上站（本期头条）。**
+   取法：**OpenAlex 单篇 DOI 端点**（`api.openalex.org/works/https://doi.org/<DOI>`）—— 上期该端点两次 404，**本期已带 `abstract_inverted_index`**，
+   两名代理（scout A 与 verifier）各自独立取到、内容一致。Crossref 仍无 `abstract`。
+   上期取得的 **Xplore 文档号 11796570 本期试过，整域仍 CONNECT 403（HTTP 000）**，未派上用场。
+   **这再次验证「IEEE 条目值得隔期重试」这条经验**（第 13 期的 3751096 是在 created 后约一周出现摘要，本条是在 created 后约 8 天）。
+   判窗：Crossref `created` 复核为 **2026-11-13T20:18:56Z**，与上期记录完全一致 → 落在第 13 期窗口内，属前期漏收，
+   按 rules 第 5 条**如实写原始日期、不加补记标注**。
+2. **第 13 期已刊条目中的「待确认」项（取到即补记）** → **本期未重试，按上期自定动作执行。**
+   上期动作写的是「**仅在相应出版商域恢复可达时重试；不反复挂账**」。本期 `www.mdpi.com`、`iopscience.iop.org`、
+   `www.nature.com`、`www.researchsquare.com`、`ieeexplore.ieee.org`、`ssrn.com`、`www.sciencedirect.com` **全部仍不可达**，
+   故 `10.3390/mi17111312`、`10.1109/tcpmt.2026.3751096`、`10.1016/j.enss.2026.100194`、`10.1088/2631-8695/aebd48`、
+   `10.3390/surfaces9040094`、`10.21203/rs.3.rs-11578799/v1`、`10.1115/fedsm2026-184041`、`10.1063/5.0359276`、
+   `10.3389/fmech.2026.1965238` **九条均未动**。
+3. **第 11 期六条 + ATE 133678 的摘要止损规则** → **维护者连续两期未裁定，本期第 3 次原样重提。**
+   本期未再对这七条发起重试（通道性质未变）。**建议仍为：同一条摘要连续 3 期取不到即结案、移出挂账，只留在
+   `drafts/excluded-numbers.md` 第（八）类备查**；若将来 ScienceDirect 通道恢复可用，再由当期 scout 作为新发现重新提出。
+   ⚠️ **本期新增一条支持该建议的反面证据**：IEEE 条目（3751185）隔期重试**成功**，而 Elsevier 诸条已连续 2–3 期失败且机制明确
+   （出版商未向 Crossref 交存 abstract、OpenAlex 因此也没有，ScienceDirect 整域不可达）→ **建议止损规则按出版商分别设定**：
+   **IEEE / MDPI / IOP 类隔期重试有价值，Elsevier / SSRN 类连续 2 期失败即可结案。**
+4. **产业侧挂账**：
+   - **Delta 800 VDC 2.5 MW L2L CDU 的 ATD / 供回水温度 / 尺寸 / 冗余等级** → **按上期自定动作结案。**
+     上期动作写的是「若任一域恢复可达则核一次；否则结案（稿方本身未披露，继续挂下去会诱使去二手源凑数）」。
+     本期窗口内**无 Delta 相关新稿**，故未对 `www.deltaww.com` / `www.delta-americas.com` 发起请求 → **结案，不再挂账。**
+     第 11、13 期既有禁令继续有效：**SuperCDU-1500 与 GoCool 系列的 4–7.5 °C ATD 属别的型号，不得套用、不得并列**；
+     亦不可与第 10 期 LITEON × DCX 的「2.6 MW + ATD 3 °C + N+1 冗余泵」互相代入。
+     ⚠️ **本期新增同类禁令**：**CoolIT CHx 3000 的 3 °C ATD 同样只属该型号**，不得与上述任何机型并列或代入。
+   - **Daikin 欧洲侧 CDU 稿** → **仍待维护者裁定，本期未动。**
+     上期动作是「请维护者把 `www.daikin.eu` 加入会话网络白名单」，**该域本期仍在白名单外**，故未再试。
+     第 13 期的整条否决与全部禁令继续有效（见 `excluded-numbers.md`）。
+   - **DOE COOLERCHIPS 1.5（称 2026-08-26 公布、目标 1 MW/机架）与 Uptime Institute《2025 Cooling Systems Survey》的 75%**
+     → 🔴 **本期已按上期动作单独去核一手源，全部取不到 → 结案，不再挂账。**
+     实际试过：`www.energy.gov`、`arpa-e.energy.gov`、`intelligence.uptimeinstitute.com` —— **均代理 403**。
+     检索摘要可见 `energy.gov/node/4860068` 带 2026-08-26 日期、以及 `energy.gov/sites/default/files/2026-09/CX-271071.pdf`，
+     但**这些只证明 URL 存在，未取到一手原文**；Uptime 侧可读到该调查的资源页标题与样本数 **n=1,033**（主题为 DLC 采用情况），
+     但 **75% 这个数字在任何可达页面上都没有出现**，检索摘要亦明确说未发现该数字。
+     → **两项均无一手证据，继续排除，不得引用。**
+   - **3C Datalec 在液冷链条上的具体环节** → **本期窗口内无新稿。**
+     PRN 搜 `Datalec` 与 `3C liquid cooling`，最新条目仍是 2026-10-14 07:02 ET（英文合并稿）与 2026-10-15 02:56 ET（印尼文版）。
+     刊物既有备注「不可读作冷板或 CDU 制造商」继续有效。**下期动作**：若该公司另发产品稿则核一次。
+5. **InterPACK 2026 会后论文 DOI 复查（`ipack2026-*`）** → **第 4 次零命中，如实记录。**
+   `api.crossref.org/prefixes/10.1115/works` 按 created 2026-11-15~11-21 共 **429 条**，offset 0/100/200/300/400 全部拉取，
+   **DOI 或标题含 ipack 的为 0 条**。该 429 条里非 `pvp2026-*` 的只有 1 条（`10.1115/1.4072771`，振动/力学类，与散热无关），
+   其余 428 条全是 **`pvp2026-*`**（ASME 压力容器与管道会议，2026-11-19 集中上线）。
+   → **会期（2026-10-26~10-29）已过去三周半，ASME 仍在交存其他会议（本期是 PVP）、InterPACK 单独滞后。**
+   **上期建议「改为每两期查一次」维护者未裁定，本期仍按每期查**；若维护者同意降频，第 15 期可跳过、第 16 期再查。
+6. **`scripts/fetch_source.py` 改进建议** → **本期仍未自行改脚本，第 4 次重提，且本期取得了直接证据。**
+   🔴 **本期两名 verifier 各自读了脚本源码后明确弃用该脚本作判据**：`from_doi()`（第 89 行起）**只打印 `published`**，
+   **不输出 `created`、`author[].sequence`、OpenAlex 的 `is_corresponding`**，也**不打印 Crossref 的 `affiliation[].place` / `department`**
+   —— 而这四项正是本期铁律（判窗、通讯作者、单位裁剪）所必需，因此**全部核验工作都绕开脚本直接取 JSON**。
+   **建议把 `created`、`author[].sequence`、`is_corresponding`、`affiliation[].place`、`affiliation[].department` 并入脚本输出。**
+   （`place` 与 `department` 采不采用另按 rules 第 2 条判，但**必须打印出来**才能判——见本期第 9 条的 Kempten 陷阱。）
+7. **姓名 / 刊名差异记档（不进「更正」节——均为从未上站的候选条目或已按交存串处理）**：
+   - **`10.1109/tcpmt.2026.3751185`**（已上站）：作者 4 Crossref `Jae Choon` vs OpenAlex `Jaechoon Kim` → **本期采 Crossref 交存串**。
+   - **`10.1109/therminic70452.2026.11779791`**（已上站）：三位作者 Crossref 交存串与 OpenAlex `raw_author_name` 一致地写作
+     `Mohamed Elkholy` / `Ibrahim Elhagali` / `Osama Maklad`，而 OpenAlex **归一后的 `display_name`** 多出中名
+     `Atif` / `Osama` / `M.` → **本期采交存串**。
+   - **`10.1109/tcpmt.2026.3754479`**（已否决）：作者 2 `Mannem S V Sayi Teja Reddy` vs OpenAlex `Sayiteja Reddy Mannem`；
+     作者 4 `Dhairyashil Desai` vs `Dhairyshil  Ramachandran Desai`；作者 7 `Sarit K Das` vs `Sarit K. Das`。
+   - **`10.1109/therminic70452.2026.11779760`**（未收，摘要 null）：Crossref `Ho-Chuan Lin` vs OpenAlex `H. I. Lin`。
+   - **`10.1109/estc68880.2026.11779390`**（未收，仅标题级）：Crossref `Linda van Leest` vs OpenAlex `Linda van der Leest`。
+   - 🔴 **`10.1109/therminic70452.2026.11779775`**（已上站）：作者 4、5 为 **`Michiel De Paepe`** 与 **`Michel De Paepe`**
+     两个不同拼写、**各自独立成条**，**Crossref 与 OpenAlex 两源都如此**（OpenAlex 还解析为两个不同 author 实体）。
+     无法从元数据判断是两位同姓作者还是出版商重复交存/拼写错误；IEEE 全文不可达。
+     **本期按交存原样列出并在跨期清单加注「是否为同一人待确认」，未自行合并或删除。**
+     **下期动作**：若 IEEE Xplore 通道恢复则核一次作者行。
+     另注：`10.1109/therminic70452.2026.11779807`（Ghent University，PCM 集成热沉，摘要 null、未收）的 Crossref 作者列表里
+     **同样同时出现 `Michiel De Paepe` 与 `Michel De Paepe`** → **系该课题组交存的系统性现象，不是单篇笔误**，一并记档。
+8. **网络白名单（仍是本期最大的取数瓶颈，请维护者裁定）**：本期学术侧**全部证据仍只能来自 Crossref 与 OpenAlex 的交存元数据**。
+   本期实测仍不可达（CONNECT 403 或 DNS 不解析）：
+   `www.sciencedirect.com`、`www.mdpi.com`、`iopscience.iop.org`、`www.nature.com`、`www.researchsquare.com`、
+   `ieeexplore.ieee.org`、`api.semanticscholar.org`、`pub.orcid.org`、`pubs.aip.org`、`ssrn.com`、
+   `www.businesswire.com`、`www.globenewswire.com`、`www.ecolab.com`、`investor.ecolab.com`、`www.stocktitan.net`、
+   `zutacore.com` / `www.zutacore.com`、`www.munters.com`、`www.nexalus.com` / `nexalus.com`、`www.renda.com`、`renda.tech`、
+   `www.hpcwire.com`、`www.datacenterfrontier.com`、`www.energy.gov`、`arpa-e.energy.gov`、`intelligence.uptimeinstitute.com`、
+   `www.daikin.eu`、`www.daikin.com`、`www.deltaww.com`（本期未试，沿用上期结果）、`coolitsystems.com`（**无 www 403，带 www 正常**）。
+   🟢 **本期好消息**：OpenAlex 的 `?search=` 端点**上期全程 429、本期未再遇到限流**（所有调用均 HTTP 200，间隔 ≥3 s 即可）。
+   **建议优先加白（按本期实际损失排序）**：
+   **① `ieeexplore.ieee.org`**（本期 THERMINIC/ESTC 两批共 274 条会议论文上线，**16 条相关条目因摘要 null 而无法收录**，
+   Xplore 是唯一的补救通道，价值最高）；**② `www.sciencedirect.com`**（Elsevier 摘要零获取的唯一出路）；
+   **③ `www.mdpi.com`、`iopscience.iop.org`、`www.nature.com`**；**④ `www.businesswire.com`**（本期 ZutaCore Z₂O 整条因此否决）；
+   **⑤ `www.daikin.eu`**（第 13 期挂账至今）。
+9. 🟢 **可用通道与取数经验记档（供下期直接沿用）**：
+   - 学术：`api.crossref.org/works/<DOI>`、`api.crossref.org/journals/<ISSN>/works`、`api.crossref.org/prefixes/<prefix>/works`、
+     `api.openalex.org/works/https://doi.org/<DOI>`（**仅单篇端点，间隔约 3 s；本期无 429**）、`export.arxiv.org/api/query`、`arxiv.org/pdf`
+   - 产业：`www.prnewswire.com` 稿件页与 `/search/all/?keyword=…`；`www.datacenterdynamics.com` 稿件页与 `/en/news/` 列表页
+     （**须带 www 且必须用 `fetch_source.py`**，`curl` 会撞 Cloudflare）
+   - 🟢 **本期新确认的三条**：
+     **① `www.coolitsystems.com` 可读，且有一手产品规格页**（经 `/sitemap_index.xml`、`/cdu-product-sitemap.xml` 可定位型号页，
+     本期 CHx 3000 的几乎所有规格都从 `/cdu-product/chx3000/` 一手坐实，**价值很高，建议固定纳入产业侧取数路径**）。
+     **② PRN 稿页原始 HTML 里 `grep -oE '[0-9]{1,2}:[0-9]{2} ET|datePublished'` 可直接取精确 ET 时间戳**，
+     比搜索页更可靠（搜索页只回最近若干条，深稿取不到）。
+     **③ 用 `python3 -I` + 与 `fetch_source.py` 相同 UA 直取 DCD 的 `/en/news/` 列表页 HTML 可提取稿件 slug**，再取稿件页。
+   - 🔴 **本期发现的一个必须写进核验规程的陷阱**：**OpenAlex 的 `raw_affiliation_strings` 往往等于
+     Crossref `affiliation[].name` + `", "` + `affiliation[].place` 的扁平拼接**，即 OpenAlex 原串**不含任何 Crossref 之外的机构信息，
+     却把城市/州/国别混入同一个串**。本期两条实例：`University of California, Irvine, CA, USA`（`name` 内无 Irvine）、
+     `University of Applied Sciences, Kempten, Germany`（`name` 内无 Kempten）。
+     **→ 今后从 OpenAlex 原串取单位，必须先与 Crossref 的 `name` / `place` 对账，否则会把城市当成校名的一部分写进稿里。**
+   - ⚠️ **判窗仍一律用 Crossref `created`**。本期又添三例佐证：THERMINIC/ESTC 批次的 `published` 全是会期名义月份 **2026-09**
+     而 `created` 为 11-17 / 11-19；**OpenAlex 的 `created_date` 本期被证实完全不可用于判窗**——同一批条目分别偏离 Crossref
+     **26 天**（11779768：OpenAlex 10-24 vs Crossref 11-19）、1 天、以及 09-09 / 09-18 / 09-28 三个互不一致的值。
+10. **流程遗留：wip 存档分支累积未清理** → **本期新增一条，共三条。**
+    `origin/wip/briefing-2026-11-07`（第 12 期）、`origin/wip/briefing-2026-11-14`（第 13 期）**均未按 SKILL.md 第 5 步清理**。
+    它们的日期不晚于当时的 LAST，故不影响续跑判断；**本期未动它们**（删他期分支不在本期职责内）。
+    **建议维护者确认后一并删除**，或在 SKILL.md 里加一条「开工时顺带清理早于 LAST 的 wip 分支」。
+
+**本期新挂账（第 15 期回应）**：
+
+1. 🔴 **THERMINIC 2026 / ESTC 2026 整批里摘要为 null 的 16 条相关条目 —— 本期最大的一块未收内容。**
+   本期 scout 枚举到 **THERMINIC 92 条 + ESTC 182 条**（`created` 分别集中在 2026-11-19 与 2026-11-17），
+   相关条目逐条试 OpenAlex 单篇端点，**只有 5 条有摘要**（其中 CuBricks `11779768` 与玻璃封装 `11778975` 已上站），
+   **16 条返回 `abstract_inverted_index` = null**，按既定规矩（摘要取不到即不进刊物）未收。
+   **按相关性排序，下期优先重试：**
+   - 🔴 **`10.1109/therminic70452.2026.11779811`** `Why the Optimal Pin-Fin Geometry Depends on the Operating Point:
+     A Separation-Based Analysis of Sinusoidal Meso-Channel Cold Plates` —— **标题字面含 "Cold Plates"，是这 16 条里最对口的一条**；
+     作者为 **OVHcloud**（Hadrien Bauduin、Michael Maalouly、Ali Chehade）与 **Univ. Reims Champagne-Ardenne**
+     （Mahdi Vahidi 兼、Fabien Bogard、Chadi Maalouf）—— **数据中心运营商自己做冷板针肋几何研究，产业相关性高**。
+   - `11779756`（两种递增密度热沉的流动沸腾不稳定性实验对比，University of Lleida）
+   - `11779739`（竖向流动沸腾的进出口与通道设计，Nanyang Technological University）
+   - `11779774`（向全直接液冷服务器架构过渡的热水力实验）
+   - `11779769`（小型嵌入式 MOSFET 半桥功率模块的流动沸腾冷却）
+   - `11779750`（**SLA 制氧化铝陶瓷热沉**，宽禁带功率模块；Icam School of Engineering / CEA / LAAS-CNRS
+     —— ⚠️ **这条有制造工艺成分（陶瓷增材），是本期制造工艺角度唯一沾边的条目，但无摘要无法证实**）
+   - `11779752`（**skived 热沉流量再分配**，MegaCool Technologies —— **缺口三项之一的 skived，同样因无摘要未收**）
+   - `11779771`（**LPBF 铜-石墨烯 MMC**，University of Twente —— 同为缺口工艺，无摘要未收）
+   - 其余：`11779806`、`11779804`、`11779807`、`11779754`、`11779760`、`11779787`、`11779788`、`11779746`、`11779729`、
+     `11779785`、`11779765`、`11779745`（Synopsys，**单位已核实为 Synopsys Inc.**，但摘要 null 且为企业软件论文、含厂商稿倾向）
+   **下期动作**：① **若 `ieeexplore.ieee.org` 加白则逐条取全文摘要**（这是最有效的一条路）；
+   ② 否则对上列前 8 条**各再试一次 OpenAlex 单篇端点**（本期 IEEE 的 3751185 正是隔期重试成功的）；
+   ③ ⚠️ **注意这批的 `created` 已落在第 14 期窗口内**，下期若取到摘要属**前期漏收**，按 rules 第 5 条如实写原始日期、不加补记标注。
+2. **本期已刊条目中的「待确认」项（取到即补记）** —— 本期全部学术条目的摘要**无一来自出版商页面直读**，均由交存元数据取得：
+   - **`10.1109/tcpmt.2026.3751185`**（UC × Samsung 拓扑优化冷板）：**通讯作者**（OpenAlex 五位全 false）；
+     **加州大学三位的校区**（交存 `name` 原串未写明，`place` 为 Irvine, CA, USA，第 13 期已裁定不得推定为欧文分校）；
+     热流密度、工质、通道与冷板几何尺寸、HBM 数量、泵功绝对值；**是否有实验验证（摘要未给）**
+   - **`10.1109/therminic70452.2026.11779791`**（方形针肋微通道热沉）：**通讯作者**（全 false）；
+     **Novel 1 的泵功升幅数值**（原文仅定性）；**5.1% 那一项的参照基准**（原文未写明）；热流密度、热源功率、
+     通道与针肋尺寸、流量与 Re 区间、绝对壁温；**湍流模型与网格无关性**
+   - **`10.1109/therminic70452.2026.11779794`**（多芯片功率模块两相微通道）：**通讯作者**（全 false）；
+     **0.055 / 0.09 K/W 的热阻定义口径**（单芯片还是模块总热阻、参考节点）；**6.2 / 6.5 kPa 的逐配置归属**；
+     微通道尺寸与数量、质量流速、亚冷度、入口温度与工作压力、芯片面积与热流密度
+   - **`10.1109/estc68880.2026.11778975`**（玻璃封装微流道）：**通讯作者**（全 false）；
+     🔴 **248 / 502 W/cm² 与 Tj 到底是实测还是仿真**（摘要无 measured / experimental / simulation / CFD / model 任何一词）；
+     **248 / 502 W/cm² 的物理含义**（冷却能力上限 vs 施加热流密度，原文仅用 `reaches`）；
+     冷却剂种类、流量、通道与铜柱尺寸及节距、芯片功率与尺寸、热阻、方案 (i) 的 196 柱阵列排布
+   - **`10.1109/therminic70452.2026.11779768`**（CuBricks）：**通讯作者**（全 false）；
+     🔴 **具体校名**（交存 `name` 仅 `University of Applied Sciences`，`place` 为 Kempten, Germany）；
+     **0.27 K/W 出自哪一种设计**（单面/双面、流道图案、铜厚）；**该组数字是实验值还是 CFD 值**；
+     介电流体牌号、热流密度、芯片加载功率、流量、温度绝对值、压降、基准的具体数值
+   - **`10.1109/therminic70452.2026.11779775`**（扩展热阻模型负面结果）：**通讯作者**（全 false）；
+     **3 倍偏差的被比量是热阻还是温度**；**Michiel / Michel De Paepe 是否同一人**；
+     热源功率与热流密度、尺寸、工质、流量、入口温度、绝对热阻与温度值、热沉通道形式
+   - **`10.1016/j.ijheatmasstransfer.2026.129907`**（University of Michigan 浸没冷却）：
+     两种介电流体的名称与型号、器件型号与封装类型、芯片面积、流速与浸没槽尺寸、热阻绝对值、具体结温数值、
+     牵引逆变器分析的功率等级；**Avestruz 的 `Department of Aerospace Engineering` 无第二通道可交叉验证**（Crossref 未交存）
+   - **`10.3390/mi17111351`**（W–Cu 锻造）：**2 W/(m·K) 究竟是模型设定值还是测得值**（原文句法不足以断定）；
+     锻造前后具体热导率数值、注入电流值、绝对功率值、热阻绝对值、峰值温升量、锻造工艺参数、die-attach 材料与工艺
+   **下期动作**：**仅在相应出版商域恢复可达时重试；不反复挂账。**
+3. 🔴 **请维护者裁定两条覆盖面通则（第 13 期已提请其中一条，未获裁定，本期连同新案一并重提）**：
+   - **(a) 第 13 期原题重提：「液冷微通道热沉（MCHS）」这一器件类别本身，是否即构成覆盖面闸门里的「电子散热」？**
+     第 13 期按「摘要字面无电子散热表述即不收」从严否决了 `10.1038/s44435-026-00023-4`（圣三一斜切翅微通道热沉）。
+     **本期又遇同类**：`10.54097/fdaate22`（歧管微通道热沉 + 高斯过程代理 + NSGA-II，广东海洋大学）
+     摘要只有 `manifold microchannel heat sink`、**无 chip / electronics 字面** → **本期同样从严否决**（另有两条独立理由，见下）。
+     口径若不统一，日后同类条目的收否会随摘要措辞波动。
+   - **(b) 本期新案：半导体「工艺设备」侧的冷却，是否在覆盖面内？**
+     `10.1109/tcpmt.2026.3754479`（IIT Madras × **Lam Research Bangalore**，双径向多入口小通道热沉 + DES/hBN 纳米冷却液，
+     Crossref `created` 2026-11-16）**本期从严否决、未上站**。否决依据：摘要**通篇无 chip / die / CPU / GPU / processor /
+     package / cold plate 任何一词**，对象框定为 `advanced electronics processing`（题名亦为 `for Processing Electronic Materials`），
+     实验指标是**底板温度 < 40 °C**（典型工艺台量级而非芯片结温），作者含 Lam Research（半导体工艺设备）两位。
+     **2026-11-02 裁定把「激光设备等光电/电子器件的冷板」纳入覆盖面，但「制造电子器件的设备」是另一回事** → 请维护者定。
+     已核数字留档（裁定后可直接用，见 `excluded-numbers.md`）。
+     ⚠️ **该条另有一项独立发现**：OpenAlex 该 work 合并了一个 **SSRN 投稿版**（`10.2139/ssrn.7067699`，`submittedVersion`，
+     OpenAlex `created_date` 2026-07-07）→ **IEEE 版落在本期窗内，但首发并非本周**；若维护者判为在覆盖面内，
+     成稿须注明先有 SSRN 投稿版。
+4. **7 条 Elsevier in-press 条目摘要零获取（本期新增，均未上站）** —— 标题高度对口、作者单位已核，**只缺摘要**：
+   - `10.1016/j.applthermaleng.2026.134045`（**拓扑优化小通道冷板 + 节流结构，流量均匀性与两相稳定性实验**，西安交通大学，created 2026-11-19）
+     —— ⚠️ **本期标题层面最贴本刊主线的一条**；⚠️ 另注该 DOI 的 OpenAlex `created_date` 为 2026-08-13、与 Crossref 冲突，**以 Crossref 为准**
+   - `10.1016/j.energy.2026.143202`（**开放式微通道冷板用于 AI 服务器单相浸没冷却**，山东大学 × 浪潮 × 东岳高分子，created 2026-11-20）
+   - `10.1016/j.ijheatmasstransfer.2026.129918`（**CuIO 涂层歧管微通道高热流电子冷却的分层热流体建模**，中央大学 / 斯坦福 / ETRI / 弘益大学 / 成均馆大学，created 2026-11-19）
+   - `10.1016/j.ijheatmasstransfer.2026.129866`（高功率芯片相变冷却结构设计，created 2026-11-16）
+   - `10.1016/j.ijheatmasstransfer.2026.129924`（超低压降微通道热沉、芯片级均温，ICT-IndianOil Odisha Campus，created 2026-11-17）
+   - `10.1016/j.ijthermalsci.2026.111493`（**MicroChanNet：微通道冷却 3D IC 的多层热预测**，created 2026-11-17）
+   - `10.1016/j.ijthermalsci.2026.111490`（射频芯片脉冲热负荷：PCM + 变截面微通道热沉，created 2026-11-18）
+   **已试通道**：Crossref `abstract` 字段 + OpenAlex 单篇端点（**七条全部返回 null，HTTP 200**）。
+   机制与第 11–13 期那批相同：**Elsevier 未向 Crossref 交存 abstract、OpenAlex 因此也没有，ScienceDirect 整域不可达**。
+   **下期动作**：按第 3 条建议的止损规则处理（Elsevier 类连续 2 期失败即结案）；**仅在 ScienceDirect 加白后重试**。
+5. **本期两条未取到一手源的产业条目**：
+   - **CoolIT × Ecolab CHx 3000 的三项仅 DCD 转述**（Q1 2027 发货、Alfa Laval 合作、3D TRASAR 七项参数）
+     —— Ecolab 自家稿 `www.ecolab.com` 403，CoolIT 官网新闻条目正文仅一句、不含数字。
+     **下期动作**：若 `www.ecolab.com` 或 `www.businesswire.com` 恢复可达则核一次 Ecolab 原稿；否则这三项维持「据 DCD」标注、不再挂账。
+   - **Nexalus × Renda Nova8 全条仅 DCD 转述** —— `nexalus.com`、`renda.com`/`renda.tech` 均 403，PRN 搜 `Nexalus` 零命中。
+     待补项：GPU 具体型号与显存、**机内热量最终如何排出**、价格、上市时间、CPU 型号、整机功耗、冷却液、已部署站点、
+     **+20% AI token 吞吐的对比基线**。
+     **下期动作**：若该公司发出一手稿或官网恢复可达则核一次；取不到即结案。
+     ⚠️ 已排除、不得复用：检索转述所称「96 GB RTX PRO 6000」与「液对气换热器排热到室内空气」—— **DCD 原文均无此内容**。
+6. **本期产业侧的分析师稿内二手事件（未引用，记此备查）** —— MarketsandMarkets 漏液检测市场稿内另提两条**产业事件**
+   （非预测）：① 2026 年 10 月 **TATSUTA** 宣布扩产漏液检测系统，计划到 2027 年 9 月把产能提升至 2026 年底水平的约 2.5 倍，
+   投资额未披露；② 2026 年 10 月 **Acuity Inc. 同意以 6.75 亿美元收购 Parameter Technologies**，预计 2027 财年 Q2 完成、
+   截至 2026-10-29 仍待交割。**按 rules 第 4 条，分析师稿内对第三方的二手转述一律不引用，本期未收。**
+   **下期动作**：若能取到 TATSUTA 或 Acuity/Parameter 的一手稿则按新发现独立收录；否则不挂账。
+7. **`scripts/fetch_source.py` 改进建议（第 4 次重提，本期已有源码级证据）** —— 见上文第 6 条。
+8. **摘要止损规则（第 3 次重提，本期已有分出版商的证据支持）** —— 见上文第 3 条。
+9. **网络白名单（第 2 次重提，本期已按损失排序给出优先级）** —— 见上文第 8 条。
+10. **wip 存档分支累积未清理（第 2 次重提，本期新增一条）** —— 见上文第 10 条。
