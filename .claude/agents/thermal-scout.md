@@ -16,6 +16,7 @@ model: sonnet
 1. **先 WebSearch 拉面**：围绕角度要点组 6–10 条**英文** query，覆盖同义表述。**不组中文 query、不收中文期刊条目。**
    例：`liquid cold plate topology optimization 2026`、`manifold microchannel heat sink experimental`、
    `brazed cold plate fin bonding peer-reviewed`、`neural operator conjugate heat transfer surrogate`、
+   `in-situ thermal resistance measurement cold plate`、`in-situ bond line thickness TIM measurement`、
    `data center liquid cooling CDU launch September 2026`。
 2. **再取原文核**：对每条有希望的命中，用 `python scripts/fetch_source.py <arXiv id | DOI | URL>`
    取紧凑元数据（标题/作者/单位/日期/摘要），**从原文**读出关键数字。

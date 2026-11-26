@@ -99,7 +99,7 @@ python scripts/reported_index.py          # 生成 drafts/reported-index.md
 
 | # | 角度 | 检索要点 |
 |---|---|---|
-| A | **冷板仿真与设计** | 拓扑优化 / 生成式设计（扩散、GAN、VAE）/ 歧管微通道 MMC / 射流冲击 / 两相沸腾冷板 / ROM 代理模型 / 共轭传热 CFD。arXiv `physics.flu-dyn`、`cs.CE`、Crossref、IJHMT / ATE / ICHMT / Energy Conversion & Management |
+| A | **冷板仿真与设计** | 拓扑优化 / 生成式设计（扩散、GAN、VAE）/ 歧管微通道 MMC / 射流冲击 / 两相沸腾冷板 / ROM 代理模型 / 共轭传热 CFD；**原位测量与表征**（2026-11-26 维护者增补）：原位热阻测量（in-situ thermal resistance measurement、junction-to-coolant / junction-to-case thermal resistance、embedded temperature sensor in cold plate）、原位 BLT 测量（in-situ bond line thickness、TIM BLT measurement、TIM thermal resistance in situ）。arXiv `physics.flu-dyn`、`cs.CE`、Crossref、IJHMT / ATE / ICHMT / Energy Conversion & Management |
 | B | **冷板制造工艺** | 钎焊 brazing / skived 翅片 / 搅拌摩擦焊 FSW / ECAM / LPBF / 扩散焊 / 微铣削。会议集 **ITherm / ECTC / SEMI-THERM / InterPACK** 也要扫。**检不到就如实回「本期未检出」——不必凑，成稿时该角度直接不出现**（rules 第 12 条） |
 | C | **仿真方法** | ML-for-CFD、神经算子（FNO/DeepONet）、可微分求解器、湍流闭合学习、PINN、降阶模型。判据：对冷板内对流换热高保真快速建模**有方法学价值** |
 | D | **英文期刊 in-press / online-first 专项** | 扫**窗口内新上线但尚无印本刊期**的冷板/热管理文章：IJHMT、Applied Thermal Engineering、Energy Conversion & Management、Int. J. Thermal Sciences、ASME JEP / J. Heat Transfer、IEEE TCPMT 的 articles-in-press 与 online-first 列表。**判窗一律用 Crossref `created` / `published-online`，`published-print` 不作依据**——这一栏专门防的就是「印本刊期名义日期把新文挡在窗外、或把旧文冒充新文」。检不到就如实写「本期未检出」 |
