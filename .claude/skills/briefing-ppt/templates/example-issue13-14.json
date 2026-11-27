@@ -1,0 +1,276 @@
+{
+  "title": "散热方案周报要点（第 13–14 期）",
+  "slides": [
+    {
+      "title": "拓扑优化冷板：把 AI 芯片对 HBM 的热串扰压到常规冷板的约 1/3",
+      "intro": [
+        "- **问题**：2.5D 封装中 ASIC 与 HBM 紧邻，而 HBM 耐温更低；平行通道、蛇形、针肋等常规冷板只压热点，管不住热量经冷板横向“串”到 HBM",
+        "- **方法**：基于密度的热流体拓扑优化，同时决定铜和流道的分布；目标为 **HBM 平均温度 + 流动耗散功率** 加权；评价指标 **热串扰 =（HBM 最高温 − 环境温度）/ ASIC 功率**",
+        "- **工况**：ASIC 20 × 24 mm²、##300 W##（约 ##62.5 W/cm²##），HBM 不发热、温升全部来自串扰；铜 + 水、单相层流；恒泵功 2 mW",
+        "- **单 HBM、恒泵功、VF = 0.6**：相对平行通道冷板，ASIC ##113 → 90 °C##，HBM ##95 → 43 °C##，热串扰 ##0.245 → 0.075 °C/W##（**降 70%**）；VF ≈ 0.6 为最优点，比全实体 **少用 40% 的铜**",
+        "- **六颗 HBM 包围、同 VF、同流量**：拓扑优化 ASIC ##121 °C##、HBM ≤ ##53 °C##；平行通道 132 °C / 100–110 °C；蛇形 163 °C / 134–138 °C",
+        "- **设计规律**：流向本身是设计变量——ASIC→HBM 流向为 ASIC 110 / HBM 52 °C，反向则为 125 / 45 °C；热目标权重越大温度越低，但压降越高"
+      ],
+      "team": [
+        "**UC Irvine**（Jaeho Lee 课题组）× **Samsung Electronics**（资助方）"
+      ],
+      "advantage": [
+        "以 **HBM 温度 / 串扰** 为目标主动导热；同等用铜量下优于平行通道与蛇形冷板，比全实体 **省 40% 铜**"
+      ],
+      "status": [
+        "TCPMT 已录用（Early Access）；**纯仿真、无样件**；单相层流、半域对称，略去 TIM 与转接板"
+      ],
+      "suggestion": [
+        "- 加速卡冷板评审增加 **HBM 串扰** 指标",
+        "- 拓扑流道 **规则化** 后适配 CNC / 钎焊 / 增材",
+        "- 做规则化拓扑流道 vs 平行通道的 **样件对比**"
+      ],
+      "source": [
+        "IEEE TCPMT（2026-11 录用）",
+        "DOI 10.1109/TCPMT.2026.3751185",
+        "CC BY 4.0，图引自原文 Fig. 8(b)、13"
+      ],
+      "introSize": 11,
+      "introSpace": 3,
+      "introH": 2.9,
+      "images": [
+        {
+          "path": "paper1/fig13.png",
+          "px": [
+            1664,
+            1130
+          ],
+          "caption": "六 HBM 构型下三种冷板的结构与温度场"
+        },
+        {
+          "path": "paper1/fig8b.png",
+          "px": [
+            959,
+            728
+          ],
+          "caption": "热串扰随固体体积分数变化（恒泵功）"
+        }
+      ],
+      "rightWeights": [
+        0.9,
+        1.05,
+        1.05,
+        1.25,
+        0.95
+      ],
+      "notes": "【全文补充】周报第 14 期按摘要撰写，以下为读全文后补齐的信息，仅作备注，不回改周报。\n1. 单位：三位学校作者为 University of California, Irvine（周报写「未写明校区」）。\n2. 周报列为未给的参数，全文给出：工质为水，冷板材料为铜；ASIC 20 × 24 mm²、300 W，约 62.5 W/cm²；恒泵功 2 mW（取平行通道冷板在 5 g/s、压降 400 Pa 时的泵功）。\n3. 「约 1/3」的绝对值：平行通道冷板热串扰 0.245 °C/W，拓扑优化 0.075 °C/W，降 70%；同条件下 ASIC 113 → 90 °C，HBM 95 → 43 °C。\n4. 多 HBM 构型：周报写「未给 HBM 数量」，全文为 2 / 3 / 6 颗三种布局；六颗包围时拓扑优化 ASIC 121 °C、HBM ≤ 53 °C。\n5. 仍成立的局限：纯仿真、无样件验证。"
+    },
+    {
+      "title": "扩展热阻集总模型实测验证：趋势对得上，绝对值偏高 2 倍以上",
+      "intro": [
+        "- **对象**：介电油直冷的铜平行翅片热沉（C110 铜，15 片翅、高 6.5 mm），两根 9 × 5 mm 铜柱模拟功率芯片；热源与热沉一体加工，**无接触热阻**",
+        "- **实验**：单柱加热 ##100 W##，进口油温 40 / 45 / 50 °C、流量 3 / 4 / 5 L/min，热源分中心、偏心两种位置；铜内埋 **T 型热电偶阵列** 测温度场，实测总热阻 ##0.443–0.463 K/W##",
+        "- **模型**：把 Lee 等的扩展热阻解析式 **分网格分段** 使用，推广到非均匀对流边界和偏心热源（MATLAB 集总参数模型）",
+        "- **结果**：模型给出扩展热阻 ##0.197 / 0.221 K/W##（中心 / 偏心），实测反推仅 ##0.094 / 0.096 K/W##，需乘 ##2.1–2.3## 倍修正系数才吻合；网格加密后算法 **不收敛**",
+        "- **可用之处**：定性趋势正确——热源越偏离中心、越靠 **下游**，扩展热阻越大；但偏心带来的增量只占总热阻约 ##1.2%##，与测量误差同量级"
+      ],
+      "team": [
+        "**Ghent University**（Michel De Paepe 等 5 人），Flanders Make 资助"
+      ],
+      "advantage": [
+        "明确给出简化扩展热阻模型的 **适用边界**：定性可用、定量偏高 2 倍以上；一体铜柱 + 内埋测温阵列的试验台可借鉴"
+      ],
+      "status": [
+        "THERMINIC 2026 会议论文（作者自存档版）；**负面结论**：尚不能定量预测；对流侧关联式本身也未单独验证"
+      ],
+      "suggestion": [
+        "- 用热阻网络或解析式估 **扩展热阻** 时，须以 CFD 或实测校核",
+        "- 冷板布局上 **高功率芯片宜靠近进口**",
+        "- 借鉴 **内埋热电偶阵列** 做原位热阻测量"
+      ],
+      "source": [
+        "THERMINIC 2026（Ghent 大学机构库作者版）",
+        "DOI 10.1109/therminic70452.2026.11779775",
+        "图引自原文 Fig. 2、10；版权归 IEEE，仅供内部参考"
+      ],
+      "introSize": 11,
+      "introSpace": 3,
+      "introH": 2.9,
+      "images": [
+        {
+          "path": "paper2/fig2.png",
+          "px": [
+            1073,
+            803
+          ],
+          "caption": "试验段实物：一体加工的铜热沉与模拟芯片铜柱"
+        },
+        {
+          "path": "paper2/fig10.png",
+          "px": [
+            1056,
+            732
+          ],
+          "caption": "扩展热阻随热源位置变化（横轴沿流向）"
+        }
+      ],
+      "rightWeights": [
+        0.85,
+        1.05,
+        1.1,
+        1.3,
+        1.0
+      ],
+      "notes": "【全文补充】周报第 14 期按摘要撰写，以下为读全文后的出入与补充，仅作备注，不回改周报。\n1. 冷却液为介电油（Lubrizol Evogen），不是水；热沉为铜平行翅片（15 片，高 6.5 mm），不是微通道或射流。\n2. 「偏差最大达 3 倍」：摘要用语。正文给出的是扩展热阻，模型 0.197 / 0.221 K/W（中心 / 偏心）对实测反推 0.094 / 0.096 K/W，修正系数 2.1–2.3；偏心增量的模拟值与实测差距更大。\n3. 周报列为未给的参数，全文给出：单柱 100 W，热源 9 × 5 mm，进口 40 / 45 / 50 °C，流量 3 / 4 / 5 L/min，实测总热阻 0.443–0.463 K/W。\n4. 「集总参数」在正文中明确使用（MATLAB 实现，基于 Lee 等扩展热阻解析式分网格应用）。\n5. 作者名单中 Michiel De Paepe 与 Michel De Paepe 在全文中 ORCID 不同（0009-0002-0397-2449 / 0000-0003-0233-0719），为两人。"
+    },
+    {
+      "title": "玻璃封装内集成微流道：直接接触 pin-fin 达 502 W/cm²",
+      "intro": [
+        "- **痛点**：玻璃转接板热膨胀可调、介电损耗低、可面板级制造，但 **导热差**，是高功率 3D 封装的短板",
+        "- **方案一**：平行微流道 + 填铜穿玻璃通孔（TGV）强化垂直导热，2.8 × 2.8 mm 区域 196 个冷却柱 → Tj < 85 °C 下 ##248 W/cm²##",
+        "- **方案二**：**直接接触 pin-fin**，铜柱直接暴露在冷却液中，1 × 1 mm 区域 81 个冷却柱 → Tj = 78.6 °C 下 ##502 W/cm²##",
+        "- 两方案压降均约 ##8.4 psi##（≈58 kPa），芯片顶面保留，**可继续 3D 堆叠**"
+      ],
+      "team": [
+        "Georgia Institute of Technology（Joon Woo Kim）× **Pennsylvania State University**（Madhavan Swaminathan 等）"
+      ],
+      "advantage": [
+        "冷却从“封装外挂冷板”推进到 **封装内部**，绕开玻璃低导热；内嵌液冷与 3D 堆叠不互斥"
+      ],
+      "status": [
+        "ESTC 2026 会议论文，**快速测试载体** 阶段；未说明是实测还是仿真，无工质、流量、漏液与可靠性数据"
+      ],
+      "suggestion": [
+        "作为 **封装级嵌入式液冷** 的技术储备跟踪；关注玻璃基板路线进展，提前评估冷板与封装内流道的接口"
+      ],
+      "source": [
+        "ESTC 2026 会议论文",
+        "DOI 10.1109/estc68880.2026.11778975"
+      ]
+    },
+    {
+      "title": "柔性 MEMS 三合一传感器嵌入水冷头：原位测温度、流量、压力",
+      "intro": [
+        "- **器件**：50 μm 聚酰亚胺基板上集成蛇形电阻测温（450 μm）、热线式流量（590 μm）、电容式压力（800 μm）三个敏感单元，Cr/Au 电极，PI 保护层",
+        "- **部署**：两只传感器贴装在商用水冷头（Thermaltake Pacific W1，54 × 60 mm）内部流道的进、出口附近，经约 25 cm 柔性排线引出；加热台 **控温 30 °C**",
+        "- **结果**：流量 2 / 3 / 4 L/min 时，进出口局部温差 ##4.83 / 4.38 / 3.21 °C##；压力通道的进出口读数差随流量增大",
+        "- **耐久**：在专用流道循环 ##120 h##，三通道全程工作，灵敏度保持率 ##92.8% / 94.6% / 95.3%##",
+        "- **作者自述的边界**：读数是传感器所在位置的 **局部值**，不是截面平均；进出口流量读数不一致源于标定与安装差异；低于 10 psi 的压力读数超出标定范围"
+      ],
+      "team": [
+        "**元智大学** × CerTone Heat Solution（台湾，资助并参与研究）"
+      ],
+      "advantage": [
+        "三参数 **同址同步**，厚度仅数十微米，能塞进窄流道且对流场扰动小；给出了可查验的 **漂移数据**"
+      ],
+      "status": [
+        "Micromachines 正刊（CC BY）；**原理验证** 阶段：载体是 PC 级水冷头，加热台控温而非控功率，无热流与热阻数据；120 h 在专用流道完成"
+      ],
+      "suggestion": [
+        "- 用作冷板 **样件测试** 的原位测温、测压手段",
+        "- 评估用于冷板回路 **在线监测、堵塞预警**",
+        "- 需补千小时级可靠性与 **密封防漏** 验证"
+      ],
+      "source": [
+        "Micromachines 17(11): 1312（CC BY）",
+        "DOI 10.3390/mi17111312",
+        "图引自原文 Figure 3、5"
+      ],
+      "introSize": 11,
+      "introSpace": 3,
+      "introH": 2.9,
+      "images": [
+        {
+          "path": "paper4/fig3.png",
+          "px": [
+            1779,
+            898
+          ],
+          "caption": "三合一传感器显微照片"
+        },
+        {
+          "path": "paper4/fig5.png",
+          "px": [
+            1626,
+            721
+          ],
+          "caption": "传感器在水冷头进、出口的安装位置"
+        }
+      ],
+      "rightWeights": [
+        0.8,
+        1.1,
+        1.2,
+        1.2,
+        1.1
+      ],
+      "notes": "【全文补充】周报第 13 期按摘要撰写，以下为读全文后的出入与补充，仅作备注，不回改周报。\n1. 「商用冷板」实为 Thermaltake Pacific W1，PC 水冷头（54 × 60 mm），不是数据中心冷板。\n2. 加热台控制的是温度（30 °C），不是固定热功率，因此进出口温差只反映该装置在该工况下的表现，无热流、热阻数据。\n3. 通讯作者为 Chi-Yuan Lee（周报写「待确认」）；CerTone Heat Solution 为资助方，Kuo-Chung Lee 受雇于该公司（原文利益冲突声明）。\n4. 作者自述：读数为局部值而非截面平均；进出口流量读数不一致源于标定与安装差异；低于 10 psi 的压力读数超出标定范围（标定 10–80 psi，±0.3 psi）。\n5. 120 h 循环在 CerTone 提供的专用流道完成，约 3 L/min，与水冷头实验工况不同，周报的写法与全文一致。"
+    },
+    {
+      "title": "两相直触芯片冷板：CFD → ML 代理 → 回路模型，直算服务器 pPUE",
+      "intro": [
+        "- **对象**：微柱阵列 **两相直触芯片蒸发冷却**（DCEC）冷板",
+        "- **链路**：实测校核的高保真 CFD → 训练 **ML 代理模型** → 嵌入泵驱两相闭式回路模型（含冷凝器、流量控制、泵、储液罐）",
+        "- **输出**：一系列热负荷下的 **服务器级 pPUE**，可直接用于系统选型与定容",
+        "- **效率**：##12 小时## 的 CFD 结果 ##数秒## 给出；ML 预测精度 ##97%##，某热优化构型换热提升 ##42%##"
+      ],
+      "team": [
+        "**伊利诺伊理工学院**（Kartik Upadhyay、Sumanta Acharya）"
+      ],
+      "advantage": [
+        "把 **部件级仿真与系统级能效** 打通，设计变量一路算到 pPUE，可用于选型而非只评性能"
+      ],
+      "status": [
+        "IEEE TCPMT Early Access；台式装置校核；**42% 与 97% 的对照基准未写明**，pPUE 具体值未给"
+      ],
+      "suggestion": [
+        "借鉴“**高保真 CFD + 代理模型 + 系统网络模型**”流程加速冷板迭代；评估两相方案时看系统 pPUE，不只看冷板热阻"
+      ],
+      "source": [
+        "IEEE TCPMT Early Access（2026-11）",
+        "DOI 10.1109/tcpmt.2026.3751096"
+      ]
+    },
+    {
+      "type": "industry",
+      "title": "产业动态：CDU 进入兆瓦级，两相与射流冷板密集亮相",
+      "items": [
+        {
+          "label": "CDU 进入兆瓦级",
+          "lines": [
+            "- **Delta** 在 SC26 展出 ##2.5 MW## 在排液-液 CDU，配 3 台 25 kW 热插拔泵，流量最高 3,850 LPM。（[Delta 新闻稿](https://www.prnewswire.com/news-releases/delta-unveils-from-grid-to-chip-cooling-innovations-for-ai-infrastructure-and-for-new-800-vdc-400-vdc-architectures-at-sc26-302935999.html)）",
+            "- **CoolIT 与 Ecolab** 推出 CHx 3000 CDU，标称 ##3 MW## 冷量、##3 °C## 趋近温差，单台可带 18 个 ##190 kW## 的 AI 机架。（[CoolIT 产品页](https://www.coolitsystems.com/cdu-product/chx3000/)）",
+            "- **中兴** 发布兆瓦级冷板液冷 CDU，单机 ##1.5 MW##、可扩至 2.4 MW，控温精度 ±0.5 °C。（[中兴新闻稿](https://www.prnewswire.com/news-releases/zte-powers-high-efficiency-aidc-with-robust-energy-infrastructure-302940311.html)）"
+          ]
+        },
+        {
+          "label": "两相直触芯片液冷集中亮相",
+          "lines": [
+            "- **MiTAC 与 ZutaCore** 展示无水两相液冷，宣称支持 TDP 超 ##4,000 W##、热流密度超 ##250 W/cm²##、年化 pPUE 1.03，目前仍是展台 **概念验证**。（[MiTAC 新闻稿](https://www.prnewswire.com/news-releases/mitac-computing-scales-agentic-ai-with-full-stack-infrastructure-at-sc26-302941327.html)）",
+            "- **Chatsworth** 把 ZutaCore 无水两相液冷集成进 ZetaFrame 机柜，稿中未给散热数字。（[Chatsworth 新闻稿](https://www.prnewswire.com/news-releases/chatsworth-products-showcases-rack-power-and-cooling-solutions-for-ai-and-hpc-at-sc26-302932153.html)）",
+            "- **Arivor**（AEWIN 子公司）推出机架级两相 DLC，由 CDU、两相冷板、不锈钢歧管和干断快接组成，冷却能力最高 ##200 kW##。（[Arivor 新闻稿](https://www.prnewswire.com/news-releases/arivor-technologies-highlights-two-phase-dlc-rack-scale-solution-for-high-density-ai-workloads-at-sc26-302941606.html)）"
+          ]
+        },
+        {
+          "label": "射流冷板",
+          "lines": [
+            "- **Frore** 的 LiquidJet 直触芯片冷板入选 CES 2027 创新奖，宣称可处理 ##670 W/cm²## 的热点功率密度，嵌金刚石版本达 ##770 W/cm²##；GPU 降温幅度的对比基线未披露。（[Frore 新闻稿](https://www.prnewswire.com/news-releases/ai-cooling-unicorn-frore-systems-wins-ces-innovation-award-for-sustainable-ai-cooling-302936581.html)）",
+            "- **Nexalus 与 Renda** 推出 4U 液冷 AI 服务器，用射流冷却冷板冷却 8 颗 NVIDIA Blackwell GPU，宣称能效比类似配置的风冷方案最高提升 ##22%##。（[DCD 报道](https://www.datacenterdynamics.com/en/news/nexalus-and-renda-launch-liquid-cooled-ai-server-for-data-center-retrofit-market/)）"
+          ]
+        },
+        {
+          "label": "冷板加工公差（MES 指引）",
+          "lines": [
+            "- **MES** 发布冷板平面度与粗糙度加工指引：钎焊态平面度通常为 ##0.10–0.25 mm##，跨管芯接触区推荐 ##0.025 mm##。",
+            "- 若公差再收紧到 ##0.015 mm##，接触面加工需从精密 CNC 改为 **磨削或专用飞刀**，成本上升，但散热未必随之改善。（[MES 新闻稿](https://www.prnewswire.com/news-releases/as-ai-processor-packages-grow-mes-publishes-guidance-on-when-tighter-cold-plate-flatness-adds-cost-without-improving-cooling-302944112.html)）"
+          ]
+        }
+      ],
+      "suggestion": [
+        "- CDU 配套按 **190 kW/机架、兆瓦级** 规划冷板流量与压降",
+        "- 两相 DLC 多为展台或概念验证，跟踪 **量产与首批客户**",
+        "- 冷板平面度按接触区 **分级定公差**，避免过度加工"
+      ],
+      "source": [
+        "各条原文链接见左侧框内（蓝字可点击）",
+        "以上数字均为 **厂商宣称**，未经独立验证",
+        "出自周报第 13、14 期"
+      ]
+    }
+  ]
+}
