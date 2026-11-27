@@ -15,3 +15,6 @@ drafts/*
 
 # 断点续跑存档只活在 wip/briefing-* 分支上（git add -f），不进 main
 checkpoint/
+
+# 论文全文 PDF（含出版商版权件，仅本地使用，不入库）
+pdfs/
