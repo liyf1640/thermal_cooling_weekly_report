@@ -105,3 +105,17 @@
 | PoC | Proof of Concept | 概念验证：尚未量产、未发货的验证性样机或展品（第 14 期） |
 | ATS | Automatic Transfer Switch | 自动切换开关：CDU 等设备内置的双路供电自动切换部件（第 14 期） |
 | W–Cu | Tungsten–Copper | 钨铜合金：高热导率且热膨胀系数可调，用作大功率半导体激光 bar 封装的热扩展基板（第 14 期） |
+| LDL | Liquid Delivery Layer | 液体输送层：两相直触蒸发冷板中位于微柱阵列供液侧的一层，其高度与润湿性决定液体分配（第 15 期） |
+| DPC | Direct-Plated Copper | 直接镀铜：在陶瓷基板上以电镀方式长出铜层/铜微通道的加成工艺路线，区别于减材加工后再贴合（第 15 期） |
+| LTCC | Low-Temperature Co-fired Ceramic | 低温共烧陶瓷：可内埋流道与布线的陶瓷基板工艺（第 15 期） |
+| SLA | Stereolithography Apparatus | 立体光固化增材制造；本刊语境用于氧化铝陶瓷热沉成形（第 15 期，原文即写作 SLA） |
+| SLS | Selective Laser Sintering | 选择性激光烧结；⚠️ 用于金属还是非金属须按原文判定，不可默认金属（第 15 期） |
+| MCPM | Multi-Chip Power Module | 多芯片功率模块（第 15 期） |
+| TPICS | Two-Phase Immersion liquid Cooling System | 两相浸没液冷系统（第 15 期） |
+| TPI | Thermal Performance Index | 热性能指数：⚠️ **非通用指标**，第 15 期固-固 PCM 一文为作者自定义的六项指标归一化加权合成量，分等权与应用导向两套权重，权重数值未公开 → 不具跨文献可比性（第 15 期） |
+| RSM | Response Surface Methodology | 响应面法：以少量样本拟合响应面后再寻优（第 15 期） |
+| NSGA-II | Non-dominated Sorting Genetic Algorithm II | 带非支配排序的多目标遗传算法（第 10 期 cGAN 文、第 15 期两文） |
+| TOPSIS | Technique for Order Preference by Similarity to an Ideal Solution | 逼近理想解排序法：从 Pareto 前沿里挑单一折中解的常用决策方法（第 15 期） |
+| ANN | Artificial Neural Network | 人工神经网络（第 15 期；另见 MTL-ANN） |
+| BTE | Boltzmann Transport Equation | （声子）玻尔兹曼输运方程：亚连续尺度导热的控制方程（第 15 期线索条目） |
+| SS-PCM | Solid–Solid Phase Change Material | 固-固相变材料：相变不经液相，无泄漏与封装问题（第 15 期） |
